@@ -1,0 +1,13 @@
+- Team name: WIP
+- Team members:
+  - Phan Anh Duong
+    - Computer Science
+    - duongap@mail.uc.edu
+  - Cat Luong
+    - Computer Science
+    - luongcn@mail.uc.edu
+- Project topic area:
+  - Natural Language Processing
+  - Algorithm
+  - Theoretical Computer Science
+  - Machine Learning
