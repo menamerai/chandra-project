@@ -1,0 +1,5 @@
+- As a computer science undergraduate student, I want to explain complex programming concepts to an LLM persona, so that I can reinforce my understanding and identify knowledge gaps in my coding skills.
+- As a high school science teacher, I want to customize the LLM persona and difficulty level, so that I can create engaging learning experiences for students with different learning styles and abilities.
+- As a self-taught data analyst, I want the LLM to ask me pointed questions when it doesn't understand, so that I can clarify and refine my explanations of statistical concepts.
+- As a technical writer for a software company, I want to receive a summary and interesting artifact from the LLM after our conversation, so that I can use it as a basis for creating user-friendly documentation.
+- As a cybersecurity specialist, I want to upload relevant documents to inform the LLM's knowledge base, so that I can ensure accurate and context-specific explanations of network security protocols.
