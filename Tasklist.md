@@ -1,3 +1,5 @@
+# On-going Task List
+
 1. Specify features to construct a minimum viable product - Phan Anh
 2. Research front-end tech stack - Phan Anh
 3. Research back-end tech stack - Phan Anh
