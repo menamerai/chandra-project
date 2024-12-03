@@ -1,22 +1,49 @@
 # On-going Task List
 
-1. Specify features to construct a minimum viable product - Phan Anh
-2. Research front-end tech stack - Phan Anh
-3. Research back-end tech stack - Phan Anh
-4. Research prompting techniques - Phan Anh
-5. Investigate and quantitatively evaluate best-performed prompt engineering techniques - Cat
-6. Investigate and evaluate which LLM models to use - Cat
-7. Design UX diagram and design UI wireframing - Phan Anh
-8. Design the UI, including but not limited to develop chat interface, develop interface to let user supply external data, develop necessary assets for app (logo and stuff) - Phan Anh
-9. Develop LLM prompt, including but not limited to prompt to accept user explanation, prompt to fact check, prompt to summarize conversation - Cat
-10. Develop server logic to retrieve web data to use as RAG - Cat
-11. Develop server side login system - Cat
-12. Design database - Cat
-13. Develop converastion storing mechanism - Cat
-14. Develop server side logic to use previous conversation as information - Phan Anh
-15. Investigate engaging and useful LLM personas - Phan Anh
-16. Collect reviews and usage data from users - Cat
-17. Analyze the feedbacks and data to recalibrate and improve the system for more use cases - Cat
-18. Validate functionality of major components - Cat
-19. Checking how the software performs under different loads, including but not limited to stress testing and load testing - Phan Anh
-20. Refine main features/components and add sugar features to improve user experience - Phan Anh
+## Planning and Feature Specification
+
+1. Specify features to construct a minimum viable product (MVP) - Phan Anh
+2. Define features for the attachment module, ensuring compatibility across robots - Phan Anh & Cat
+3. Brainstorm additional assistive features for visually impaired users (e.g., obstacle notification, navigation aid, path guidance) - Phan Anh & Cat
+4. Finalize hardware and software requirements for the module - Cat
+
+## Hardware Development
+
+5. Set up and test the NVIDIA Jetson for development - Phan Anh
+6. Design and build a modular hardware attachment for audio and camera modules - Cat
+7. Integrate the speaker and microphone hardware into the module - Cat
+8. Validate compatibility with ROS 2 for hardware components - Phan Anh
+
+## ROS 2 Integration
+
+9. Create ROS 2 nodes for handling audio input/output, camera processing, and user notifications - Phan Anh & Cat
+10. Establish communication protocols between ROS 2 nodes for modular functionality - Phan Anh
+
+## Software Development
+
+### Voice Command System
+
+11. Train or adapt an NLP model for voice-to-text processing and command parsing - Phan Anh
+12. Implement a system for configurable voice commands (e.g., adding new commands without reprogramming) - Cat
+
+### Object Detection and Annoucement
+
+13. Implement computer vision algorithms for object detection using the camera module - Cat
+14. Develop a voice synthesis system for announcing detected objects - Phan Anh
+15. Combine object detection with voice output for a seamless user experience - Cat
+
+### Extra Features Will be Added Here
+
+(TBA)
+
+## Testing and Validation
+
+16. Simulate basic tasks in a controlled environment to ensure system reliability - Phan Anh & Cat
+17. Test the module on the robot in real-world scenarios (e.g., navigating an indoor or outdoor space) - Phan Anh & Cat
+18. Collect feedback from visually impaired testers to refine features - Phan Anh & Cat
+
+## Documentation and Reporting
+
+19. Create detailed documentation for hardware setup and ROS 2 configuration - Phan Anh
+20. Document the software development process, including key algorithms and ROS 2 nodes - Cat
+21. Prepare a presentation and final report summarizing results and evaluations - Phan Anh & Cat

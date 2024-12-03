@@ -1,4 +1,4 @@
-- Team name: WIP
+- Team name: The Chandra Project
 - Team members:
   - Phan Anh Duong
     - Computer Science
@@ -8,6 +8,8 @@
     - luongcn@mail.uc.edu
 - Project topic area:
   - Natural Language Processing
-  - Algorithm
-  - Theoretical Computer Science
-  - Machine Learning
+  - Audio Processing
+  - Computer Vision
+  - Human - Computer Interaction
+  - Artificial Intelligence
+  - Robotics

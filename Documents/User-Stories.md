@@ -1,5 +1,5 @@
-- As a computer science undergraduate student, I want to explain complex programming concepts to an LLM persona, so that I can reinforce my understanding and identify knowledge gaps in my coding skills.
-- As a high school science teacher, I want to customize the LLM persona and difficulty level, so that I can create engaging learning experiences for students with different learning styles and abilities.
-- As a self-taught data analyst, I want the LLM to ask me pointed questions when it doesn't understand, so that I can clarify and refine my explanations of statistical concepts.
-- As a technical writer for a software company, I want to receive a summary and interesting artifact from the LLM after our conversation, so that I can use it as a basis for creating user-friendly documentation.
-- As a cybersecurity specialist, I want to upload relevant documents to inform the LLM's knowledge base, so that I can ensure accurate and context-specific explanations of network security protocols.
+- As a visually impaired individual, I want the robot to understand my voice commands, so that I can navigate my environment more easily and independently.
+- As a mobility trainer for visually impaired individuals, I want to customize the robot’s voice responses and notification settings, so that I can tailor its functionality to different users’ needs.
+- As a researcher in assistive technology, I want the robot to announce objects it detects in real time, so that I can evaluate its potential to enhance accessibility and situational awareness.
+- As a robotics engineer, I want to test the modular attachment on different robot platforms, so that I can ensure compatibility and adaptability across various hardware setups.
+- As a caregiver for a visually impaired person, I want the robot to detect and alert users to potential obstacles, so that I can trust it to provide an additional layer of safety.
