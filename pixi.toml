@@ -1,0 +1,12 @@
+[project]
+channels = ["robostack", "conda-forge"]
+description = "Add a short description here"
+name = "chandra-project"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+ros-foxy-ros-base = ">=0.9.2,<0.10"
+ros-foxy-turtlesim = ">=1.2.5,<2"

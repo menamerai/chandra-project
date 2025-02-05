@@ -1,0 +1,4323 @@
+version: 6
+environments:
+  default:
+    channels:
+    - url: https://conda.anaconda.org/robostack/
+    - url: https://conda.anaconda.org/conda-forge/
+    packages:
+      linux-64:
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/_libgcc_mutex-0.1-conda_forge.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/_openmp_mutex-4.5-2_gnu.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/bullet-2.88-py38hb3f55d8_1001.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/bzip2-1.0.8-h4bc722e_7.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/c-ares-1.34.4-hb9d3cd8_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/ca-certificates-2025.1.31-hbcca054_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/catkin_pkg-1.0.0-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/cffi-1.14.4-py38ha312104_0.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/cmake-3.19.4-h4547794_0.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/noarch/colorama-0.4.6-pyhd8ed1ab_0.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/console_bridge-1.0.2-h924138e_1.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/cppcheck-2.13.2-py38hb6a8350_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/cryptography-39.0.0-py38h1724139_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/dbus-1.13.6-hfdff14a_1.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/noarch/distro-1.9.0-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/docutils-0.20.1-py38h578d9bd_3.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/eigen-3.4.0-h00ab1b0_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/empy-3.3.4-pyh9f0ad1d_1.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/noarch/exceptiongroup-1.2.2-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/expat-2.6.4-h5888daf_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/flake8-7.1.1-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/fmt-11.0.2-h434a139_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/fontconfig-2.14.2-h14ed4e7_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/freetype-2.12.1-h267a509_2.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/gettext-0.22.5-he02047a_3.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/gettext-tools-0.22.5-he02047a_3.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/glib-2.66.3-h58526e2_0.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/gmock-1.15.2-ha770c72_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/gst-plugins-base-1.14.5-h0935bb2_2.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/gstreamer-1.14.5-h36ae1b5_2.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/gtest-1.15.2-h434a139_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/icu-67.1-he1b5a44_0.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/noarch/ifcfg-0.21-py_0.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/noarch/iniconfig-2.0.0-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/jpeg-9e-h0b41bf4_3.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/krb5-1.17.2-h926e7f8_0.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/noarch/lark-parser-0.12.0-pyhd8ed1ab_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/ld_impl_linux-64-2.43-h712a8e2_2.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libasprintf-0.22.5-he8f35ee_3.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libasprintf-devel-0.22.5-he8f35ee_3.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libblas-3.9.0-28_h59b9bed_openblas.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libcblas-3.9.0-28_he106b2a_openblas.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libclang-10.0.1-default_hde54327_1.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libcurl-7.76.1-hc4aaa36_1.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libedit-3.1.20250104-pl5321h7949ede_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libev-4.33-hd590300_2.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libevent-2.1.10-h9b69904_4.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libexpat-2.6.4-h5888daf_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libffi-3.2.1-he1b5a44_1007.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libgcc-14.2.0-h77fa898_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libgcc-ng-14.2.0-h69a702a_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libgettextpo-0.22.5-he02047a_3.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libgettextpo-devel-0.22.5-he02047a_3.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libgfortran-14.2.0-h69a702a_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libgfortran5-14.2.0-hd5240d6_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libglib-2.66.3-hbe7bbb4_0.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libgomp-14.2.0-h77fa898_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libiconv-1.17-hd590300_2.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/liblapack-3.9.0-28_h7ac8fdf_openblas.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libllvm10-10.0.1-he513fc3_3.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/liblzma-5.6.4-hb9d3cd8_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/liblzma-devel-5.6.4-hb9d3cd8_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libnghttp2-1.51.0-hdcd2b5c_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libopenblas-0.3.28-pthreads_h94d23a6_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libpng-1.6.43-h2797004_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libpq-12.3-h255efa7_3.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libsqlite-3.46.0-hde9e2c9_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libssh2-1.10.0-haa6b8db_3.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libstdcxx-14.2.0-hc0a3c3a_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libstdcxx-ng-14.2.0-h4852527_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libuuid-2.38.1-h0b41bf4_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libuv-1.50.0-hb9d3cd8_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libxcb-1.17.0-h8a09558_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libxkbcommon-0.10.0-he1b5a44_0.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libxml2-2.9.10-h68273f3_2.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libxslt-1.1.33-hf705e74_1.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libzlib-1.2.13-h4ab18f5_6.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/lxml-4.8.0-py38h0a891b7_3.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/lz4-c-1.9.2-he1b5a44_3.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/noarch/mccabe-0.7.0-pyhd8ed1ab_0.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/noarch/mock-5.1.0-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/mysql-common-8.0.21-0.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/mysql-libs-8.0.21-h43e1182_0.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/ncurses-6.5-h2d0b736_3.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/netifaces-0.11.0-py38h01eb140_2.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/nspr-4.36-h5888daf_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/nss-3.100-hca3bf56_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/numpy-1.14.6-py38h95a1406_1201.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/openssl-1.1.1w-hd590300_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/packaging-24.2-pyhd8ed1ab_2.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/pcre-8.45-h9c3ff4c_0.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/pkg-config-0.29.2-h4bc722e_1009.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/pluggy-1.5.0-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/pthread-stubs-0.4-hb9d3cd8_1002.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/pycodestyle-2.12.1-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/pycparser-2.22-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/pydocstyle-6.3.0-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/pyflakes-3.2.0-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/pygments-2.18.0-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/pyparsing-3.1.4-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/pytest-8.3.4-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/python-3.8.6-h852b56e_0_cpython.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/noarch/python-dateutil-2.9.0-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/python_abi-3.8-5_cp38.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/pyyaml-6.0.2-py38h2019614_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/qt-5.12.9-h1f2b2cb_0.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/readline-8.2-h8228510_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/rhash-1.4.3-hd590300_2.conda
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-action-msgs-1.0.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-actionlib-msgs-2.0.3-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-auto-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-copyright-0.9.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-core-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-cppcheck-0.9.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-cpplint-0.9.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-export-definitions-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-export-dependencies-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-export-include-directories-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-export-interfaces-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-export-libraries-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-export-link-flags-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-export-targets-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-flake8-0.9.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-gmock-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-gtest-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-include-directories-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-libraries-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-lint-cmake-0.9.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-pep257-0.9.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-pytest-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-python-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-ros-0.9.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-target-dependencies-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-test-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-uncrustify-0.9.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-version-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-xmllint-0.9.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-copyright-0.9.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cppcheck-0.9.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cpplint-0.9.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-flake8-0.9.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-index-cpp-1.0.1-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-index-python-1.0.1-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-lint-0.9.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-lint-auto-0.9.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-lint-cmake-0.9.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-lint-common-0.9.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-package-0.9.3-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-pep257-0.9.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-uncrustify-0.9.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-xmllint-0.9.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-builtin-interfaces-1.0.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-class-loader-2.0.1-py38h3dbb906_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-common-interfaces-2.0.3-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-composition-interfaces-1.0.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-connext-cmake-module-1.0.2-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-console-bridge-vendor-1.2.3-py38h3dbb906_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-cyclonedds-0.7.0-py38heddcf40_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-diagnostic-msgs-2.0.3-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-domain-coordinator-0.9.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-eigen3-cmake-module-0.1.1-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-fastcdr-1.0.13-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-fastrtps-2.0.2-py38heddcf40_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-fastrtps-cmake-module-1.0.2-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-foonathan-memory-vendor-1.0.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-geometry-msgs-2.0.3-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-geometry2-0.13.9-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-gmock-vendor-1.8.9000-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-gtest-vendor-1.8.9000-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-kdl-parser-2.4.1-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-launch-0.10.4-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-launch-ros-0.11.1-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-launch-testing-0.10.4-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-launch-testing-ament-cmake-0.10.4-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-launch-testing-ros-0.11.1-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-launch-xml-0.10.4-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-launch-yaml-0.10.4-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-libstatistics-collector-1.0.1-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-libyaml-vendor-1.0.2-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-lifecycle-msgs-1.0.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-message-filters-3.2.5-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-nav-msgs-2.0.3-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-orocos-kdl-3.3.1-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-osrf-pycommon-0.1.10-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-pluginlib-2.5.3-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-python-cmake-module-0.8.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rcl-1.1.10-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rcl-action-1.1.10-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rcl-interfaces-1.0.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rcl-lifecycle-1.1.10-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rcl-logging-spdlog-1.0.1-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rcl-yaml-param-parser-1.1.10-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rclcpp-2.3.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rclcpp-action-2.3.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rclcpp-components-2.3.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rclcpp-lifecycle-2.3.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rclpy-1.0.5-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rcpputils-1.3.1-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rcutils-1.1.2-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rmw-1.0.2-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rmw-connext-cpp-1.0.3-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rmw-connext-shared-cpp-1.0.3-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rmw-cyclonedds-cpp-0.7.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rmw-dds-common-1.0.2-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rmw-fastrtps-cpp-1.2.4-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rmw-fastrtps-shared-cpp-1.2.4-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rmw-implementation-1.0.1-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rmw-implementation-cmake-1.0.2-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-robot-state-publisher-2.4.1-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros-base-0.9.2-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros-core-0.9.2-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros-environment-2.5.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2action-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2bag-0.3.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2cli-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2component-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2doctor-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2interface-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2launch-0.11.1-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2lifecycle-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2multicast-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2node-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2param-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2pkg-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2run-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2service-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2topic-0.9.8-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosbag2-0.3.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosbag2-compression-0.3.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosbag2-converter-default-plugins-0.3.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosbag2-cpp-0.3.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosbag2-storage-0.3.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosbag2-storage-default-plugins-0.3.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosbag2-transport-0.3.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosgraph-msgs-1.0.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-adapter-1.2.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-cmake-1.2.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-default-generators-1.0.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-default-runtime-1.0.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-generator-c-1.2.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-generator-cpp-1.2.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-generator-dds-idl-0.7.1-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-generator-py-0.9.4-py38h27dcbf6_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-parser-1.2.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-runtime-c-1.2.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-runtime-cpp-1.2.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-runtime-py-0.9.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-typesupport-c-1.0.1-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-typesupport-connext-c-1.0.2-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-typesupport-connext-cpp-1.0.2-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-typesupport-cpp-1.0.1-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-typesupport-fastrtps-c-1.0.2-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-typesupport-fastrtps-cpp-1.0.2-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-typesupport-interface-1.2.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-typesupport-introspection-c-1.2.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-typesupport-introspection-cpp-1.2.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rpyutils-0.2.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-sensor-msgs-2.0.3-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-shape-msgs-2.0.3-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-shared-queues-vendor-0.3.6-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-spdlog-vendor-1.1.2-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-sqlite3-vendor-0.3.6-py38h4dcd288_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-sros2-0.9.4-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-sros2-cmake-0.9.4-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-statistics-msgs-1.0.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-std-msgs-2.0.3-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-std-srvs-2.0.3-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-stereo-msgs-2.0.3-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-tf2-0.13.9-py38h3dbb906_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-tf2-bullet-0.13.9-py38h71fd4cb_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-tf2-eigen-0.13.9-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-tf2-geometry-msgs-0.13.9-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-tf2-kdl-0.13.9-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-tf2-msgs-0.13.9-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-tf2-py-0.13.9-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-tf2-ros-0.13.9-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-tf2-sensor-msgs-0.13.9-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-tf2-tools-0.13.9-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-tinyxml-vendor-0.8.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-tinyxml2-vendor-0.7.3-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-tracetools-1.0.5-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-trajectory-msgs-2.0.3-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-turtlesim-1.2.5-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-uncrustify-vendor-1.4.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-unique-identifier-msgs-2.1.2-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-urdf-2.4.0-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-urdfdom-2.3.3-py38h3dbb906_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-urdfdom-headers-1.0.5-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-visualization-msgs-2.0.3-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-yaml-cpp-vendor-7.0.2-py38h348cfbe_0.tar.bz2
+      - conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-zstd-vendor-0.3.6-py38h42ee183_0.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/rosdistro-0.9.0-py38h578d9bd_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/rospkg-1.5.1-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/setuptools-75.3.0-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/six-1.16.0-pyh6c4a22f_0.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/noarch/snowballstemmer-2.2.0-pyhd8ed1ab_0.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/spdlog-1.15.1-hb29a8c4_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/sqlite-3.46.0-h6d4b2fc_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/tinyxml-2.6.2-h4bd325d_2.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/tinyxml2-8.0.0-h9c3ff4c_1.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/tk-8.6.13-noxft_h4845f30_101.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/tomli-2.0.2-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/uncrustify-0.72.0-h9c3ff4c_0.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/xorg-libx11-1.8.11-h4f16b4b_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/xorg-libxau-1.0.12-hb9d3cd8_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/xorg-libxdmcp-1.1.5-hb9d3cd8_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/xorg-libxext-1.3.6-hb9d3cd8_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/xz-5.6.4-hbcc6ac9_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/xz-gpl-tools-5.6.4-hbcc6ac9_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/xz-tools-5.6.4-hb9d3cd8_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/yaml-0.2.5-h7f98852_2.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/zlib-1.2.13-h4ab18f5_6.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.4.4-h6597ccf_3.tar.bz2
+packages:
+- conda: https://conda.anaconda.org/conda-forge/linux-64/_libgcc_mutex-0.1-conda_forge.tar.bz2
+  sha256: fe51de6107f9edc7aa4f786a70f4a883943bc9d39b3bb7307c04c41410990726
+  md5: d7c89558ba9fa0495403155b64376d81
+  arch: x86_64
+  platform: linux
+  license: None
+  size: 2562
+  timestamp: 1578324546067
+- conda: https://conda.anaconda.org/conda-forge/linux-64/_openmp_mutex-4.5-2_gnu.tar.bz2
+  build_number: 16
+  sha256: fbe2c5e56a653bebb982eda4876a9178aedfc2b545f25d0ce9c4c0b508253d22
+  md5: 73aaf86a425cc6e73fcf236a5a46396d
+  depends:
+  - _libgcc_mutex 0.1 conda_forge
+  - libgomp >=7.5.0
+  constrains:
+  - openmp_impl 9999
+  arch: x86_64
+  platform: linux
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 23621
+  timestamp: 1650670423406
+- conda: https://conda.anaconda.org/conda-forge/linux-64/bullet-2.88-py38hb3f55d8_1001.tar.bz2
+  sha256: d7df07a099b776f56d39ac89d05a781b0ade3c1efde07a573ccfc9cc46040f34
+  md5: 4889f967e7306881e81f1fcb13aae33c
+  depends:
+  - libgcc-ng >=7.3.0
+  - libstdcxx-ng >=7.3.0
+  - numpy >=1.14.6,<2.0a0
+  - python >=3.8,<3.9.0a0
+  constrains:
+  - python_abi * *_cp38
+  arch: x86_64
+  platform: linux
+  license: zlib
+  size: 5115701
+  timestamp: 1572956642041
+- conda: https://conda.anaconda.org/conda-forge/linux-64/bzip2-1.0.8-h4bc722e_7.conda
+  sha256: 5ced96500d945fb286c9c838e54fa759aa04a7129c59800f0846b4335cee770d
+  md5: 62ee74e96c5ebb0af99386de58cf9553
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc-ng >=12
+  arch: x86_64
+  platform: linux
+  license: bzip2-1.0.6
+  license_family: BSD
+  size: 252783
+  timestamp: 1720974456583
+- conda: https://conda.anaconda.org/conda-forge/linux-64/c-ares-1.34.4-hb9d3cd8_0.conda
+  sha256: d4f28d87b6339b94f74762c0076e29c8ef8ddfff51a564a92da2843573c18320
+  md5: e2775acf57efd5af15b8e3d1d74d72d3
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=13
+  arch: x86_64
+  platform: linux
+  license: MIT
+  license_family: MIT
+  size: 206085
+  timestamp: 1734208189009
+- conda: https://conda.anaconda.org/conda-forge/linux-64/ca-certificates-2025.1.31-hbcca054_0.conda
+  sha256: bf832198976d559ab44d6cdb315642655547e26d826e34da67cbee6624cda189
+  md5: 19f3a56f68d2fd06c516076bff482c52
+  arch: x86_64
+  platform: linux
+  license: ISC
+  size: 158144
+  timestamp: 1738298224464
+- conda: https://conda.anaconda.org/conda-forge/noarch/catkin_pkg-1.0.0-pyhd8ed1ab_0.conda
+  sha256: b97401522d6b6b4ef1ec3ae1904ef44435f6e09df044a213c0b26c24c7bfb914
+  md5: e8e0308c8d90a038cf58fd346a80a6a3
+  depends:
+  - docutils
+  - pyparsing >=1.5.7
+  - python >=3.6
+  - python-dateutil
+  - setuptools
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 53408
+  timestamp: 1694652027818
+- conda: https://conda.anaconda.org/conda-forge/linux-64/cffi-1.14.4-py38ha312104_0.tar.bz2
+  sha256: 563bd8ee5c7f9a13d6bfb72cd3f801eec435adf06c824262eb8cdaef0cd5b990
+  md5: 8f82b87522fbb1d4b24e8b5e2b1d0501
+  depends:
+  - libffi >=3.2.1,<3.3.0a0
+  - libgcc-ng >=7.5.0
+  - pycparser
+  - python >=3.8,<3.9.0a0
+  - python_abi 3.8.* *_cp38
+  arch: x86_64
+  platform: linux
+  license: MIT
+  license_family: MIT
+  size: 231248
+  timestamp: 1606236234191
+- conda: https://conda.anaconda.org/conda-forge/linux-64/cmake-3.19.4-h4547794_0.tar.bz2
+  sha256: 70322592e2d6779dc61bbb5a0581b5c1e81e49f70ad91a2b8f537d9eff8eebc7
+  md5: be1994999e14e1c1904975535f0ac5b6
+  depends:
+  - bzip2 >=1.0.8,<2.0a0
+  - expat >=2.2.10,<3.0.0a0
+  - libcurl >=7.71.1,<9.0a0
+  - libgcc-ng >=9.3.0
+  - libstdcxx-ng >=9.3.0
+  - libuv
+  - ncurses >=6.2,<7.0.0a0
+  - rhash <=1.4.3
+  - xz >=5.2.5,<6.0.0a0
+  - zlib >=1.2.11,<1.3.0a0
+  arch: x86_64
+  platform: linux
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 14651273
+  timestamp: 1611872071178
+- conda: https://conda.anaconda.org/conda-forge/noarch/colorama-0.4.6-pyhd8ed1ab_0.tar.bz2
+  sha256: 2c1b2e9755ce3102bca8d69e8f26e4f087ece73f50418186aee7c74bef8e1698
+  md5: 3faab06a954c2a04039983f2c4a50d99
+  depends:
+  - python >=3.7
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 25170
+  timestamp: 1666700778190
+- conda: https://conda.anaconda.org/conda-forge/linux-64/console_bridge-1.0.2-h924138e_1.tar.bz2
+  sha256: 29caeda123ea705e68de46dc3b86065ec78f5b44d7ae69b320cc57e136d2d9d7
+  md5: e891b2b856a57d2b2ddb9ed366e3f2ce
+  depends:
+  - libgcc-ng >=10.3.0
+  - libstdcxx-ng >=10.3.0
+  arch: x86_64
+  platform: linux
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 18460
+  timestamp: 1648912649612
+- conda: https://conda.anaconda.org/conda-forge/linux-64/cppcheck-2.13.2-py38hb6a8350_0.conda
+  sha256: fcf230cfebf7ecf148d495f2572d16980d3d924db21f1f2122e6f37ecdb98a29
+  md5: 7611e6d17e6e00390f02b6c9d4e2b35f
+  depends:
+  - libgcc-ng >=12
+  - libstdcxx-ng >=12
+  - pcre >=8.45,<9.0a0
+  - pygments
+  - python >=3.8,<3.9.0a0
+  - python_abi 3.8.* *_cp38
+  arch: x86_64
+  platform: linux
+  license: GPL-3.0-or-later
+  license_family: GPL
+  size: 2572511
+  timestamp: 1708972471919
+- conda: https://conda.anaconda.org/conda-forge/linux-64/cryptography-39.0.0-py38h1724139_0.conda
+  sha256: acfe6ee2259a67bee6845d3eccac5e00689238382c7a6a0bd7ca0b88f0215375
+  md5: 24e75282e857cb0641c4f1b82cf6d6ea
+  depends:
+  - cffi >=1.12
+  - libgcc-ng >=12
+  - openssl >=1.1.1s,<1.1.2a
+  - python >=3.8,<3.9.0a0
+  - python_abi 3.8.* *_cp38
+  arch: x86_64
+  platform: linux
+  license: Apache-2.0 AND BSD-3-Clause AND PSF-2.0 AND MIT
+  license_family: BSD
+  size: 1435613
+  timestamp: 1672672697488
+- conda: https://conda.anaconda.org/conda-forge/linux-64/dbus-1.13.6-hfdff14a_1.tar.bz2
+  sha256: 811b1759a8c33cd6d14dc1134aa60bd98eb62861a42413fecb367a2e06d7c4a1
+  md5: 4caaca6356992ee545080c7d7193b5a3
+  depends:
+  - expat >=2.2.9,<3.0.0a0
+  - glib
+  - libgcc-ng >=7.5.0
+  - libglib >=2.64.6,<3.0a0
+  arch: x86_64
+  platform: linux
+  license: GPL-2.0-or-later
+  license_family: GPL
+  size: 599533
+  timestamp: 1604336133810
+- conda: https://conda.anaconda.org/conda-forge/noarch/distro-1.9.0-pyhd8ed1ab_0.conda
+  sha256: ae1c13d709c8001331b5b9345e4bcd77e9ae712d25f7958b2ebcbe0b068731b7
+  md5: bbdb409974cd6cb30071b1d978302726
+  depends:
+  - python >=3.6
+  license: Apache-2.0
+  license_family: APACHE
+  size: 42039
+  timestamp: 1704321683916
+- conda: https://conda.anaconda.org/conda-forge/linux-64/docutils-0.20.1-py38h578d9bd_3.conda
+  sha256: 0a6d4105f708e583a953b59edd90200f40e5d9cdb8692dc4c9eaf5dc30ec0c2d
+  md5: 066cef5c54a7f43858f883cbae026e00
+  depends:
+  - python >=3.8,<3.9.0a0
+  - python_abi 3.8.* *_cp38
+  arch: x86_64
+  platform: linux
+  license: CC-PDDC AND BSD-3-Clause AND BSD-2-Clause AND ZPL-2.1
+  size: 704144
+  timestamp: 1701882820461
+- conda: https://conda.anaconda.org/conda-forge/linux-64/eigen-3.4.0-h00ab1b0_0.conda
+  sha256: 53b15a98aadbe0704479bacaf7a5618fcb32d1577be320630674574241639b34
+  md5: b1b879d6d093f55dd40d58b5eb2f0699
+  depends:
+  - libgcc-ng >=12
+  - libstdcxx-ng >=12
+  arch: x86_64
+  platform: linux
+  license: MPL-2.0
+  license_family: MOZILLA
+  size: 1088433
+  timestamp: 1690272126173
+- conda: https://conda.anaconda.org/conda-forge/noarch/empy-3.3.4-pyh9f0ad1d_1.tar.bz2
+  sha256: 75e04755df8d8db7a7711dddaf68963c11258b755c9c24565bfefa493ee383e3
+  md5: e4be10fd1a907b223da5be93f06709d2
+  depends:
+  - python
+  license: LGPL-2.1
+  license_family: GPL
+  size: 40210
+  timestamp: 1586444722817
+- conda: https://conda.anaconda.org/conda-forge/noarch/exceptiongroup-1.2.2-pyhd8ed1ab_0.conda
+  sha256: e0edd30c4b7144406bb4da975e6bb97d6bc9c0e999aa4efe66ae108cada5d5b5
+  md5: d02ae936e42063ca46af6cdad2dbd1e0
+  depends:
+  - python >=3.7
+  license: MIT and PSF-2.0
+  size: 20418
+  timestamp: 1720869435725
+- conda: https://conda.anaconda.org/conda-forge/linux-64/expat-2.6.4-h5888daf_0.conda
+  sha256: 1848c7db9e264e3b8036ee133d570dd880422983cd20dd9585a505289606d276
+  md5: 1d6afef758879ef5ee78127eb4cd2c4a
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libexpat 2.6.4 h5888daf_0
+  - libgcc >=13
+  arch: x86_64
+  platform: linux
+  license: MIT
+  license_family: MIT
+  size: 138145
+  timestamp: 1730967050578
+- conda: https://conda.anaconda.org/conda-forge/noarch/flake8-7.1.1-pyhd8ed1ab_0.conda
+  sha256: c513c6db311641dc50dfadbc49c8edea105ec18fee350149543b49f7970c3962
+  md5: a25e5df6b26be3c2d64be307c1ef0b37
+  depends:
+  - mccabe >=0.7.0,<0.8.0
+  - pycodestyle >=2.12.0,<2.13.0
+  - pyflakes >=3.2.0,<3.3.0
+  - python >=3.8.1
+  license: MIT
+  license_family: MIT
+  size: 111109
+  timestamp: 1722878963477
+- conda: https://conda.anaconda.org/conda-forge/linux-64/fmt-11.0.2-h434a139_0.conda
+  sha256: c620e2ab084948985ae9b8848d841f603e8055655513340e04b6cf129099b5ca
+  md5: 995f7e13598497691c1dc476d889bc04
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc-ng >=12
+  - libstdcxx-ng >=12
+  arch: x86_64
+  platform: linux
+  license: MIT
+  license_family: MIT
+  size: 198533
+  timestamp: 1723046725112
+- conda: https://conda.anaconda.org/conda-forge/linux-64/fontconfig-2.14.2-h14ed4e7_0.conda
+  sha256: 155d534c9037347ea7439a2c6da7c24ffec8e5dd278889b4c57274a1d91e0a83
+  md5: 0f69b688f52ff6da70bccb7ff7001d1d
+  depends:
+  - expat >=2.5.0,<3.0a0
+  - freetype >=2.12.1,<3.0a0
+  - libgcc-ng >=12
+  - libuuid >=2.32.1,<3.0a0
+  - libzlib >=1.2.13,<2.0.0a0
+  arch: x86_64
+  platform: linux
+  license: MIT
+  license_family: MIT
+  size: 272010
+  timestamp: 1674828850194
+- conda: https://conda.anaconda.org/conda-forge/linux-64/freetype-2.12.1-h267a509_2.conda
+  sha256: b2e3c449ec9d907dd4656cb0dc93e140f447175b125a3824b31368b06c666bb6
+  md5: 9ae35c3d96db2c94ce0cef86efdfa2cb
+  depends:
+  - libgcc-ng >=12
+  - libpng >=1.6.39,<1.7.0a0
+  - libzlib >=1.2.13,<2.0.0a0
+  arch: x86_64
+  platform: linux
+  license: GPL-2.0-only OR FTL
+  size: 634972
+  timestamp: 1694615932610
+- conda: https://conda.anaconda.org/conda-forge/linux-64/gettext-0.22.5-he02047a_3.conda
+  sha256: c3d9a453f523acbf2b3e1c82a42edfc7c7111b4686a2180ab48cb9b51a274218
+  md5: c7f243bbaea97cd6ea1edd693270100e
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - gettext-tools 0.22.5 he02047a_3
+  - libasprintf 0.22.5 he8f35ee_3
+  - libasprintf-devel 0.22.5 he8f35ee_3
+  - libgcc-ng >=12
+  - libgettextpo 0.22.5 he02047a_3
+  - libgettextpo-devel 0.22.5 he02047a_3
+  - libstdcxx-ng >=12
+  arch: x86_64
+  platform: linux
+  license: LGPL-2.1-or-later AND GPL-3.0-or-later
+  size: 479452
+  timestamp: 1723626088190
+- conda: https://conda.anaconda.org/conda-forge/linux-64/gettext-tools-0.22.5-he02047a_3.conda
+  sha256: 0fd003953ce1ce9f4569458aab9ffaa397e3be2bc069250e2f05fd93b0ad2976
+  md5: fcd2016d1d299f654f81021e27496818
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc-ng >=12
+  arch: x86_64
+  platform: linux
+  license: GPL-3.0-or-later
+  license_family: GPL
+  size: 2750908
+  timestamp: 1723626056740
+- conda: https://conda.anaconda.org/conda-forge/linux-64/glib-2.66.3-h58526e2_0.tar.bz2
+  sha256: d5aa4854acd35dae97d61ce20ac2d12bf78e7fc3fd9656765b4823d52f32eadb
+  md5: 62c2e5c84f6cdc7ded2307ef9c30dc8c
+  depends:
+  - libgcc-ng >=7.5.0
+  - libglib 2.66.3 hbe7bbb4_0
+  - libstdcxx-ng >=7.5.0
+  - python *
+  arch: x86_64
+  platform: linux
+  license: LGPL-2.1-or-later
+  size: 511659
+  timestamp: 1605940657693
+- conda: https://conda.anaconda.org/conda-forge/linux-64/gmock-1.15.2-ha770c72_0.conda
+  sha256: cddaae3c433647872ddb8c93d195ffad927154c82f6abc17013c7764c02e5eb0
+  md5: 28f0e4e7ea2aa02d685b2cf71f1c7164
+  depends:
+  - gtest 1.15.2 h434a139_0
+  arch: x86_64
+  platform: linux
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 6935
+  timestamp: 1722457788931
+- conda: https://conda.anaconda.org/conda-forge/linux-64/gst-plugins-base-1.14.5-h0935bb2_2.tar.bz2
+  sha256: 797ec2332d286841695b522c77da720c59ac86456062e9882924f8a4badb1277
+  md5: eb125ee86480e00a4a1ed45a577c3311
+  depends:
+  - glib >=2.58.3,<3.0a0
+  - gstreamer >=1.14.5,<2.0a0
+  - libgcc-ng >=7.3.0
+  - libstdcxx-ng >=7.3.0
+  - xz >=5.2.4,<6.0.0a0
+  - zlib >=1.2.11,<1.3.0a0
+  arch: x86_64
+  platform: linux
+  size: 7095890
+  timestamp: 1581429747426
+- conda: https://conda.anaconda.org/conda-forge/linux-64/gstreamer-1.14.5-h36ae1b5_2.tar.bz2
+  sha256: 36ce8a42415dca24b28d63b6a296676b8daf3302248828d0d530f3a18599f096
+  md5: 00084ab2657be5bf0ba0757ccde797ef
+  depends:
+  - glib >=2.58.3,<3.0a0
+  - libffi >=3.2.1,<3.3.0a0
+  - libgcc-ng >=7.3.0
+  - pcre >=8.43,<9.0a0
+  - xz >=5.2.4,<6.0.0a0
+  arch: x86_64
+  platform: linux
+  size: 4714985
+  timestamp: 1581429426922
+- conda: https://conda.anaconda.org/conda-forge/linux-64/gtest-1.15.2-h434a139_0.conda
+  sha256: cf2ccc3bbaca3dba1c12087aeaf5cc8f7c665d8678d9a9815d87b360867fc952
+  md5: 0874e26e61c13ae001dc647a650a97ca
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc-ng >=12
+  - libstdcxx-ng >=12
+  constrains:
+  - gmock 1.15.2
+  arch: x86_64
+  platform: linux
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 408202
+  timestamp: 1722457782806
+- conda: https://conda.anaconda.org/conda-forge/linux-64/icu-67.1-he1b5a44_0.tar.bz2
+  sha256: 755102651e25f3c024f1ae4c54d770a5e7079961e0074b794edabf55dec74b14
+  md5: 7ced6a5e5c94726af797d2b5a2b09228
+  depends:
+  - libgcc-ng >=7.3.0
+  - libstdcxx-ng >=7.3.0
+  arch: x86_64
+  platform: linux
+  license: MIT
+  license_family: MIT
+  size: 13476528
+  timestamp: 1588856780196
+- conda: https://conda.anaconda.org/conda-forge/noarch/ifcfg-0.21-py_0.tar.bz2
+  sha256: bd9fe24dd41d15e6f06ce58a80622f96a610ce6228500cca45b38f19c691ec04
+  md5: 91d4c99167e3f970a695ca83cc5787f8
+  depends:
+  - python
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 12337
+  timestamp: 1581723382903
+- conda: https://conda.anaconda.org/conda-forge/noarch/iniconfig-2.0.0-pyhd8ed1ab_0.conda
+  sha256: 38740c939b668b36a50ef455b077e8015b8c9cf89860d421b3fff86048f49666
+  md5: f800d2da156d08e289b14e87e43c1ae5
+  depends:
+  - python >=3.7
+  license: MIT
+  license_family: MIT
+  size: 11101
+  timestamp: 1673103208955
+- conda: https://conda.anaconda.org/conda-forge/linux-64/jpeg-9e-h0b41bf4_3.conda
+  sha256: 8f73194d09c9ea4a7e2b3562766b8d72125cc147b62c7cf83393e3a3bbfd581b
+  md5: c7a069243e1fbe9a556ed2ec030e6407
+  depends:
+  - libgcc-ng >=12
+  constrains:
+  - libjpeg-turbo <0.0.0a
+  arch: x86_64
+  platform: linux
+  license: IJG
+  size: 240359
+  timestamp: 1676177310738
+- conda: https://conda.anaconda.org/conda-forge/linux-64/krb5-1.17.2-h926e7f8_0.tar.bz2
+  sha256: abc0215ea012b0e55d5fac452901fec4073e067452620cba8d8c684330b4eaee
+  md5: 926325c11478d6e781e76072c117763b
+  depends:
+  - libedit >=3.1.20191231,<3.2.0a0
+  - libedit >=3.1.20191231,<4.0a0
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - openssl >=1.1.1h,<1.1.2a
+  - tk >=8.6.10,<8.7.0a0
+  arch: x86_64
+  platform: linux
+  license: MIT
+  license_family: MIT
+  size: 1506662
+  timestamp: 1605658487229
+- conda: https://conda.anaconda.org/conda-forge/noarch/lark-parser-0.12.0-pyhd8ed1ab_1.conda
+  sha256: 7f1ad9630a87005a90099ad3ff883ac7a3fe5e85b9eb232d1f8ad0a670059cca
+  md5: 222dd97cb2d5da1638de5077da60712f
+  depends:
+  - python >=3.6
+  license: MIT
+  license_family: MIT
+  size: 86134
+  timestamp: 1725742423890
+- conda: https://conda.anaconda.org/conda-forge/linux-64/ld_impl_linux-64-2.43-h712a8e2_2.conda
+  sha256: 7c91cea91b13f4314d125d1bedb9d03a29ebbd5080ccdea70260363424646dbe
+  md5: 048b02e3962f066da18efe3a21b77672
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  constrains:
+  - binutils_impl_linux-64 2.43
+  arch: x86_64
+  platform: linux
+  license: GPL-3.0-only
+  license_family: GPL
+  size: 669211
+  timestamp: 1729655358674
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libasprintf-0.22.5-he8f35ee_3.conda
+  sha256: 2da5c735811cbf38c7f7844ab457ff8b25046bbf5fe5ebd5dc1c2fafdf4fbe1c
+  md5: 4fab9799da9571266d05ca5503330655
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc-ng >=12
+  - libstdcxx-ng >=12
+  arch: x86_64
+  platform: linux
+  license: LGPL-2.1-or-later
+  size: 42817
+  timestamp: 1723626012203
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libasprintf-devel-0.22.5-he8f35ee_3.conda
+  sha256: ccc7967e298ddf3124c8ad9741c7180dc6f778ae4135ec87978214f7b3c64dc2
+  md5: 1091193789bb830127ed067a9e01ac57
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libasprintf 0.22.5 he8f35ee_3
+  - libgcc-ng >=12
+  arch: x86_64
+  platform: linux
+  license: LGPL-2.1-or-later
+  size: 34172
+  timestamp: 1723626026096
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libblas-3.9.0-28_h59b9bed_openblas.conda
+  build_number: 28
+  sha256: 93fbcf2800b859b7ca5add3ab5d3aa11c6a6ff4b942a1cea4bf644f78488edb8
+  md5: 73e2a99fdeb8531d50168987378fda8a
+  depends:
+  - libopenblas >=0.3.28,<0.3.29.0a0
+  - libopenblas >=0.3.28,<1.0a0
+  constrains:
+  - libcblas =3.9.0=28*_openblas
+  - blas =2.128=openblas
+  - liblapack =3.9.0=28*_openblas
+  - liblapacke =3.9.0=28*_openblas
+  arch: x86_64
+  platform: linux
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 16621
+  timestamp: 1738114033763
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libcblas-3.9.0-28_he106b2a_openblas.conda
+  build_number: 28
+  sha256: de293e117db53e5d78b579136509c35a5e4ad11529c05f9af83cf89be4d30de1
+  md5: 4e20a1c00b4e8a984aac0f6cce59e3ac
+  depends:
+  - libblas 3.9.0 28_h59b9bed_openblas
+  constrains:
+  - blas =2.128=openblas
+  - liblapack =3.9.0=28*_openblas
+  - liblapacke =3.9.0=28*_openblas
+  arch: x86_64
+  platform: linux
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 16539
+  timestamp: 1738114043618
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libclang-10.0.1-default_hde54327_1.tar.bz2
+  sha256: 675e7a06ebe189d5ce160d1e8df3ed3bb642660a0b4cce78a747e9b5b7e850ec
+  md5: 758f1d35d1f8531c80e35b017d76d131
+  depends:
+  - libgcc-ng >=7.5.0
+  - libllvm10 >=10.0.1,<10.1.0a0
+  - libstdcxx-ng >=7.5.0
+  arch: x86_64
+  platform: linux
+  license: Apache-2.0 WITH LLVM-exception
+  license_family: Apache
+  size: 27062745
+  timestamp: 1596860348983
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libcurl-7.76.1-hc4aaa36_1.tar.bz2
+  sha256: 726620c21ef889a491db471b8e24481b5a6ec324136c57c0fc0acdd5d9f180ee
+  md5: 349a288d04af695b639e5f947df3c2d0
+  depends:
+  - krb5 >=1.17.1,<1.18.0a0
+  - libgcc-ng >=9.3.0
+  - libnghttp2 >=1.43.0,<2.0a0
+  - libssh2 >=1.9.0,<2.0a0
+  - openssl >=1.1.1k,<1.1.2a
+  - zlib >=1.2.11,<1.3.0a0
+  arch: x86_64
+  platform: linux
+  license: curl
+  license_family: MIT
+  size: 336203
+  timestamp: 1618747632153
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libedit-3.1.20250104-pl5321h7949ede_0.conda
+  sha256: d789471216e7aba3c184cd054ed61ce3f6dac6f87a50ec69291b9297f8c18724
+  md5: c277e0a4d549b03ac1e9d6cbbe3d017b
+  depends:
+  - ncurses
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=13
+  - ncurses >=6.5,<7.0a0
+  arch: x86_64
+  platform: linux
+  license: BSD-2-Clause
+  license_family: BSD
+  size: 134676
+  timestamp: 1738479519902
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libev-4.33-hd590300_2.conda
+  sha256: 1cd6048169fa0395af74ed5d8f1716e22c19a81a8a36f934c110ca3ad4dd27b4
+  md5: 172bf1cd1ff8629f2b1179945ed45055
+  depends:
+  - libgcc-ng >=12
+  arch: x86_64
+  platform: linux
+  license: BSD-2-Clause
+  license_family: BSD
+  size: 112766
+  timestamp: 1702146165126
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libevent-2.1.10-h9b69904_4.tar.bz2
+  sha256: 18695f2fa3f19700d3f5d4f6b5fc49920685c7424b6bbbe461fa746c40996a14
+  md5: 390026683aef81db27ff1b8570ca1336
+  depends:
+  - libgcc-ng >=9.4.0
+  - openssl >=1.1.1l,<1.1.2a
+  arch: x86_64
+  platform: linux
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 1157008
+  timestamp: 1633489356655
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libexpat-2.6.4-h5888daf_0.conda
+  sha256: 56541b98447b58e52d824bd59d6382d609e11de1f8adf20b23143e353d2b8d26
+  md5: db833e03127376d461e1e13e76f09b6c
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=13
+  constrains:
+  - expat 2.6.4.*
+  arch: x86_64
+  platform: linux
+  license: MIT
+  license_family: MIT
+  size: 73304
+  timestamp: 1730967041968
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libffi-3.2.1-he1b5a44_1007.tar.bz2
+  sha256: 992246df63724484e9ee8652ce3ca0237f707961beab8b813096bbc647cf84f4
+  md5: 11389072d7d6036fd811c3d9460475cd
+  depends:
+  - libgcc-ng >=7.3.0
+  - libstdcxx-ng >=7.3.0
+  arch: x86_64
+  platform: linux
+  license: Custom
+  size: 48003
+  timestamp: 1584559351227
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libgcc-14.2.0-h77fa898_1.conda
+  sha256: 53eb8a79365e58849e7b1a068d31f4f9e718dc938d6f2c03e960345739a03569
+  md5: 3cb76c3f10d3bc7f1105b2fc9db984df
+  depends:
+  - _libgcc_mutex 0.1 conda_forge
+  - _openmp_mutex >=4.5
+  constrains:
+  - libgomp 14.2.0 h77fa898_1
+  - libgcc-ng ==14.2.0=*_1
+  arch: x86_64
+  platform: linux
+  license: GPL-3.0-only WITH GCC-exception-3.1
+  license_family: GPL
+  size: 848745
+  timestamp: 1729027721139
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libgcc-ng-14.2.0-h69a702a_1.conda
+  sha256: 3a76969c80e9af8b6e7a55090088bc41da4cffcde9e2c71b17f44d37b7cb87f7
+  md5: e39480b9ca41323497b05492a63bc35b
+  depends:
+  - libgcc 14.2.0 h77fa898_1
+  arch: x86_64
+  platform: linux
+  license: GPL-3.0-only WITH GCC-exception-3.1
+  license_family: GPL
+  size: 54142
+  timestamp: 1729027726517
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libgettextpo-0.22.5-he02047a_3.conda
+  sha256: 7f2d1f4d69973e2c3c3d2b6420d5eb989982baba97d63ab2d7a2b25a92d886b4
+  md5: efab66b82ec976930b96d62a976de8e7
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc-ng >=12
+  arch: x86_64
+  platform: linux
+  license: GPL-3.0-or-later
+  license_family: GPL
+  size: 170646
+  timestamp: 1723626019265
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libgettextpo-devel-0.22.5-he02047a_3.conda
+  sha256: 0a66cdd46d1cd5201061252535cd91905b3222328a9294c1a5bcd32e85531545
+  md5: 9aba7960731e6b4547b3a52f812ed801
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc-ng >=12
+  - libgettextpo 0.22.5 he02047a_3
+  arch: x86_64
+  platform: linux
+  license: GPL-3.0-or-later
+  license_family: GPL
+  size: 36790
+  timestamp: 1723626032786
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libgfortran-14.2.0-h69a702a_1.conda
+  sha256: fc9e7f22a17faf74da904ebfc4d88699013d2992e55505e4aa0eb01770290977
+  md5: f1fd30127802683586f768875127a987
+  depends:
+  - libgfortran5 14.2.0 hd5240d6_1
+  constrains:
+  - libgfortran-ng ==14.2.0=*_1
+  arch: x86_64
+  platform: linux
+  license: GPL-3.0-only WITH GCC-exception-3.1
+  license_family: GPL
+  size: 53997
+  timestamp: 1729027752995
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libgfortran5-14.2.0-hd5240d6_1.conda
+  sha256: d149a37ca73611e425041f33b9d8dbed6e52ec506fe8cc1fc0ee054bddeb6d5d
+  md5: 9822b874ea29af082e5d36098d25427d
+  depends:
+  - libgcc >=14.2.0
+  constrains:
+  - libgfortran 14.2.0
+  arch: x86_64
+  platform: linux
+  license: GPL-3.0-only WITH GCC-exception-3.1
+  license_family: GPL
+  size: 1462645
+  timestamp: 1729027735353
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libglib-2.66.3-hbe7bbb4_0.tar.bz2
+  sha256: 7af955f570502d7ad9eaf90b4b872a448cf1838cbf4827488d29df5017f43cf0
+  md5: d5a09a9e981849b751cb75656b7302a0
+  depends:
+  - gettext >=0.19.8.1,<1.0a0
+  - libffi >=3.2.1,<3.3.0a0
+  - libgcc-ng >=7.5.0
+  - libiconv >=1.16,<2.0.0a0
+  - libstdcxx-ng >=7.5.0
+  - pcre >=8.44,<9.0a0
+  - zlib >=1.2.11,<1.3.0a0
+  constrains:
+  - glib 2.66.3 *_0
+  arch: x86_64
+  platform: linux
+  license: LGPL-2.1-or-later
+  size: 3153674
+  timestamp: 1605940618169
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libgomp-14.2.0-h77fa898_1.conda
+  sha256: 1911c29975ec99b6b906904040c855772ccb265a1c79d5d75c8ceec4ed89cd63
+  md5: cc3573974587f12dda90d96e3e55a702
+  depends:
+  - _libgcc_mutex 0.1 conda_forge
+  arch: x86_64
+  platform: linux
+  license: GPL-3.0-only WITH GCC-exception-3.1
+  license_family: GPL
+  size: 460992
+  timestamp: 1729027639220
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libiconv-1.17-hd590300_2.conda
+  sha256: 8ac2f6a9f186e76539439e50505d98581472fedb347a20e7d1f36429849f05c9
+  md5: d66573916ffcf376178462f1b61c941e
+  depends:
+  - libgcc-ng >=12
+  arch: x86_64
+  platform: linux
+  license: LGPL-2.1-only
+  size: 705775
+  timestamp: 1702682170569
+- conda: https://conda.anaconda.org/conda-forge/linux-64/liblapack-3.9.0-28_h7ac8fdf_openblas.conda
+  build_number: 28
+  sha256: 9530e6840690b78360946390a1d29624734a6b624f02c26631fb451592cbb8ef
+  md5: 069f40bfbf1dc55c83ddb07fc6a6ef8d
+  depends:
+  - libblas 3.9.0 28_h59b9bed_openblas
+  constrains:
+  - libcblas =3.9.0=28*_openblas
+  - blas =2.128=openblas
+  - liblapacke =3.9.0=28*_openblas
+  arch: x86_64
+  platform: linux
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 16553
+  timestamp: 1738114053556
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libllvm10-10.0.1-he513fc3_3.tar.bz2
+  sha256: 2a236faeaade01cdb6c52b1892d5768baa7d7ebeaa473996c60231f6806f616a
+  md5: b1c57947b2a9231e0cd037ab0ed96b5d
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - zlib >=1.2.11,<1.3.0a0
+  arch: x86_64
+  platform: linux
+  license: Apache-2.0 WITH LLVM-exception
+  license_family: Apache
+  size: 27725019
+  timestamp: 1598579026085
+- conda: https://conda.anaconda.org/conda-forge/linux-64/liblzma-5.6.4-hb9d3cd8_0.conda
+  sha256: cad52e10319ca4585bc37f0bc7cce99ec7c15dc9168e42ccb96b741b0a27db3f
+  md5: 42d5b6a0f30d3c10cd88cb8584fda1cb
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=13
+  arch: x86_64
+  platform: linux
+  license: 0BSD
+  size: 111357
+  timestamp: 1738525339684
+- conda: https://conda.anaconda.org/conda-forge/linux-64/liblzma-devel-5.6.4-hb9d3cd8_0.conda
+  sha256: 34928b36a3946902196a6786db80c8a4a97f6c9418838d67be90a1388479a682
+  md5: 5ab1a0df19c8f3ec00d5e63458e0a420
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=13
+  - liblzma 5.6.4 hb9d3cd8_0
+  arch: x86_64
+  platform: linux
+  license: 0BSD
+  size: 378821
+  timestamp: 1738525353119
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libnghttp2-1.51.0-hdcd2b5c_0.conda
+  sha256: 3f76e99eacfc4ce3deac3b78d5508449efb8b72dea3e31d9f2c6db7f5cf00e75
+  md5: c42b460bae0365fb9777b1ff9d09a554
+  depends:
+  - c-ares >=1.18.1,<2.0a0
+  - libev >=4.33,<4.34.0a0
+  - libgcc-ng >=12
+  - libstdcxx-ng >=12
+  - libzlib >=1.2.13,<2.0.0a0
+  - openssl >=1.1.1s,<1.1.2a
+  arch: x86_64
+  platform: linux
+  license: MIT
+  license_family: MIT
+  size: 622739
+  timestamp: 1672695694560
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libopenblas-0.3.28-pthreads_h94d23a6_1.conda
+  sha256: 99ba271d8a80a1af2723f2e124ffd91d850074c0389c067e6d96d72a2dbfeabe
+  md5: 62857b389e42b36b686331bec0922050
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=14
+  - libgfortran
+  - libgfortran5 >=14.2.0
+  constrains:
+  - openblas >=0.3.28,<0.3.29.0a0
+  arch: x86_64
+  platform: linux
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 5578513
+  timestamp: 1730772671118
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libpng-1.6.43-h2797004_0.conda
+  sha256: 502f6ff148ac2777cc55ae4ade01a8fc3543b4ffab25c4e0eaa15f94e90dd997
+  md5: 009981dd9cfcaa4dbfa25ffaed86bcae
+  depends:
+  - libgcc-ng >=12
+  - libzlib >=1.2.13,<2.0.0a0
+  arch: x86_64
+  platform: linux
+  license: zlib-acknowledgement
+  size: 288221
+  timestamp: 1708780443939
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libpq-12.3-h255efa7_3.tar.bz2
+  sha256: 9b3aa4dfa992dbb89648594348fd318b9a583a6865fd4894932827e7c70765d1
+  md5: a1daa43848e9e2b655a9af817a8bb613
+  depends:
+  - krb5 >=1.17.1,<1.18.0a0
+  - libgcc-ng >=7.5.0
+  - openssl >=1.1.1h,<1.1.2a
+  - readline >=8.0,<9.0a0
+  - zlib >=1.2.11,<1.3.0a0
+  arch: x86_64
+  platform: linux
+  size: 2745763
+  timestamp: 1607445192497
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libsqlite-3.46.0-hde9e2c9_0.conda
+  sha256: daee3f68786231dad457d0dfde3f7f1f9a7f2018adabdbb864226775101341a8
+  md5: 18aa975d2094c34aef978060ae7da7d8
+  depends:
+  - libgcc-ng >=12
+  - libzlib >=1.2.13,<2.0a0
+  arch: x86_64
+  platform: linux
+  license: Unlicense
+  size: 865346
+  timestamp: 1718050628718
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libssh2-1.10.0-haa6b8db_3.tar.bz2
+  sha256: 3c2ed83502bedf4ec8c5b972accb6ff1b6c018f72fb711cdb65cb8540d5ab89e
+  md5: 89acee135f0809a18a1f4537390aa2dd
+  depends:
+  - libgcc-ng >=12
+  - libzlib >=1.2.12,<2.0.0a0
+  - openssl >=1.1.1q,<1.1.2a
+  arch: x86_64
+  platform: linux
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 239461
+  timestamp: 1660346486026
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libstdcxx-14.2.0-hc0a3c3a_1.conda
+  sha256: 4661af0eb9bdcbb5fb33e5d0023b001ad4be828fccdcc56500059d56f9869462
+  md5: 234a5554c53625688d51062645337328
+  depends:
+  - libgcc 14.2.0 h77fa898_1
+  arch: x86_64
+  platform: linux
+  license: GPL-3.0-only WITH GCC-exception-3.1
+  license_family: GPL
+  size: 3893695
+  timestamp: 1729027746910
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libstdcxx-ng-14.2.0-h4852527_1.conda
+  sha256: 25bb30b827d4f6d6f0522cc0579e431695503822f144043b93c50237017fffd8
+  md5: 8371ac6457591af2cf6159439c1fd051
+  depends:
+  - libstdcxx 14.2.0 hc0a3c3a_1
+  arch: x86_64
+  platform: linux
+  license: GPL-3.0-only WITH GCC-exception-3.1
+  license_family: GPL
+  size: 54105
+  timestamp: 1729027780628
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libuuid-2.38.1-h0b41bf4_0.conda
+  sha256: 787eb542f055a2b3de553614b25f09eefb0a0931b0c87dbcce6efdfd92f04f18
+  md5: 40b61aab5c7ba9ff276c41cfffe6b80b
+  depends:
+  - libgcc-ng >=12
+  arch: x86_64
+  platform: linux
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 33601
+  timestamp: 1680112270483
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libuv-1.50.0-hb9d3cd8_0.conda
+  sha256: b4a8890023902aef9f1f33e3e35603ad9c2f16c21fdb58e968fa6c1bd3e94c0b
+  md5: 771ee65e13bc599b0b62af5359d80169
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=13
+  arch: x86_64
+  platform: linux
+  license: MIT
+  license_family: MIT
+  size: 891272
+  timestamp: 1737016632446
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libxcb-1.17.0-h8a09558_0.conda
+  sha256: 666c0c431b23c6cec6e492840b176dde533d48b7e6fb8883f5071223433776aa
+  md5: 92ed62436b625154323d40d5f2f11dd7
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=13
+  - pthread-stubs
+  - xorg-libxau >=1.0.11,<2.0a0
+  - xorg-libxdmcp
+  arch: x86_64
+  platform: linux
+  license: MIT
+  license_family: MIT
+  size: 395888
+  timestamp: 1727278577118
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libxkbcommon-0.10.0-he1b5a44_0.tar.bz2
+  sha256: f5097fe331f00383535aeef23d8320ff3e09890b8667c348850e053ffbad4a4a
+  md5: 78ccac2098edcd3673af2ceb3e95f932
+  depends:
+  - libgcc-ng >=7.3.0
+  - libstdcxx-ng >=7.3.0
+  arch: x86_64
+  platform: linux
+  license: MIT/X11 Derivative
+  license_family: MIT
+  size: 485988
+  timestamp: 1581013907861
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libxml2-2.9.10-h68273f3_2.tar.bz2
+  sha256: 0a13f26b94cb22f54da978398572563af0c59b76af5fe2a5a3d5899a7046fc88
+  md5: 0315cae0468a1e17f1e7fad5b13d53f8
+  depends:
+  - icu >=67.1,<68.0a0
+  - libgcc-ng >=7.5.0
+  - libiconv >=1.16,<2.0.0a0
+  - xz >=5.2.5,<6.0.0a0
+  - zlib >=1.2.11,<1.3.0a0
+  arch: x86_64
+  platform: linux
+  license: MIT
+  license_family: MIT
+  size: 1354758
+  timestamp: 1597696981567
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libxslt-1.1.33-hf705e74_1.tar.bz2
+  sha256: 697090f743ec7abd455364cf1d33d38a4372f1b8f6924a4423ae7efb1b8d32d9
+  md5: dbfaa5b91d6f668bab636bd84217788c
+  depends:
+  - icu >=67.1,<68.0a0
+  - libgcc-ng >=9.3.0
+  - libxml2 >=2.9.10,<3.0.0a0
+  arch: x86_64
+  platform: linux
+  license: MIT
+  license_family: MIT
+  size: 553112
+  timestamp: 1608120100715
+- conda: https://conda.anaconda.org/conda-forge/linux-64/libzlib-1.2.13-h4ab18f5_6.conda
+  sha256: 8ced4afed6322172182af503f21725d072a589a6eb918f8a58135c1e00d35980
+  md5: 27329162c0dc732bcf67a4e0cd488125
+  depends:
+  - libgcc-ng >=12
+  constrains:
+  - zlib 1.2.13 *_6
+  arch: x86_64
+  platform: linux
+  license: Zlib
+  license_family: Other
+  size: 61571
+  timestamp: 1716874066944
+- conda: https://conda.anaconda.org/conda-forge/linux-64/lxml-4.8.0-py38h0a891b7_3.tar.bz2
+  sha256: 1cd5df70bc31284c0193a7a4072cb262b1c28c78f8ca6195940457c08f4b52bf
+  md5: 603f6fc86b159b11ff15a411f49248a7
+  depends:
+  - libgcc-ng >=10.3.0
+  - libxml2 !=2.9.11,!=2.9.12
+  - libxslt >=1.1.33,<2.0a0
+  - python >=3.8,<3.9.0a0
+  - python_abi 3.8.* *_cp38
+  arch: x86_64
+  platform: linux
+  license: BSD-3-Clause and GPL-2.0-only and ZPL-2.0 and LicenseRef-ElementTree
+  size: 1510883
+  timestamp: 1649697835678
+- conda: https://conda.anaconda.org/conda-forge/linux-64/lz4-c-1.9.2-he1b5a44_3.tar.bz2
+  sha256: 0e0a7e89b217cd0b4e04c7e67d610681c5dbc714e84ee1ffb2049c28338c712d
+  md5: b2e54aad8640e7a877d2280d3ebfe85b
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  arch: x86_64
+  platform: linux
+  license: BSD-2-Clause
+  license_family: BSD
+  size: 208059
+  timestamp: 1597865257187
+- conda: https://conda.anaconda.org/conda-forge/noarch/mccabe-0.7.0-pyhd8ed1ab_0.tar.bz2
+  sha256: 0466ad9490b761e9a8c57fab574fc099136b45fa19a0746ce33acdeb2a84766b
+  md5: 34fc335fc50eef0b5ea708f2b5f54e0c
+  depends:
+  - python >=3.6
+  license: MIT
+  license_family: MIT
+  size: 10909
+  timestamp: 1643049714491
+- conda: https://conda.anaconda.org/conda-forge/noarch/mock-5.1.0-pyhd8ed1ab_0.conda
+  sha256: c83ca0a2f3bdcaa3cec5d7b5c796748f66de530f7a2f1bdb27d3de424fb5b304
+  md5: 926c67c0310094cf421ad13f7d3f38e5
+  depends:
+  - python >=3.6
+  license: BSD-2-Clause
+  license_family: BSD
+  size: 33581
+  timestamp: 1689092227859
+- conda: https://conda.anaconda.org/conda-forge/linux-64/mysql-common-8.0.21-0.tar.bz2
+  sha256: 3fd6aacc6833ee6389ade55199b99b4a23ae79d2a3f40255507ef37dfc7383e5
+  md5: d0bcfe6ace02323f90b9c72b2d363984
+  arch: x86_64
+  platform: linux
+  size: 1569474
+  timestamp: 1595533521770
+- conda: https://conda.anaconda.org/conda-forge/linux-64/mysql-libs-8.0.21-h43e1182_0.tar.bz2
+  sha256: 6bea4e029bd50d12f4ad6c8e4e95d1d50c1ab498dd202b4d3a6ef10c18f5d238
+  md5: 5e8ce7b3555face81b4dccc26deb3366
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - mysql-common 8.0.21 0
+  - openssl >=1.1.1g,<1.1.2a
+  - zlib >=1.2.11,<1.3.0a0
+  - zstd >=1.4.4,<1.5.0.0a0
+  arch: x86_64
+  platform: linux
+  size: 1841591
+  timestamp: 1595533634231
+- conda: https://conda.anaconda.org/conda-forge/linux-64/ncurses-6.5-h2d0b736_3.conda
+  sha256: 3fde293232fa3fca98635e1167de6b7c7fda83caf24b9d6c91ec9eefb4f4d586
+  md5: 47e340acb35de30501a76c7c799c41d7
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=13
+  arch: x86_64
+  platform: linux
+  license: X11 AND BSD-3-Clause
+  size: 891641
+  timestamp: 1738195959188
+- conda: https://conda.anaconda.org/conda-forge/linux-64/netifaces-0.11.0-py38h01eb140_2.conda
+  sha256: b7b6b31d605f102d115677947dda3f22602ee91afdb288125e9afce35c8bd6c0
+  md5: ce98bde8b66b46c35bd5e375d495366d
+  depends:
+  - libgcc-ng >=12
+  - python >=3.8,<3.9.0a0
+  - python_abi 3.8.* *_cp38
+  arch: x86_64
+  platform: linux
+  license: MIT
+  license_family: MIT
+  size: 19626
+  timestamp: 1695545652097
+- conda: https://conda.anaconda.org/conda-forge/linux-64/nspr-4.36-h5888daf_0.conda
+  sha256: a87471d9265a7c02a98c20debac8b13afd80963968ed7b1c1c2ac7b80955ce31
+  md5: de9cd5bca9e4918527b9b72b6e2e1409
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=13
+  - libstdcxx >=13
+  arch: x86_64
+  platform: linux
+  license: MPL-2.0
+  license_family: MOZILLA
+  size: 230204
+  timestamp: 1729545773406
+- conda: https://conda.anaconda.org/conda-forge/linux-64/nss-3.100-hca3bf56_0.conda
+  sha256: a4146d2b6636999a21afcaf957029d066637bf26239fd3170242501e38fb1fa4
+  md5: 949c4a82290ee58b3c970cef4bcfd4ad
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc-ng >=12
+  - libsqlite >=3.45.3,<4.0a0
+  - libstdcxx-ng >=12
+  - libzlib >=1.2.13,<2.0.0a0
+  - nspr >=4.35,<5.0a0
+  arch: x86_64
+  platform: linux
+  license: MPL-2.0
+  license_family: MOZILLA
+  size: 2047723
+  timestamp: 1715184444840
+- conda: https://conda.anaconda.org/conda-forge/linux-64/numpy-1.14.6-py38h95a1406_1201.tar.bz2
+  sha256: 7dc2de0d8e07eb097a3c13ceeef1cda6fc85e1f335da58d1277cf774f2a81533
+  md5: 4517a59cddddf9f190772b036730bec3
+  depends:
+  - libblas >=3.8.0,<4.0a0
+  - libcblas >=3.8.0,<4.0a0
+  - libgcc-ng >=7.3.0
+  - liblapack >=3.8.0,<4.0.0a0
+  - python >=3.8,<3.9.0a0
+  constrains:
+  - python_abi * *_cp38
+  arch: x86_64
+  platform: linux
+  license: BSD 3-Clause
+  size: 4291760
+  timestamp: 1572766470967
+- conda: https://conda.anaconda.org/conda-forge/linux-64/openssl-1.1.1w-hd590300_0.conda
+  sha256: 4fe19885c77f0758084feb54954bd1977dfeeab7134fba0a1d9c0cfff821d6bd
+  md5: 301e70057a3bd399640bb16bbdf87995
+  depends:
+  - ca-certificates
+  - libgcc-ng >=12
+  arch: x86_64
+  platform: linux
+  license: OpenSSL
+  license_family: Apache
+  size: 1956010
+  timestamp: 1694461292959
+- conda: https://conda.anaconda.org/conda-forge/noarch/packaging-24.2-pyhd8ed1ab_2.conda
+  sha256: da157b19bcd398b9804c5c52fc000fcb8ab0525bdb9c70f95beaa0bb42f85af1
+  md5: 3bfed7e6228ebf2f7b9eaa47f1b4e2aa
+  depends:
+  - python >=3.8
+  license: Apache-2.0
+  license_family: APACHE
+  size: 60164
+  timestamp: 1733203368787
+- conda: https://conda.anaconda.org/conda-forge/linux-64/pcre-8.45-h9c3ff4c_0.tar.bz2
+  sha256: 8f35c244b1631a4f31fb1d66ab6e1d9bfac0ca9b679deced1112c7225b3ad138
+  md5: c05d1820a6d34ff07aaaab7a9b7eddaa
+  depends:
+  - libgcc-ng >=9.3.0
+  - libstdcxx-ng >=9.3.0
+  arch: x86_64
+  platform: linux
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 259377
+  timestamp: 1623788789327
+- conda: https://conda.anaconda.org/conda-forge/linux-64/pkg-config-0.29.2-h4bc722e_1009.conda
+  sha256: c9601efb1af5391317e04eca77c6fe4d716bf1ca1ad8da2a05d15cb7c28d7d4e
+  md5: 1bee70681f504ea424fb07cdb090c001
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc-ng >=12
+  arch: x86_64
+  platform: linux
+  license: GPL-2.0-or-later
+  license_family: GPL
+  size: 115175
+  timestamp: 1720805894943
+- conda: https://conda.anaconda.org/conda-forge/noarch/pluggy-1.5.0-pyhd8ed1ab_0.conda
+  sha256: 33eaa3359948a260ebccf9cdc2fd862cea5a6029783289e13602d8e634cd9a26
+  md5: d3483c8fc2dc2cc3f5cf43e26d60cabf
+  depends:
+  - python >=3.8
+  license: MIT
+  license_family: MIT
+  size: 23815
+  timestamp: 1713667175451
+- conda: https://conda.anaconda.org/conda-forge/linux-64/pthread-stubs-0.4-hb9d3cd8_1002.conda
+  sha256: 9c88f8c64590e9567c6c80823f0328e58d3b1efb0e1c539c0315ceca764e0973
+  md5: b3c17d95b5a10c6e64a21fa17573e70e
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=13
+  arch: x86_64
+  platform: linux
+  license: MIT
+  license_family: MIT
+  size: 8252
+  timestamp: 1726802366959
+- conda: https://conda.anaconda.org/conda-forge/noarch/pycodestyle-2.12.1-pyhd8ed1ab_0.conda
+  sha256: ca548aa380edcc1a6e96893c0d870de9e22a7b0d4619ffa426875e6443a2044f
+  md5: 72453e39709f38d0494d096bb5f678b7
+  depends:
+  - python >=3.8
+  license: MIT
+  license_family: MIT
+  size: 34215
+  timestamp: 1722846854518
+- conda: https://conda.anaconda.org/conda-forge/noarch/pycparser-2.22-pyhd8ed1ab_0.conda
+  sha256: 406001ebf017688b1a1554b49127ca3a4ac4626ec0fd51dc75ffa4415b720b64
+  md5: 844d9eb3b43095b031874477f7d70088
+  depends:
+  - python >=3.8
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 105098
+  timestamp: 1711811634025
+- conda: https://conda.anaconda.org/conda-forge/noarch/pydocstyle-6.3.0-pyhd8ed1ab_0.conda
+  sha256: 2076385b40e99732a013eff3b8defd88cd848764b9911d8e0d21728fbc89e301
+  md5: 7e23a61a7fbaedfef6eb0e1ac775c8e5
+  depends:
+  - python >=3.8
+  - snowballstemmer >=2.2.0
+  - tomli >=1.2.3
+  license: MIT
+  license_family: MIT
+  size: 39851
+  timestamp: 1673997613432
+- conda: https://conda.anaconda.org/conda-forge/noarch/pyflakes-3.2.0-pyhd8ed1ab_0.conda
+  sha256: b1582410fcfa30b3597629e39b688ead87833c4a64f7c4637068f80aa1411d49
+  md5: 0cf7fef6aa123df28adb21a590065e3d
+  depends:
+  - python ==2.7.*|>=3.5
+  license: MIT
+  license_family: MIT
+  size: 58654
+  timestamp: 1704424729210
+- conda: https://conda.anaconda.org/conda-forge/noarch/pygments-2.18.0-pyhd8ed1ab_0.conda
+  sha256: 78267adf4e76d0d64ea2ffab008c501156c108bb08fecb703816fb63e279780b
+  md5: b7f5c092b8f9800150d998a71b76d5a1
+  depends:
+  - python >=3.8
+  license: BSD-2-Clause
+  license_family: BSD
+  size: 879295
+  timestamp: 1714846885370
+- conda: https://conda.anaconda.org/conda-forge/noarch/pyparsing-3.1.4-pyhd8ed1ab_0.conda
+  sha256: 8714a83f1aeac278b3eb33c7cb880c95c9a5924e7a5feeb9e87e7d0837afa085
+  md5: 4d91352a50949d049cf9714c8563d433
+  depends:
+  - python >=3.6
+  license: MIT
+  license_family: MIT
+  size: 90129
+  timestamp: 1724616224956
+- conda: https://conda.anaconda.org/conda-forge/noarch/pytest-8.3.4-pyhd8ed1ab_0.conda
+  sha256: 254256beab3dcf29907fbdccee6fbbb3371e9ac3782d2b1b5864596a0317818e
+  md5: ff8f2ef7f2636906b3781d0cf92388d0
+  depends:
+  - colorama
+  - exceptiongroup >=1.0.0rc8
+  - iniconfig
+  - packaging
+  - pluggy <2,>=1.5
+  - python >=3.8
+  - tomli >=1
+  constrains:
+  - pytest-faulthandler >=2
+  license: MIT
+  license_family: MIT
+  size: 259634
+  timestamp: 1733087755165
+- conda: https://conda.anaconda.org/conda-forge/linux-64/python-3.8.6-h852b56e_0_cpython.tar.bz2
+  sha256: b667c13cc6951728218e37f96206a9ed976a5c332e2189f0164199665ee4b265
+  md5: dd65401dfb61ac030edc0dc4d15c2c51
+  depends:
+  - ld_impl_linux-64 >=2.34
+  - libffi >=3.2.1,<3.3.0a0
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - openssl >=1.1.1h,<1.1.2a
+  - readline >=8.0,<9.0a0
+  - sqlite >=3.33.0,<4.0a0
+  - tk >=8.6.10,<8.7.0a0
+  - xz >=5.2.5,<6.0.0a0
+  - zlib >=1.2.11,<1.3.0a0
+  constrains:
+  - python_abi 3.8.* *_cp38
+  - python_abi * *_cp38
+  arch: x86_64
+  platform: linux
+  license: Python-2.0
+  size: 23156706
+  timestamp: 1602098642564
+- conda: https://conda.anaconda.org/conda-forge/noarch/python-dateutil-2.9.0-pyhd8ed1ab_0.conda
+  sha256: f3ceef02ac164a8d3a080d0d32f8e2ebe10dd29e3a685d240e38b3599e146320
+  md5: 2cf4264fffb9e6eff6031c5b6884d61c
+  depends:
+  - python >=3.7
+  - six >=1.5
+  license: Apache-2.0
+  license_family: APACHE
+  size: 222742
+  timestamp: 1709299922152
+- conda: https://conda.anaconda.org/conda-forge/linux-64/python_abi-3.8-5_cp38.conda
+  build_number: 5
+  sha256: 2be05be156f72ed7dc9569046396781cc9d818fbc03532acbf822afa65869d71
+  md5: 7caf714d16205dca32687a95ae71a472
+  constrains:
+  - python 3.8.* *_cpython
+  arch: x86_64
+  platform: linux
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 6196
+  timestamp: 1723823402019
+- conda: https://conda.anaconda.org/conda-forge/linux-64/pyyaml-6.0.2-py38h2019614_0.conda
+  sha256: d1ed7517fe3de38fe58b830294aa1129a5ced37db18cc8c8a558938f573e6af2
+  md5: 47a3b59acbb1626316500e178e25b944
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc-ng >=12
+  - python >=3.8,<3.9.0a0
+  - python_abi 3.8.* *_cp38
+  - yaml >=0.2.5,<0.3.0a0
+  arch: x86_64
+  platform: linux
+  license: MIT
+  license_family: MIT
+  size: 185348
+  timestamp: 1723018384639
+- conda: https://conda.anaconda.org/conda-forge/linux-64/qt-5.12.9-h1f2b2cb_0.tar.bz2
+  sha256: 460e821c7a3edcbdc605ff8865eb23e32ef951c6d5c01bb0f5b1c891f07480fa
+  md5: a372e7a1081e8f65df5177b709edec89
+  depends:
+  - dbus >=1.13.6,<2.0a0
+  - expat >=2.2.9,<3.0.0a0
+  - fontconfig >=2.13.1,<3.0a0
+  - freetype >=2.9.1,<3.0a0
+  - glib >=2.58.3,<3.0a0
+  - gst-plugins-base >=1.14.4,<1.15.0a0
+  - gstreamer >=1.14.4,<1.15.0a0
+  - icu >=67.1,<68.0a0
+  - jpeg >=9d,<10a
+  - libclang >=10.0.1,<11.0a0
+  - libevent >=2.1.10,<2.1.11.0a0
+  - libgcc-ng >=7.5.0
+  - libpng >=1.6.37,<1.7.0a0
+  - libpq >=12.3,<13.0a0
+  - libstdcxx-ng >=7.5.0
+  - libxcb
+  - libxkbcommon >=0.10.0,<1.0a0
+  - libxml2 >=2.9.10,<3.0.0a0
+  - mysql-libs >=8.0.21,<8.1.0.0a0
+  - nspr >=4.28,<5.0a0
+  - nss >=3.56,<4.0a0
+  - openssl >=1.1.1g,<1.1.2a
+  - sqlite >=3.33.0,<4.0a0
+  - zlib >=1.2.11,<1.3.0a0
+  arch: x86_64
+  platform: linux
+  license: LGPL-3.0-only
+  license_family: LGPL
+  size: 104005877
+  timestamp: 1599021669395
+- conda: https://conda.anaconda.org/conda-forge/linux-64/readline-8.2-h8228510_1.conda
+  sha256: 5435cf39d039387fbdc977b0a762357ea909a7694d9528ab40f005e9208744d7
+  md5: 47d31b792659ce70f470b5c82fdfb7a4
+  depends:
+  - libgcc-ng >=12
+  - ncurses >=6.3,<7.0a0
+  arch: x86_64
+  platform: linux
+  license: GPL-3.0-only
+  license_family: GPL
+  size: 281456
+  timestamp: 1679532220005
+- conda: https://conda.anaconda.org/conda-forge/linux-64/rhash-1.4.3-hd590300_2.conda
+  sha256: 475f68cac8981ff2b10c56e53c2f376fc3c805fbc7ec30d22f870cd88f1479ba
+  md5: 4cabe3858a856bff08d9a0992e413084
+  depends:
+  - libgcc-ng >=12
+  arch: x86_64
+  platform: linux
+  license: MIT
+  license_family: MIT
+  size: 184509
+  timestamp: 1693427593121
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-action-msgs-1.0.0-py38h348cfbe_0.tar.bz2
+  md5: aff200534b806472c8c267afdb7ddc77
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-builtin-interfaces
+  - ros-foxy-rosidl-default-runtime
+  - ros-foxy-unique-identifier-msgs
+  size: 84196
+  timestamp: 1610453929768
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-actionlib-msgs-2.0.3-py38h348cfbe_0.tar.bz2
+  md5: 88c265ae67b93a8bcea6c66e351547ad
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-builtin-interfaces
+  - ros-foxy-rosidl-default-runtime
+  - ros-foxy-std-msgs
+  size: 71151
+  timestamp: 1610454890511
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: 72af435098cb8386b83a15ea7c2ab89d
+  depends:
+  - cmake
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-core
+  - ros-foxy-ament-cmake-export-definitions
+  - ros-foxy-ament-cmake-export-dependencies
+  - ros-foxy-ament-cmake-export-include-directories
+  - ros-foxy-ament-cmake-export-interfaces
+  - ros-foxy-ament-cmake-export-libraries
+  - ros-foxy-ament-cmake-export-link-flags
+  - ros-foxy-ament-cmake-export-targets
+  - ros-foxy-ament-cmake-libraries
+  - ros-foxy-ament-cmake-python
+  - ros-foxy-ament-cmake-target-dependencies
+  - ros-foxy-ament-cmake-test
+  - ros-foxy-ament-cmake-version
+  size: 8628
+  timestamp: 1610118118519
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-auto-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: c21d9b78ae9f58a00bdf07ee02900ecf
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake
+  size: 10782
+  timestamp: 1610118311358
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-copyright-0.9.6-py38h348cfbe_0.tar.bz2
+  md5: 85c673eac76340d1827163914c87c502
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-test
+  - ros-foxy-ament-copyright
+  size: 8877
+  timestamp: 1610118625145
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-core-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: 5941b5c09dc4a813e10e56ba84719efb
+  depends:
+  - catkin_pkg
+  - cmake
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-package
+  size: 28320
+  timestamp: 1610117199216
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-cppcheck-0.9.6-py38h348cfbe_0.tar.bz2
+  md5: 699f0a74a6879f0545f791a6d81bf4c8
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-core
+  - ros-foxy-ament-cmake-test
+  - ros-foxy-ament-cppcheck
+  size: 9886
+  timestamp: 1610118916901
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-cpplint-0.9.6-py38h348cfbe_0.tar.bz2
+  md5: c72c63b2859666d88445401808312f74
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-test
+  - ros-foxy-ament-cpplint
+  size: 9300
+  timestamp: 1610118934706
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-export-definitions-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: 82301959f2a890507813fe5dc9a2070b
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-core
+  size: 8859
+  timestamp: 1610117498544
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-export-dependencies-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: 6a229b9ef27f93217e26571fc2d7e761
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-core
+  - ros-foxy-ament-cmake-libraries
+  size: 9543
+  timestamp: 1610117786070
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-export-include-directories-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: d1ac1df01c4478395b5a2f551b594dcb
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-core
+  size: 9246
+  timestamp: 1610117436293
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-export-interfaces-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: 5d702cd77f3b24b8dcdadcbb8f93b17b
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-core
+  - ros-foxy-ament-cmake-export-libraries
+  size: 9385
+  timestamp: 1610117804104
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-export-libraries-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: 0c7eb458a15f44d2e5876732055bb639
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-core
+  size: 10862
+  timestamp: 1610117453472
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-export-link-flags-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: 261ad16e326e1fb78f6d4d63a22e1db9
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-core
+  size: 8824
+  timestamp: 1610117470708
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-export-targets-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: 6d14e0485e8cb3f16ec674c0f58eb759
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-core
+  - ros-foxy-ament-cmake-export-libraries
+  size: 9301
+  timestamp: 1610117821291
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-flake8-0.9.6-py38h348cfbe_0.tar.bz2
+  md5: 8dfb318252327b94c9cd33324da43c45
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-test
+  - ros-foxy-ament-flake8
+  size: 9042
+  timestamp: 1610118956123
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-gmock-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: c80902fbd1723821d528bcb73bd60306
+  depends:
+  - gmock
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-gtest
+  - ros-foxy-ament-cmake-test
+  - ros-foxy-gmock-vendor
+  size: 10671
+  timestamp: 1610118350067
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-gtest-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: bb2349afe4ef96c89a4c86f3735c028e
+  depends:
+  - gtest
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-test
+  - ros-foxy-gtest-vendor
+  size: 11246
+  timestamp: 1610118068031
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-include-directories-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: 0faf03deef200ba7fc83c6520e0a3579
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-core
+  size: 8783
+  timestamp: 1610117488180
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-libraries-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: b5e8f9abbf718f288dcc77c82479aba7
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-core
+  size: 9147
+  timestamp: 1610117517252
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-lint-cmake-0.9.6-py38h348cfbe_0.tar.bz2
+  md5: 01321f1e2eef4dfd660f345e2e7dc79a
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-test
+  - ros-foxy-ament-lint-cmake
+  size: 8879
+  timestamp: 1610118312335
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-pep257-0.9.6-py38h348cfbe_0.tar.bz2
+  md5: 752e1b50f0d4adf8b56e2f662c95582d
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-test
+  - ros-foxy-ament-pep257
+  size: 8950
+  timestamp: 1610118974542
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-pytest-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: 867fa9ba972ba6f69541b451dee53fc7
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - pytest
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-core
+  - ros-foxy-ament-cmake-test
+  size: 10617
+  timestamp: 1610118026211
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-python-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: 5ee35f3b27afd02782df2157f9820168
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-core
+  size: 9747
+  timestamp: 1610117452794
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-ros-0.9.0-py38h348cfbe_0.tar.bz2
+  md5: 42c1a4be5e53b495c51219068a6e6bcc
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake
+  - ros-foxy-ament-cmake-gmock
+  - ros-foxy-ament-cmake-gtest
+  - ros-foxy-ament-cmake-pytest
+  - ros-foxy-domain-coordinator
+  size: 10922
+  timestamp: 1610450772063
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-target-dependencies-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: 2a08e088727a5f1353cbb140cc8a95c8
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-core
+  - ros-foxy-ament-cmake-include-directories
+  - ros-foxy-ament-cmake-libraries
+  size: 10259
+  timestamp: 1610117731665
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-test-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: 338c1faf85f4ce564700381d49ab4921
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-core
+  size: 17994
+  timestamp: 1610117738411
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-uncrustify-0.9.6-py38h348cfbe_0.tar.bz2
+  md5: a3e2307d83985d64f637f5e65546897d
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-test
+  - ros-foxy-ament-uncrustify
+  size: 9276
+  timestamp: 1610118992427
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-version-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: dc647a3cff85ace22cd85309ae4bb206
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-core
+  size: 8654
+  timestamp: 1610117506183
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cmake-xmllint-0.9.6-py38h348cfbe_0.tar.bz2
+  md5: f3f90ac5ef3f4764c613ba0b78cc31f2
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-test
+  - ros-foxy-ament-xmllint
+  size: 9011
+  timestamp: 1610118911831
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-copyright-0.9.6-py38h348cfbe_0.tar.bz2
+  md5: d8efff45c6e81cd423bc8098cfacb3e1
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-lint
+  size: 43672
+  timestamp: 1610117767982
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cppcheck-0.9.6-py38h348cfbe_0.tar.bz2
+  md5: c0ce467e122b5d049fa089257b7d1c44
+  depends:
+  - cppcheck
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  size: 13980
+  timestamp: 1610115875571
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-cpplint-0.9.6-py38h348cfbe_0.tar.bz2
+  md5: 2f0c11707845465aa49dcfcddf312d66
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  size: 105828
+  timestamp: 1610118099022
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-flake8-0.9.6-py38h348cfbe_0.tar.bz2
+  md5: f3e792f389fc5a24fae2ba6d72285179
+  depends:
+  - flake8
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-lint
+  size: 15463
+  timestamp: 1610117215688
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-index-cpp-1.0.1-py38h348cfbe_0.tar.bz2
+  md5: 305de66184bd89aa7d8fdf83ea9714b6
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  size: 29387
+  timestamp: 1610119728138
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-index-python-1.0.1-py38h348cfbe_0.tar.bz2
+  md5: 2459f6884384e8eb06ea5b4dc924029e
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  size: 13101
+  timestamp: 1610118116191
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-lint-0.9.6-py38h348cfbe_0.tar.bz2
+  md5: f49855fa2d8cfd18a885f519d28252e5
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  size: 6422
+  timestamp: 1610115860515
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-lint-auto-0.9.6-py38h348cfbe_0.tar.bz2
+  md5: dbe397215bea39c3ae20a4a48bb9379c
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-core
+  - ros-foxy-ament-cmake-test
+  size: 8768
+  timestamp: 1610118047642
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-lint-cmake-0.9.6-py38h348cfbe_0.tar.bz2
+  md5: 7c15ddcdcd2d3c2d927f2651e534ebcc
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  size: 20976
+  timestamp: 1610118074123
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-lint-common-0.9.6-py38h348cfbe_0.tar.bz2
+  md5: f24a84d28a54c8dae0666700b9226400
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-copyright
+  - ros-foxy-ament-cmake-core
+  - ros-foxy-ament-cmake-cppcheck
+  - ros-foxy-ament-cmake-cpplint
+  - ros-foxy-ament-cmake-flake8
+  - ros-foxy-ament-cmake-lint-cmake
+  - ros-foxy-ament-cmake-pep257
+  - ros-foxy-ament-cmake-uncrustify
+  - ros-foxy-ament-cmake-xmllint
+  size: 8604
+  timestamp: 1610119192401
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-package-0.9.3-py38h348cfbe_0.tar.bz2
+  md5: c16b88ceb9da62e00cea9913314d5e92
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - setuptools
+  size: 29618
+  timestamp: 1610115842404
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-pep257-0.9.6-py38h348cfbe_0.tar.bz2
+  md5: a0ba8fa4d6668735f13fccbf87caa485
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - pydocstyle
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-lint
+  size: 12072
+  timestamp: 1610117480399
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-uncrustify-0.9.6-py38h348cfbe_0.tar.bz2
+  md5: f68f5f3a897ad22ae669e39fe2200b21
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-uncrustify-vendor
+  size: 32476
+  timestamp: 1610118639304
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ament-xmllint-0.9.6-py38h348cfbe_0.tar.bz2
+  md5: fd3dc775930615cbf5d450665fe75645
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - libxml2
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-lint
+  size: 13124
+  timestamp: 1610118029131
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-builtin-interfaces-1.0.0-py38h348cfbe_0.tar.bz2
+  md5: 82544607cc9bec73ff6e52d6fff07053
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-rosidl-default-runtime
+  size: 49791
+  timestamp: 1610453305710
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-class-loader-2.0.1-py38h3dbb906_0.tar.bz2
+  md5: b82a992b176b6823411f84d01a67076b
+  depends:
+  - console_bridge >=1.0.1,<1.1.0a0
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-console-bridge-vendor
+  - ros-foxy-rcpputils
+  size: 56997
+  timestamp: 1610452111799
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-common-interfaces-2.0.3-py38h348cfbe_0.tar.bz2
+  md5: b22a396742b60524cb000f34f0c73944
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-actionlib-msgs
+  - ros-foxy-builtin-interfaces
+  - ros-foxy-diagnostic-msgs
+  - ros-foxy-geometry-msgs
+  - ros-foxy-nav-msgs
+  - ros-foxy-sensor-msgs
+  - ros-foxy-shape-msgs
+  - ros-foxy-std-msgs
+  - ros-foxy-std-srvs
+  - ros-foxy-stereo-msgs
+  - ros-foxy-trajectory-msgs
+  - ros-foxy-visualization-msgs
+  size: 7917
+  timestamp: 1610455744747
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-composition-interfaces-1.0.0-py38h348cfbe_0.tar.bz2
+  md5: 80ee7a5a8b8ea66a2a03357608a7d6b5
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-rcl-interfaces
+  - ros-foxy-rosidl-default-runtime
+  size: 108250
+  timestamp: 1610454846520
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-connext-cmake-module-1.0.2-py38h348cfbe_0.tar.bz2
+  md5: ff4fd70678f6d7344a32ed474ef69618
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake
+  size: 12103
+  timestamp: 1610119607843
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-console-bridge-vendor-1.2.3-py38h3dbb906_0.tar.bz2
+  md5: bff7e2f7329aaf87358d8407fc1701cc
+  depends:
+  - console_bridge >=1.0.1,<1.1.0a0
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  size: 7876
+  timestamp: 1610451134039
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-cyclonedds-0.7.0-py38heddcf40_0.tar.bz2
+  md5: 61f30e2b28584e53adee3c3bfcb1ad40
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - openssl >=1.1.1i,<1.1.2a
+  - python 3.8.*
+  - python_abi 3.8.*
+  size: 4051543
+  timestamp: 1610116978503
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-diagnostic-msgs-2.0.3-py38h348cfbe_0.tar.bz2
+  md5: 23b75d6594024bff1fac7cd533bf442b
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-builtin-interfaces
+  - ros-foxy-geometry-msgs
+  - ros-foxy-rosidl-default-runtime
+  - ros-foxy-std-msgs
+  size: 109219
+  timestamp: 1610455407106
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-domain-coordinator-0.9.0-py38h348cfbe_0.tar.bz2
+  md5: a7724b5bf34c95c5da2c857947ccab0f
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  size: 8060
+  timestamp: 1610118092145
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-eigen3-cmake-module-0.1.1-py38h348cfbe_0.tar.bz2
+  md5: e728fafa8a3eb9e95506c00e2961963f
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  size: 8519
+  timestamp: 1610118930260
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-fastcdr-1.0.13-py38h348cfbe_0.tar.bz2
+  md5: 57c9a7d6d9347c7e13d0685f2320d6a7
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  size: 52015
+  timestamp: 1610116863387
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-fastrtps-2.0.2-py38heddcf40_0.tar.bz2
+  md5: 0502b4f2673e6ab9129a2581e62bb27c
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - openssl >=1.1.1i,<1.1.2a
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-fastcdr
+  - ros-foxy-foonathan-memory-vendor
+  - tinyxml2 >=8.0.0,<8.1.0a0
+  size: 3319779
+  timestamp: 1610119971216
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-fastrtps-cmake-module-1.0.2-py38h348cfbe_0.tar.bz2
+  md5: 64deff183868dc10fa53f6c10cfee339
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  size: 8853
+  timestamp: 1610120001923
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-foonathan-memory-vendor-1.0.0-py38h348cfbe_0.tar.bz2
+  md5: 12ae521ee5f334adc7bfe3cbf6765ece
+  depends:
+  - cmake
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  size: 183545
+  timestamp: 1610119287040
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-geometry-msgs-2.0.3-py38h348cfbe_0.tar.bz2
+  md5: 3b2502802b73a8f24776e6cc3b31f764
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-rosidl-default-runtime
+  - ros-foxy-std-msgs
+  size: 235862
+  timestamp: 1610454799220
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-geometry2-0.13.9-py38h348cfbe_0.tar.bz2
+  md5: 62226ef89cf748b84648bc0ae4b41410
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-tf2
+  - ros-foxy-tf2-bullet
+  - ros-foxy-tf2-eigen
+  - ros-foxy-tf2-geometry-msgs
+  - ros-foxy-tf2-kdl
+  - ros-foxy-tf2-msgs
+  - ros-foxy-tf2-py
+  - ros-foxy-tf2-ros
+  - ros-foxy-tf2-sensor-msgs
+  - ros-foxy-tf2-tools
+  size: 7864
+  timestamp: 1610457749504
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-gmock-vendor-1.8.9000-py38h348cfbe_0.tar.bz2
+  md5: 2c0279a07f03c5c06950036481f99e89
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-gtest-vendor
+  size: 101598
+  timestamp: 1610117231803
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-gtest-vendor-1.8.9000-py38h348cfbe_0.tar.bz2
+  md5: 092d7a018ee9b4c2e5a31c760c1242c8
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  size: 189976
+  timestamp: 1610116784418
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-kdl-parser-2.4.1-py38h348cfbe_0.tar.bz2
+  md5: e7e3c92ac606e90b41e752dfd2129be5
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-orocos-kdl
+  - ros-foxy-tinyxml-vendor
+  - ros-foxy-urdf
+  - ros-foxy-urdfdom-headers
+  - tinyxml
+  size: 31708
+  timestamp: 1610451999218
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-launch-0.10.4-py38h348cfbe_0.tar.bz2
+  md5: 363cf6383c5480ba3a0f2b22855a5e1f
+  depends:
+  - lark-parser
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-index-python
+  - ros-foxy-osrf-pycommon
+  size: 121102
+  timestamp: 1610118377444
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-launch-ros-0.11.1-py38h348cfbe_0.tar.bz2
+  md5: 2a3e792d8ee227aa9173988e38762d84
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - pyyaml
+  - ros-foxy-ament-index-python
+  - ros-foxy-composition-interfaces
+  - ros-foxy-launch
+  - ros-foxy-lifecycle-msgs
+  - ros-foxy-osrf-pycommon
+  - ros-foxy-rclpy
+  size: 50567
+  timestamp: 1610456731093
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-launch-testing-0.10.4-py38h348cfbe_0.tar.bz2
+  md5: 334bf79615ece8b5626fb95b999111f9
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-index-python
+  - ros-foxy-launch
+  - ros-foxy-osrf-pycommon
+  size: 70670
+  timestamp: 1610118668644
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-launch-testing-ament-cmake-0.10.4-py38h348cfbe_0.tar.bz2
+  md5: 53281a38b8fc9a1884f3f647aabf105e
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-test
+  - ros-foxy-launch-testing
+  - ros-foxy-python-cmake-module
+  size: 10066
+  timestamp: 1610451056654
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-launch-testing-ros-0.11.1-py38h348cfbe_0.tar.bz2
+  md5: f918df87b833a4cc72e6ea114eaef526
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-launch-ros
+  - ros-foxy-launch-testing
+  - ros-foxy-rclpy
+  size: 16937
+  timestamp: 1610457037057
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-launch-xml-0.10.4-py38h348cfbe_0.tar.bz2
+  md5: cabf0b4d764e668cace7e6d234411149
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-launch
+  size: 10949
+  timestamp: 1610118693093
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-launch-yaml-0.10.4-py38h348cfbe_0.tar.bz2
+  md5: 54204c2b96a021fade22b2d4ae8cf5eb
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-launch
+  size: 11088
+  timestamp: 1610118717396
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-libstatistics-collector-1.0.1-py38h348cfbe_0.tar.bz2
+  md5: 684b5071aa3e005b0ec5afd070c9ba27
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-rcl
+  - ros-foxy-rcpputils
+  - ros-foxy-rosidl-default-runtime
+  - ros-foxy-statistics-msgs
+  - ros-foxy-std-msgs
+  size: 28772
+  timestamp: 1610455970844
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-libyaml-vendor-1.0.2-py38h348cfbe_0.tar.bz2
+  md5: 1136338594cc303d3875cb07def220eb
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  size: 71502
+  timestamp: 1610119645318
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-lifecycle-msgs-1.0.0-py38h348cfbe_0.tar.bz2
+  md5: f628ee26f75a679a62f3a59c009dddde
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-rosidl-default-runtime
+  size: 141168
+  timestamp: 1610453451296
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-message-filters-3.2.5-py38h348cfbe_0.tar.bz2
+  md5: 117629e9ea3ca8c65f0d72c9395bd71a
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  size: 42843
+  timestamp: 1610456563179
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-nav-msgs-2.0.3-py38h348cfbe_0.tar.bz2
+  md5: 293f64bd6208acf88c4e7ded63f97a63
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-builtin-interfaces
+  - ros-foxy-geometry-msgs
+  - ros-foxy-rosidl-default-runtime
+  - ros-foxy-std-msgs
+  size: 141710
+  timestamp: 1610455130464
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-orocos-kdl-3.3.1-py38h348cfbe_0.tar.bz2
+  md5: 7984dda65d9837ea68dd82b84d71f748
+  depends:
+  - eigen
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - pkg-config
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-eigen3-cmake-module
+  size: 392437
+  timestamp: 1610119375533
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-osrf-pycommon-0.1.10-py38h348cfbe_0.tar.bz2
+  md5: fa9254264dfa1eb2a94b94b05bf60731
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - mock
+  - python 3.8.*
+  - python_abi 3.8.*
+  size: 48353
+  timestamp: 1610116798106
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-pluginlib-2.5.3-py38h348cfbe_0.tar.bz2
+  md5: 3aad1a9b139d54f28bd7b548ece8ee32
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-index-cpp
+  - ros-foxy-class-loader
+  - ros-foxy-rcpputils
+  - ros-foxy-rcutils
+  - ros-foxy-tinyxml2-vendor
+  size: 25799
+  timestamp: 1610452309864
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-python-cmake-module-0.8.0-py38h348cfbe_0.tar.bz2
+  md5: dcea99e20426a765c5f03a75536b6bb5
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  size: 9887
+  timestamp: 1610450796985
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rcl-1.1.10-py38h348cfbe_0.tar.bz2
+  md5: 67dddc4108bc45e02b084c147ba1c6d7
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-rcl-interfaces
+  - ros-foxy-rcl-logging-spdlog
+  - ros-foxy-rcl-yaml-param-parser
+  - ros-foxy-rcutils
+  - ros-foxy-rmw
+  - ros-foxy-rmw-fastrtps-cpp
+  - ros-foxy-rmw-implementation
+  - ros-foxy-rosidl-runtime-c
+  - ros-foxy-tracetools
+  size: 137754
+  timestamp: 1610455717622
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rcl-action-1.1.10-py38h348cfbe_0.tar.bz2
+  md5: 45d922f7089966e7065baa5690965976
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-action-msgs
+  - ros-foxy-rcl
+  - ros-foxy-rcutils
+  - ros-foxy-rmw
+  - ros-foxy-rosidl-runtime-c
+  size: 51597
+  timestamp: 1610456013079
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rcl-interfaces-1.0.0-py38h348cfbe_0.tar.bz2
+  md5: 200bdefd841277bf498049599720f67a
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-builtin-interfaces
+  - ros-foxy-rosidl-default-runtime
+  size: 271674
+  timestamp: 1610453758065
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rcl-lifecycle-1.1.10-py38h348cfbe_0.tar.bz2
+  md5: 8039541ab2b915c6c0a2741e1f391409
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-lifecycle-msgs
+  - ros-foxy-rcl
+  - ros-foxy-rcutils
+  - ros-foxy-rmw
+  - ros-foxy-rosidl-runtime-c
+  size: 30648
+  timestamp: 1610456050319
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rcl-logging-spdlog-1.0.1-py38h348cfbe_0.tar.bz2
+  md5: d496ca547eca12f446aa120adfb5cbea
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-rcutils
+  - ros-foxy-spdlog-vendor
+  - spdlog >=1.8.2,<2.0a0
+  size: 23993
+  timestamp: 1610451741829
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rcl-yaml-param-parser-1.1.10-py38h348cfbe_0.tar.bz2
+  md5: 49b2bd360d4d4b9a14e8c87beb09631d
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-libyaml-vendor
+  - yaml >=0.2.5,<0.3.0a0
+  size: 29439
+  timestamp: 1610452084680
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rclcpp-2.3.0-py38h348cfbe_0.tar.bz2
+  md5: 387819c0c25d206b81060e41f0ed1968
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-builtin-interfaces
+  - ros-foxy-libstatistics-collector
+  - ros-foxy-rcl
+  - ros-foxy-rcl-interfaces
+  - ros-foxy-rcl-yaml-param-parser
+  - ros-foxy-rcpputils
+  - ros-foxy-rcutils
+  - ros-foxy-rmw
+  - ros-foxy-rosgraph-msgs
+  - ros-foxy-rosidl-runtime-cpp
+  - ros-foxy-rosidl-typesupport-c
+  - ros-foxy-rosidl-typesupport-cpp
+  - ros-foxy-statistics-msgs
+  - ros-foxy-tracetools
+  size: 662486
+  timestamp: 1610456315696
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rclcpp-action-2.3.0-py38h348cfbe_0.tar.bz2
+  md5: a78b7b11c607632f62569e45f1ea4740
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-action-msgs
+  - ros-foxy-ament-cmake
+  - ros-foxy-rcl-action
+  - ros-foxy-rclcpp
+  - ros-foxy-rosidl-runtime-c
+  size: 69837
+  timestamp: 1610456610374
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rclcpp-components-2.3.0-py38h348cfbe_0.tar.bz2
+  md5: 5a7bf6b789e694a51ffa1f824d90d781
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-index-cpp
+  - ros-foxy-class-loader
+  - ros-foxy-composition-interfaces
+  - ros-foxy-rclcpp
+  size: 83152
+  timestamp: 1610456657787
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rclcpp-lifecycle-2.3.0-py38h348cfbe_0.tar.bz2
+  md5: 6c5bb40e55e1e902e5c854e363724307
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-lifecycle-msgs
+  - ros-foxy-rcl-lifecycle
+  - ros-foxy-rclcpp
+  - ros-foxy-rmw
+  - ros-foxy-rosidl-typesupport-cpp
+  size: 84702
+  timestamp: 1610456607788
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rclpy-1.0.5-py38h348cfbe_0.tar.bz2
+  md5: 3197db766b18d6ee2adf04dae7fdd813
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-index-python
+  - ros-foxy-builtin-interfaces
+  - ros-foxy-rcl
+  - ros-foxy-rcl-action
+  - ros-foxy-rcl-interfaces
+  - ros-foxy-rcl-yaml-param-parser
+  - ros-foxy-rmw-implementation
+  - ros-foxy-rosgraph-msgs
+  - ros-foxy-rpyutils
+  - ros-foxy-unique-identifier-msgs
+  size: 182051
+  timestamp: 1610456355170
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rcpputils-1.3.1-py38h348cfbe_0.tar.bz2
+  md5: 8026e2193026abb78f64b3c4d99ebc0c
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-rcutils
+  size: 38048
+  timestamp: 1610451680832
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rcutils-1.1.2-py38h348cfbe_0.tar.bz2
+  md5: fda8f14b5444432218e033049d23c3f1
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  size: 88603
+  timestamp: 1610451384333
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rmw-1.0.2-py38h348cfbe_0.tar.bz2
+  md5: 0fccbd41e91f56e6531fe6287aba3940
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-rcutils
+  - ros-foxy-rosidl-runtime-c
+  size: 58535
+  timestamp: 1610452022131
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rmw-connext-cpp-1.0.3-py38h348cfbe_0.tar.bz2
+  md5: e3d7512b211eca441856946b6b0f9d18
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake
+  - ros-foxy-connext-cmake-module
+  - ros-foxy-rcpputils
+  - ros-foxy-rcutils
+  - ros-foxy-rmw
+  - ros-foxy-rmw-connext-shared-cpp
+  - ros-foxy-rosidl-cmake
+  - ros-foxy-rosidl-runtime-c
+  - ros-foxy-rosidl-runtime-cpp
+  - ros-foxy-rosidl-typesupport-connext-c
+  - ros-foxy-rosidl-typesupport-connext-cpp
+  size: 8097
+  timestamp: 1610452764282
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rmw-connext-shared-cpp-1.0.3-py38h348cfbe_0.tar.bz2
+  md5: 197ba413407a5287242fbb566b538202
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake
+  - ros-foxy-connext-cmake-module
+  size: 7874
+  timestamp: 1610452452858
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rmw-cyclonedds-cpp-0.7.6-py38h348cfbe_0.tar.bz2
+  md5: e60f035a36401521eea076563734776c
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-cyclonedds
+  - ros-foxy-rcpputils
+  - ros-foxy-rcutils
+  - ros-foxy-rmw
+  - ros-foxy-rmw-dds-common
+  - ros-foxy-rosidl-runtime-c
+  - ros-foxy-rosidl-typesupport-introspection-c
+  - ros-foxy-rosidl-typesupport-introspection-cpp
+  size: 215709
+  timestamp: 1610453812668
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rmw-dds-common-1.0.2-py38h348cfbe_0.tar.bz2
+  md5: b4a89623605b617376a92b0ff99fa65e
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-rcpputils
+  - ros-foxy-rcutils
+  - ros-foxy-rmw
+  - ros-foxy-rosidl-default-runtime
+  - ros-foxy-rosidl-runtime-cpp
+  size: 111657
+  timestamp: 1610453356265
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rmw-fastrtps-cpp-1.2.4-py38h348cfbe_0.tar.bz2
+  md5: a4b2be4b9c6538cd6b1ec2d7836ef20a
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake
+  - ros-foxy-fastcdr
+  - ros-foxy-fastrtps
+  - ros-foxy-fastrtps-cmake-module
+  - ros-foxy-rcpputils
+  - ros-foxy-rcutils
+  - ros-foxy-rmw
+  - ros-foxy-rmw-dds-common
+  - ros-foxy-rmw-fastrtps-shared-cpp
+  - ros-foxy-rosidl-cmake
+  - ros-foxy-rosidl-runtime-c
+  - ros-foxy-rosidl-runtime-cpp
+  - ros-foxy-rosidl-typesupport-fastrtps-c
+  - ros-foxy-rosidl-typesupport-fastrtps-cpp
+  size: 117404
+  timestamp: 1610455145791
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rmw-fastrtps-shared-cpp-1.2.4-py38h348cfbe_0.tar.bz2
+  md5: b48e342dc00d41d31d843d99a478495d
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake
+  - ros-foxy-fastcdr
+  - ros-foxy-fastrtps
+  - ros-foxy-fastrtps-cmake-module
+  - ros-foxy-rcpputils
+  - ros-foxy-rcutils
+  - ros-foxy-rmw
+  - ros-foxy-rmw-dds-common
+  size: 139478
+  timestamp: 1610453882796
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rmw-implementation-1.0.1-py38h348cfbe_0.tar.bz2
+  md5: db45c0b709bdb3c12045268fc3d1a477
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-rcpputils
+  - ros-foxy-rcutils
+  - ros-foxy-rmw-connext-cpp
+  - ros-foxy-rmw-cyclonedds-cpp
+  - ros-foxy-rmw-fastrtps-cpp
+  - ros-foxy-rmw-implementation-cmake
+  size: 27811
+  timestamp: 1610455629689
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rmw-implementation-cmake-1.0.2-py38h348cfbe_0.tar.bz2
+  md5: dc67aa8ac731586783fd5f30eb39e731
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake
+  size: 10654
+  timestamp: 1610119674267
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-robot-state-publisher-2.4.1-py38h348cfbe_0.tar.bz2
+  md5: 643eda0a2c96629bd6fb8c2a3fb92baa
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-builtin-interfaces
+  - ros-foxy-geometry-msgs
+  - ros-foxy-kdl-parser
+  - ros-foxy-orocos-kdl
+  - ros-foxy-rclcpp
+  - ros-foxy-rclcpp-components
+  - ros-foxy-sensor-msgs
+  - ros-foxy-std-msgs
+  - ros-foxy-tf2-ros
+  - ros-foxy-urdf
+  - ros-foxy-urdfdom-headers
+  size: 166580
+  timestamp: 1610457434542
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros-base-0.9.2-py38h348cfbe_0.tar.bz2
+  md5: 91d054231ecabc7b9e157afb92ca0251
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-geometry2
+  - ros-foxy-kdl-parser
+  - ros-foxy-robot-state-publisher
+  - ros-foxy-ros-core
+  - ros-foxy-rosbag2
+  - ros-foxy-urdf
+  size: 7786
+  timestamp: 1610459100039
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros-core-0.9.2-py38h348cfbe_0.tar.bz2
+  md5: ca0215b1c35d459ebad189fb4e3553a0
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake
+  - ros-foxy-ament-cmake-auto
+  - ros-foxy-ament-cmake-gmock
+  - ros-foxy-ament-cmake-gtest
+  - ros-foxy-ament-cmake-pytest
+  - ros-foxy-ament-cmake-ros
+  - ros-foxy-ament-index-cpp
+  - ros-foxy-ament-index-python
+  - ros-foxy-ament-lint-auto
+  - ros-foxy-ament-lint-common
+  - ros-foxy-class-loader
+  - ros-foxy-common-interfaces
+  - ros-foxy-launch
+  - ros-foxy-launch-ros
+  - ros-foxy-launch-testing
+  - ros-foxy-launch-testing-ament-cmake
+  - ros-foxy-launch-testing-ros
+  - ros-foxy-launch-xml
+  - ros-foxy-launch-yaml
+  - ros-foxy-pluginlib
+  - ros-foxy-rcl-lifecycle
+  - ros-foxy-rclcpp
+  - ros-foxy-rclcpp-lifecycle
+  - ros-foxy-rclpy
+  - ros-foxy-ros-environment
+  - ros-foxy-ros2action
+  - ros-foxy-ros2component
+  - ros-foxy-ros2doctor
+  - ros-foxy-ros2interface
+  - ros-foxy-ros2launch
+  - ros-foxy-ros2lifecycle
+  - ros-foxy-ros2multicast
+  - ros-foxy-ros2node
+  - ros-foxy-ros2param
+  - ros-foxy-ros2pkg
+  - ros-foxy-ros2run
+  - ros-foxy-ros2service
+  - ros-foxy-ros2topic
+  - ros-foxy-rosidl-default-generators
+  - ros-foxy-rosidl-default-runtime
+  - ros-foxy-sros2
+  - ros-foxy-sros2-cmake
+  size: 8451
+  timestamp: 1610458868190
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros-environment-2.5.0-py38h348cfbe_0.tar.bz2
+  md5: 86ebd9826f49fe831cbaae14f19dbbf4
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  size: 8319
+  timestamp: 1610117450369
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2action-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: 6b7b5a9564b1b60eeb6d3a4a7fd417eb
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-action-msgs
+  - ros-foxy-ament-index-python
+  - ros-foxy-rclpy
+  - ros-foxy-ros2cli
+  - ros-foxy-rosidl-runtime-py
+  size: 15651
+  timestamp: 1610458081585
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2bag-0.3.6-py38h348cfbe_0.tar.bz2
+  md5: 38eeb7ed29b72befdc56c45b10512fb7
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ros2cli
+  - ros-foxy-rosbag2-transport
+  size: 16424
+  timestamp: 1610458587343
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2cli-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: 3603a2a5ac811ab412f547b7257f3543
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - netifaces
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-rclpy
+  size: 36059
+  timestamp: 1610456565975
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2component-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: 46d159446a980d7a4db41f733e4b237d
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-index-python
+  - ros-foxy-composition-interfaces
+  - ros-foxy-rcl-interfaces
+  - ros-foxy-rclcpp-components
+  - ros-foxy-rclpy
+  - ros-foxy-ros2cli
+  - ros-foxy-ros2node
+  - ros-foxy-ros2param
+  - ros-foxy-ros2pkg
+  size: 20849
+  timestamp: 1610458807797
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2doctor-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: 8624266003c88192b0c9ac80473ca424
+  depends:
+  - catkin_pkg
+  - ifcfg
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-index-python
+  - ros-foxy-rclpy
+  - ros-foxy-ros2cli
+  - rosdistro
+  size: 26823
+  timestamp: 1610458216196
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2interface-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: 97967775d4d7a61c93ed92bdbc7376ee
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-index-python
+  - ros-foxy-ros2cli
+  - ros-foxy-rosidl-runtime-py
+  size: 13405
+  timestamp: 1610458071451
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2launch-0.11.1-py38h348cfbe_0.tar.bz2
+  md5: 782eda63ecc2879a54c1f8a1d9c98b41
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-index-python
+  - ros-foxy-launch
+  - ros-foxy-launch-ros
+  - ros-foxy-ros2cli
+  - ros-foxy-ros2pkg
+  size: 14674
+  timestamp: 1610458479827
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2lifecycle-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: 99daa1cf5445daf98b5548040934e5e1
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-lifecycle-msgs
+  - ros-foxy-rclpy
+  - ros-foxy-ros2cli
+  - ros-foxy-ros2node
+  - ros-foxy-ros2service
+  size: 15577
+  timestamp: 1610458514303
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2multicast-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: ccc9d436258ebb73d778ba12d66ad320
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ros2cli
+  size: 10890
+  timestamp: 1610457115973
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2node-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: 487a3551fb57eb2c7edbb993e7b812a0
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ros2cli
+  size: 13876
+  timestamp: 1610458115067
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2param-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: 5f6dfbee6772161b91d409eec5079e9d
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-rcl-interfaces
+  - ros-foxy-rclpy
+  - ros-foxy-ros2cli
+  - ros-foxy-ros2node
+  - ros-foxy-ros2service
+  size: 20273
+  timestamp: 1610458445367
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2pkg-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: e2976f0f6e4e4d9a3c957d92d8631d04
+  depends:
+  - catkin_pkg
+  - empy
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-index-python
+  - ros-foxy-ros2cli
+  size: 24522
+  timestamp: 1610458180980
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2run-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: 7d7bf58e92d105b3b6eaf70320ab3131
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ros2cli
+  - ros-foxy-ros2pkg
+  size: 10191
+  timestamp: 1610458547191
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2service-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: 99d6df6f7e7614b2ecce228e488e0d9e
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - pyyaml
+  - ros-foxy-rclpy
+  - ros-foxy-ros2cli
+  - ros-foxy-rosidl-runtime-py
+  size: 14975
+  timestamp: 1610458148062
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-ros2topic-0.9.8-py38h348cfbe_0.tar.bz2
+  md5: b95220a92370e6298a44076630fdca8c
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - numpy
+  - python 3.8.*
+  - python_abi 3.8.*
+  - pyyaml
+  - ros-foxy-rclpy
+  - ros-foxy-ros2cli
+  - ros-foxy-rosidl-runtime-py
+  size: 30024
+  timestamp: 1610458103641
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosbag2-0.3.6-py38h348cfbe_0.tar.bz2
+  md5: 57e0c4a45f477f0550cda66002cd3f8b
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ros2bag
+  - ros-foxy-rosbag2-compression
+  - ros-foxy-rosbag2-converter-default-plugins
+  - ros-foxy-rosbag2-cpp
+  - ros-foxy-rosbag2-storage
+  - ros-foxy-rosbag2-storage-default-plugins
+  - ros-foxy-rosbag2-transport
+  - ros-foxy-shared-queues-vendor
+  - ros-foxy-sqlite3-vendor
+  size: 7855
+  timestamp: 1610458895319
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosbag2-compression-0.3.6-py38h348cfbe_0.tar.bz2
+  md5: 9f4f5bb6b485c750b2911e716360cb10
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-rcpputils
+  - ros-foxy-rcutils
+  - ros-foxy-rosbag2-cpp
+  - ros-foxy-rosbag2-storage
+  - ros-foxy-zstd-vendor
+  size: 81948
+  timestamp: 1610457814888
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosbag2-converter-default-plugins-0.3.6-py38h348cfbe_0.tar.bz2
+  md5: febb49ce0e3c5d0468f2e6e537bb9700
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-index-cpp
+  - ros-foxy-pluginlib
+  - ros-foxy-rcpputils
+  - ros-foxy-rmw
+  - ros-foxy-rmw-fastrtps-cpp
+  - ros-foxy-rosbag2-cpp
+  - ros-foxy-rosidl-runtime-cpp
+  size: 380086
+  timestamp: 1610457849330
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosbag2-cpp-0.3.6-py38h348cfbe_0.tar.bz2
+  md5: 176a9348c02bc771f9deda3b9a42c000
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-index-cpp
+  - ros-foxy-pluginlib
+  - ros-foxy-rcpputils
+  - ros-foxy-rcutils
+  - ros-foxy-rosbag2-storage
+  - ros-foxy-rosidl-runtime-c
+  - ros-foxy-rosidl-runtime-cpp
+  - ros-foxy-rosidl-typesupport-cpp
+  - ros-foxy-rosidl-typesupport-introspection-cpp
+  - ros-foxy-shared-queues-vendor
+  size: 196147
+  timestamp: 1610457558439
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosbag2-storage-0.3.6-py38h348cfbe_0.tar.bz2
+  md5: b5e0b89c29f519bd301d5d75a4235017
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-pluginlib
+  - ros-foxy-rcpputils
+  - ros-foxy-rcutils
+  - ros-foxy-yaml-cpp-vendor
+  size: 541474
+  timestamp: 1610456969824
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosbag2-storage-default-plugins-0.3.6-py38h348cfbe_0.tar.bz2
+  md5: 8b8adcf3cece47e6d67654b08d7c176a
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-pluginlib
+  - ros-foxy-rcpputils
+  - ros-foxy-rcutils
+  - ros-foxy-rosbag2-storage
+  - ros-foxy-sqlite3-vendor
+  size: 67958
+  timestamp: 1610457379888
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosbag2-transport-0.3.6-py38h348cfbe_0.tar.bz2
+  md5: a988b866af7c9b4f35f808b8bb182c1d
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-python-cmake-module
+  - ros-foxy-rclcpp
+  - ros-foxy-rmw
+  - ros-foxy-rosbag2-compression
+  - ros-foxy-rosbag2-cpp
+  - ros-foxy-rosbag2-storage
+  - ros-foxy-rpyutils
+  - ros-foxy-shared-queues-vendor
+  - ros-foxy-yaml-cpp-vendor
+  size: 163221
+  timestamp: 1610458165707
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosgraph-msgs-1.0.0-py38h348cfbe_0.tar.bz2
+  md5: 46018fcdad83e9ddf85d4d4750b57fa6
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-builtin-interfaces
+  - ros-foxy-rosidl-default-runtime
+  size: 41788
+  timestamp: 1610453799468
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-adapter-1.2.0-py38h348cfbe_0.tar.bz2
+  md5: dc216797cdcf42f20d554b9b0d4ff218
+  depends:
+  - empy
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  size: 32795
+  timestamp: 1610450709585
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-cmake-1.2.0-py38h348cfbe_0.tar.bz2
+  md5: 8fa8d57bfc69fe6392fc75b7de53fed2
+  depends:
+  - empy
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake
+  - ros-foxy-rosidl-adapter
+  - ros-foxy-rosidl-parser
+  size: 19327
+  timestamp: 1610451348484
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-default-generators-1.0.0-py38h348cfbe_0.tar.bz2
+  md5: 1eb4c59907d26f32e2b195b2722713fd
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-core
+  - ros-foxy-rosidl-cmake
+  - ros-foxy-rosidl-generator-c
+  - ros-foxy-rosidl-generator-cpp
+  - ros-foxy-rosidl-generator-py
+  - ros-foxy-rosidl-typesupport-c
+  - ros-foxy-rosidl-typesupport-connext-c
+  - ros-foxy-rosidl-typesupport-connext-cpp
+  - ros-foxy-rosidl-typesupport-cpp
+  - ros-foxy-rosidl-typesupport-fastrtps-c
+  - ros-foxy-rosidl-typesupport-fastrtps-cpp
+  - ros-foxy-rosidl-typesupport-introspection-c
+  - ros-foxy-rosidl-typesupport-introspection-cpp
+  size: 8976
+  timestamp: 1610453042383
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-default-runtime-1.0.0-py38h348cfbe_0.tar.bz2
+  md5: 68146f288db213ce03add00666732585
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-rosidl-generator-py
+  - ros-foxy-rosidl-runtime-c
+  - ros-foxy-rosidl-runtime-cpp
+  - ros-foxy-rosidl-typesupport-c
+  - ros-foxy-rosidl-typesupport-connext-c
+  - ros-foxy-rosidl-typesupport-connext-cpp
+  - ros-foxy-rosidl-typesupport-cpp
+  - ros-foxy-rosidl-typesupport-fastrtps-c
+  - ros-foxy-rosidl-typesupport-fastrtps-cpp
+  - ros-foxy-rosidl-typesupport-introspection-c
+  - ros-foxy-rosidl-typesupport-introspection-cpp
+  size: 8213
+  timestamp: 1610453072458
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-generator-c-1.2.0-py38h348cfbe_0.tar.bz2
+  md5: 38ed9d853963e5d825bad6d8cb9095cb
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-core
+  - ros-foxy-rosidl-cmake
+  - ros-foxy-rosidl-parser
+  - ros-foxy-rosidl-typesupport-interface
+  size: 21760
+  timestamp: 1610451991904
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-generator-cpp-1.2.0-py38h348cfbe_0.tar.bz2
+  md5: a88b063d8196397f067c26091d3d58fe
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-core
+  - ros-foxy-rosidl-cmake
+  - ros-foxy-rosidl-generator-c
+  - ros-foxy-rosidl-parser
+  size: 24016
+  timestamp: 1610452326696
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-generator-dds-idl-0.7.1-py38h348cfbe_0.tar.bz2
+  md5: 4efdbe6a963b3f35ac5a958509356c74
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake
+  - ros-foxy-rosidl-cmake
+  size: 14081
+  timestamp: 1610451707903
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-generator-py-0.9.4-py38h27dcbf6_0.tar.bz2
+  md5: e1c6ff5cb1df48e6dc22badaf38bf78e
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - numpy 1.14.*
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake
+  - ros-foxy-ament-index-python
+  - ros-foxy-python-cmake-module
+  - ros-foxy-rmw
+  - ros-foxy-rosidl-cmake
+  - ros-foxy-rosidl-generator-c
+  - ros-foxy-rosidl-parser
+  - ros-foxy-rosidl-runtime-c
+  - ros-foxy-rosidl-typesupport-c
+  - ros-foxy-rosidl-typesupport-interface
+  - ros-foxy-rpyutils
+  size: 32290
+  timestamp: 1610452976934
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-parser-1.2.0-py38h348cfbe_0.tar.bz2
+  md5: 62f17e7f7b017823ed60420bc2860fa0
+  depends:
+  - lark-parser
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-rosidl-adapter
+  size: 31794
+  timestamp: 1610451036259
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-runtime-c-1.2.0-py38h348cfbe_0.tar.bz2
+  md5: f1995c38b093b592d30fc3f8985e7773
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake
+  - ros-foxy-rcutils
+  - ros-foxy-rosidl-typesupport-interface
+  size: 25265
+  timestamp: 1610451647463
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-runtime-cpp-1.2.0-py38h348cfbe_0.tar.bz2
+  md5: 51ef5863dd9f4b43db8ae711ec648e20
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake
+  size: 15421
+  timestamp: 1610451080835
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-runtime-py-0.9.0-py38h348cfbe_0.tar.bz2
+  md5: 4dee5f3a259423da4fdf393407552e58
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - numpy
+  - python 3.8.*
+  - python_abi 3.8.*
+  - pyyaml
+  - ros-foxy-rosidl-parser
+  size: 21541
+  timestamp: 1610455331518
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-typesupport-c-1.0.1-py38h348cfbe_0.tar.bz2
+  md5: 38424c80c0f9343d61b102fd30a4388e
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-core
+  - ros-foxy-rcpputils
+  - ros-foxy-rcutils
+  - ros-foxy-rosidl-runtime-c
+  - ros-foxy-rosidl-typesupport-connext-c
+  - ros-foxy-rosidl-typesupport-fastrtps-c
+  - ros-foxy-rosidl-typesupport-interface
+  - ros-foxy-rosidl-typesupport-introspection-c
+  size: 26692
+  timestamp: 1610452736241
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-typesupport-connext-c-1.0.2-py38h348cfbe_0.tar.bz2
+  md5: 9b55b835bcc249dbfb2097e8c288d338
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake
+  - ros-foxy-connext-cmake-module
+  - ros-foxy-rcutils
+  - ros-foxy-rmw
+  - ros-foxy-rosidl-cmake
+  - ros-foxy-rosidl-generator-c
+  - ros-foxy-rosidl-generator-dds-idl
+  - ros-foxy-rosidl-parser
+  - ros-foxy-rosidl-runtime-c
+  - ros-foxy-rosidl-typesupport-connext-cpp
+  size: 7933
+  timestamp: 1610452660457
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-typesupport-connext-cpp-1.0.2-py38h348cfbe_0.tar.bz2
+  md5: 6511d1bd4c692b29e3f68c1bac88da76
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake
+  - ros-foxy-connext-cmake-module
+  - ros-foxy-rcutils
+  - ros-foxy-rmw
+  - ros-foxy-rosidl-cmake
+  - ros-foxy-rosidl-generator-dds-idl
+  - ros-foxy-rosidl-parser
+  - ros-foxy-rosidl-runtime-c
+  - ros-foxy-rosidl-runtime-cpp
+  - ros-foxy-rosidl-typesupport-interface
+  size: 7987
+  timestamp: 1610452354865
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-typesupport-cpp-1.0.1-py38h348cfbe_0.tar.bz2
+  md5: 6423e803635cde877bad0a16714560f6
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-core
+  - ros-foxy-rcpputils
+  - ros-foxy-rosidl-runtime-c
+  - ros-foxy-rosidl-runtime-cpp
+  - ros-foxy-rosidl-typesupport-c
+  - ros-foxy-rosidl-typesupport-connext-cpp
+  - ros-foxy-rosidl-typesupport-fastrtps-cpp
+  - ros-foxy-rosidl-typesupport-interface
+  - ros-foxy-rosidl-typesupport-introspection-cpp
+  size: 26673
+  timestamp: 1610453011697
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-typesupport-fastrtps-c-1.0.2-py38h348cfbe_0.tar.bz2
+  md5: 94e2f78028b353f307ad27a9fbc684ed
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-ros
+  - ros-foxy-fastcdr
+  - ros-foxy-fastrtps
+  - ros-foxy-fastrtps-cmake-module
+  - ros-foxy-rmw
+  - ros-foxy-rosidl-cmake
+  - ros-foxy-rosidl-parser
+  - ros-foxy-rosidl-runtime-c
+  - ros-foxy-rosidl-typesupport-fastrtps-cpp
+  - ros-foxy-rosidl-typesupport-interface
+  size: 24715
+  timestamp: 1610452698967
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-typesupport-fastrtps-cpp-1.0.2-py38h348cfbe_0.tar.bz2
+  md5: af32b55678c9701cd1cada5dc0f1e22e
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake-ros
+  - ros-foxy-fastcdr
+  - ros-foxy-fastrtps
+  - ros-foxy-fastrtps-cmake-module
+  - ros-foxy-rmw
+  - ros-foxy-rosidl-cmake
+  - ros-foxy-rosidl-parser
+  - ros-foxy-rosidl-runtime-c
+  - ros-foxy-rosidl-runtime-cpp
+  - ros-foxy-rosidl-typesupport-interface
+  size: 26454
+  timestamp: 1610452390492
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-typesupport-interface-1.2.0-py38h348cfbe_0.tar.bz2
+  md5: cca3a699a4f0814ba8fbc35f1feb2083
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  size: 10015
+  timestamp: 1610119583340
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-typesupport-introspection-c-1.2.0-py38h348cfbe_0.tar.bz2
+  md5: a16e946eb02dd43e0c402c1457f28afc
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake
+  - ros-foxy-rosidl-cmake
+  - ros-foxy-rosidl-parser
+  - ros-foxy-rosidl-runtime-c
+  size: 22358
+  timestamp: 1610452052257
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rosidl-typesupport-introspection-cpp-1.2.0-py38h348cfbe_0.tar.bz2
+  md5: 687caf668b6a196a5ba09211437bfae5
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-cmake
+  - ros-foxy-rosidl-cmake
+  - ros-foxy-rosidl-parser
+  - ros-foxy-rosidl-runtime-c
+  - ros-foxy-rosidl-runtime-cpp
+  - ros-foxy-rosidl-typesupport-interface
+  - ros-foxy-rosidl-typesupport-introspection-c
+  size: 22326
+  timestamp: 1610452422116
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-rpyutils-0.2.0-py38h348cfbe_0.tar.bz2
+  md5: 487833baa6edb6b5ebf1ff8d2ebcf8ef
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  size: 12475
+  timestamp: 1610118401920
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-sensor-msgs-2.0.3-py38h348cfbe_0.tar.bz2
+  md5: ec3e7870b995bc84068b1ad8e8633966
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-builtin-interfaces
+  - ros-foxy-geometry-msgs
+  - ros-foxy-rosidl-default-runtime
+  - ros-foxy-std-msgs
+  size: 355675
+  timestamp: 1610455259034
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-shape-msgs-2.0.3-py38h348cfbe_0.tar.bz2
+  md5: 1ab935ea3c932d1f642b3d7b25d2d355
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-geometry-msgs
+  - ros-foxy-rosidl-default-runtime
+  size: 78854
+  timestamp: 1610455178838
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-shared-queues-vendor-0.3.6-py38h348cfbe_0.tar.bz2
+  md5: b0f1ca448b4a9523cb3a7d374dac82db
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  size: 49530
+  timestamp: 1610118427814
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-spdlog-vendor-1.1.2-py38h348cfbe_0.tar.bz2
+  md5: 62be74d6c652419ef27afe75b2b7b488
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - spdlog >=1.8.2,<2.0a0
+  size: 7744
+  timestamp: 1610120026521
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-sqlite3-vendor-0.3.6-py38h4dcd288_0.tar.bz2
+  md5: 334000995fad43197a57566891dd0dde
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - sqlite >=3.34.0,<4.0a0
+  size: 9220
+  timestamp: 1610118408661
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-sros2-0.9.4-py38h348cfbe_0.tar.bz2
+  md5: 72e85daad4227e1b5c8312e487887519
+  depends:
+  - cryptography
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - lxml
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ament-index-python
+  - ros-foxy-rclpy
+  - ros-foxy-ros2cli
+  size: 34333
+  timestamp: 1610457151602
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-sros2-cmake-0.9.4-py38h348cfbe_0.tar.bz2
+  md5: 2b1c2ffb7d5bdd46bb76491b83524102
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-ros2cli
+  - ros-foxy-sros2
+  size: 8943
+  timestamp: 1610457506688
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-statistics-msgs-1.0.0-py38h348cfbe_0.tar.bz2
+  md5: f193bcce165abee474f611d9254fe2c3
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-builtin-interfaces
+  - ros-foxy-rosidl-default-runtime
+  size: 70291
+  timestamp: 1610453974010
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-std-msgs-2.0.3-py38h348cfbe_0.tar.bz2
+  md5: 2d3c46d93014c064d0dc129ac6eba0d4
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-builtin-interfaces
+  - ros-foxy-rosidl-default-runtime
+  size: 243035
+  timestamp: 1610453758839
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-std-srvs-2.0.3-py38h348cfbe_0.tar.bz2
+  md5: 456e2c5cc2759de5203b2e3f679b7472
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-rosidl-default-runtime
+  size: 77966
+  timestamp: 1610453496135
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-stereo-msgs-2.0.3-py38h348cfbe_0.tar.bz2
+  md5: afb9ab35fa3c58dea7a620c2d05bac19
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-rosidl-default-runtime
+  - ros-foxy-sensor-msgs
+  - ros-foxy-std-msgs
+  size: 49034
+  timestamp: 1610455674497
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-tf2-0.13.9-py38h3dbb906_0.tar.bz2
+  md5: c7a305d468e5f49330cdf1a72d6c7a10
+  depends:
+  - console_bridge >=1.0.1,<1.1.0a0
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-console-bridge-vendor
+  - ros-foxy-geometry-msgs
+  - ros-foxy-rcutils
+  size: 97544
+  timestamp: 1610455353683
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-tf2-bullet-0.13.9-py38h71fd4cb_0.tar.bz2
+  md5: f8202164356053e22d4148dd71770ead
+  depends:
+  - bullet 2.88.*
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-geometry-msgs
+  - ros-foxy-tf2
+  - ros-foxy-tf2-ros
+  size: 11469
+  timestamp: 1610457389144
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-tf2-eigen-0.13.9-py38h348cfbe_0.tar.bz2
+  md5: 74ef12797a2240394c33db63a1b1af96
+  depends:
+  - eigen
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-eigen3-cmake-module
+  - ros-foxy-geometry-msgs
+  - ros-foxy-tf2
+  - ros-foxy-tf2-ros
+  size: 12275
+  timestamp: 1610457420029
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-tf2-geometry-msgs-0.13.9-py38h348cfbe_0.tar.bz2
+  md5: a0bb36687af4300f7590338fa9bc524d
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-geometry-msgs
+  - ros-foxy-orocos-kdl
+  - ros-foxy-tf2
+  - ros-foxy-tf2-ros
+  size: 13851
+  timestamp: 1610457450003
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-tf2-kdl-0.13.9-py38h348cfbe_0.tar.bz2
+  md5: 58cba34f003946e29d73b7baca814612
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-builtin-interfaces
+  - ros-foxy-geometry-msgs
+  - ros-foxy-orocos-kdl
+  - ros-foxy-tf2
+  - ros-foxy-tf2-ros
+  size: 13872
+  timestamp: 1610457479332
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-tf2-msgs-0.13.9-py38h348cfbe_0.tar.bz2
+  md5: eaaea0d47238d2f89bae0ba888e70f54
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-action-msgs
+  - ros-foxy-builtin-interfaces
+  - ros-foxy-geometry-msgs
+  - ros-foxy-rosidl-default-runtime
+  size: 133595
+  timestamp: 1610455318659
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-tf2-py-0.13.9-py38h348cfbe_0.tar.bz2
+  md5: 109979d4d27ab2ade95e4e11e6433353
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-builtin-interfaces
+  - ros-foxy-geometry-msgs
+  - ros-foxy-rclpy
+  - ros-foxy-rpyutils
+  - ros-foxy-tf2
+  size: 30933
+  timestamp: 1610456698132
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-tf2-ros-0.13.9-py38h348cfbe_0.tar.bz2
+  md5: c6e8c6680671fcef7d3c7c6cb5adad39
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-builtin-interfaces
+  - ros-foxy-geometry-msgs
+  - ros-foxy-message-filters
+  - ros-foxy-rcl-interfaces
+  - ros-foxy-rclcpp
+  - ros-foxy-rclcpp-action
+  - ros-foxy-rclcpp-components
+  - ros-foxy-rclpy
+  - ros-foxy-std-msgs
+  - ros-foxy-tf2
+  - ros-foxy-tf2-msgs
+  - ros-foxy-tf2-py
+  size: 395514
+  timestamp: 1610457002511
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-tf2-sensor-msgs-0.13.9-py38h348cfbe_0.tar.bz2
+  md5: 8cd0a33cf8fea8664941511ed931fe70
+  depends:
+  - eigen
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-eigen3-cmake-module
+  - ros-foxy-sensor-msgs
+  - ros-foxy-tf2
+  - ros-foxy-tf2-ros
+  size: 10418
+  timestamp: 1610457509835
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-tf2-tools-0.13.9-py38h348cfbe_0.tar.bz2
+  md5: 74c681d735a2521da39923b3896972d3
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-tf2
+  - ros-foxy-tf2-msgs
+  - ros-foxy-tf2-ros
+  size: 11377
+  timestamp: 1610457376520
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-tinyxml-vendor-0.8.0-py38h348cfbe_0.tar.bz2
+  md5: 1836dec6f2a3967f3942179ae7d83a8a
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - tinyxml
+  size: 8941
+  timestamp: 1610118327320
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-tinyxml2-vendor-0.7.3-py38h348cfbe_0.tar.bz2
+  md5: 3f88a63410bc47b1d780e37ac3f75c38
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - tinyxml2 >=8.0.0,<8.1.0a0
+  size: 9153
+  timestamp: 1610118342963
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-tracetools-1.0.5-py38h348cfbe_0.tar.bz2
+  md5: 600fe988e13908e4ccc099f45fe40fa4
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  size: 18959
+  timestamp: 1610451110666
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-trajectory-msgs-2.0.3-py38h348cfbe_0.tar.bz2
+  md5: 7a0e149aa4f70bc2194c8183a7d6bc67
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-builtin-interfaces
+  - ros-foxy-geometry-msgs
+  - ros-foxy-rosidl-default-runtime
+  - ros-foxy-std-msgs
+  size: 95221
+  timestamp: 1610455227200
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-turtlesim-1.2.5-py38h348cfbe_0.tar.bz2
+  md5: f5d588ee9d20f7a2e3126f85b66b9626
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - qt >=5.12.5,<5.13.0a0
+  - ros-foxy-ament-index-cpp
+  - ros-foxy-geometry-msgs
+  - ros-foxy-rclcpp
+  - ros-foxy-rclcpp-action
+  - ros-foxy-rosidl-default-runtime
+  - ros-foxy-std-msgs
+  - ros-foxy-std-srvs
+  - xorg-libx11
+  - xorg-libxext
+  size: 608890
+  timestamp: 1613925322200
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-uncrustify-vendor-1.4.0-py38h348cfbe_0.tar.bz2
+  md5: a2084fbe376e10f932d2caed87e4ccbe
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - uncrustify >=0.72.0,<0.73.0a0
+  size: 7757
+  timestamp: 1610118330235
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-unique-identifier-msgs-2.1.2-py38h348cfbe_0.tar.bz2
+  md5: deef16bd44632ff6f8234a4209a681a7
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-rosidl-default-runtime
+  size: 43133
+  timestamp: 1610453396704
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-urdf-2.4.0-py38h348cfbe_0.tar.bz2
+  md5: bb402d89f4f8d2a1afaeb2caa838b033
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-tinyxml-vendor
+  - ros-foxy-urdfdom
+  - ros-foxy-urdfdom-headers
+  - tinyxml
+  size: 29065
+  timestamp: 1610451775949
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-urdfdom-2.3.3-py38h3dbb906_0.tar.bz2
+  md5: 3e96ce0c9dde8f0af6c698372db4ab2b
+  depends:
+  - console_bridge >=1.0.1,<1.1.0a0
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-console-bridge-vendor
+  - ros-foxy-tinyxml-vendor
+  - ros-foxy-urdfdom-headers
+  - tinyxml
+  size: 130860
+  timestamp: 1610451422564
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-urdfdom-headers-1.0.5-py38h348cfbe_0.tar.bz2
+  md5: 1168100c6f79d09822a85a2157922b30
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  size: 17229
+  timestamp: 1610116997391
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-visualization-msgs-2.0.3-py38h348cfbe_0.tar.bz2
+  md5: 6233146bd473ca64fa3fc0d7babb4263
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - ros-foxy-builtin-interfaces
+  - ros-foxy-geometry-msgs
+  - ros-foxy-rosidl-default-runtime
+  - ros-foxy-std-msgs
+  size: 202930
+  timestamp: 1610455297084
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-yaml-cpp-vendor-7.0.2-py38h348cfbe_0.tar.bz2
+  md5: b16cf143b0d3a71dedd9e6422605a376
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  size: 217276
+  timestamp: 1610118408100
+- conda: https://conda.anaconda.org/robostack/linux-64/ros-foxy-zstd-vendor-0.3.6-py38h42ee183_0.tar.bz2
+  md5: c0522c82482ae1674eba4158fbe3741a
+  depends:
+  - libgcc-ng >=7.5.0
+  - libstdcxx-ng >=7.5.0
+  - python 3.8.*
+  - python_abi 3.8.*
+  - zstd >=1.4.4,<1.4.5.0a0
+  size: 327787
+  timestamp: 1610118388530
+- conda: https://conda.anaconda.org/conda-forge/linux-64/rosdistro-0.9.0-py38h578d9bd_1.conda
+  sha256: 2d3a2e7b6730487bc1e189c80dfa633f597805b0c2d4e9b970e25f343a8c864e
+  md5: f8e25a13ceb7ad9a3aedc7cec445b4ce
+  depends:
+  - catkin_pkg
+  - python >=3.8,<3.9.0a0
+  - python_abi 3.8.* *_cp38
+  - pyyaml
+  - rospkg
+  - setuptools
+  arch: x86_64
+  platform: linux
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 86062
+  timestamp: 1695546005016
+- conda: https://conda.anaconda.org/conda-forge/noarch/rospkg-1.5.1-pyhd8ed1ab_0.conda
+  sha256: 9ebf8fff7f588a41aeee41d31f4f92c8435fb5829b2278defcb13c649b6c9cd0
+  md5: dddaa715a79d020eda961e378a7ef0e5
+  depends:
+  - catkin_pkg
+  - distro
+  - python >=3.6
+  - pyyaml
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 31309
+  timestamp: 1713573999299
+- conda: https://conda.anaconda.org/conda-forge/noarch/setuptools-75.3.0-pyhd8ed1ab_0.conda
+  sha256: a36d020b9f32fc3f1a6488a1c4a9c13988c6468faf6895bf30ca69521a61230e
+  md5: 2ce9825396daf72baabaade36cee16da
+  depends:
+  - python >=3.8
+  license: MIT
+  license_family: MIT
+  size: 779561
+  timestamp: 1730382173961
+- conda: https://conda.anaconda.org/conda-forge/noarch/six-1.16.0-pyh6c4a22f_0.tar.bz2
+  sha256: a85c38227b446f42c5b90d9b642f2c0567880c15d72492d8da074a59c8f91dd6
+  md5: e5f25f8dbc060e9a8d912e432202afc2
+  depends:
+  - python
+  license: MIT
+  license_family: MIT
+  size: 14259
+  timestamp: 1620240338595
+- conda: https://conda.anaconda.org/conda-forge/noarch/snowballstemmer-2.2.0-pyhd8ed1ab_0.tar.bz2
+  sha256: a0fd916633252d99efb6223b1050202841fa8d2d53dacca564b0ed77249d3228
+  md5: 4d22a9315e78c6827f806065957d566e
+  depends:
+  - python >=2
+  license: BSD-3-Clause
+  license_family: BSD
+  size: 58824
+  timestamp: 1637143137377
+- conda: https://conda.anaconda.org/conda-forge/linux-64/spdlog-1.15.1-hb29a8c4_0.conda
+  sha256: 6a8fbb341a43c58d46cb57c6146f1443084be58dfa16583a53f87dbcbb8acea2
+  md5: 3666458a0c6a5c1ab099e0813ea2dc86
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - fmt >=11.0.2,<12.0a0
+  - libgcc >=13
+  - libstdcxx >=13
+  arch: x86_64
+  platform: linux
+  license: MIT
+  license_family: MIT
+  size: 194319
+  timestamp: 1738441351262
+- conda: https://conda.anaconda.org/conda-forge/linux-64/sqlite-3.46.0-h6d4b2fc_0.conda
+  sha256: e849d576e52bf3e6fc5786f89b7d76978f2e2438587826c95570324cb572e52b
+  md5: 77ea8dff5cf8550cc8f5629a6af56323
+  depends:
+  - libgcc-ng >=12
+  - libsqlite 3.46.0 hde9e2c9_0
+  - libzlib >=1.2.13,<2.0a0
+  - ncurses >=6.5,<7.0a0
+  - readline >=8.2,<9.0a0
+  arch: x86_64
+  platform: linux
+  license: Unlicense
+  size: 860352
+  timestamp: 1718050658212
+- conda: https://conda.anaconda.org/conda-forge/linux-64/tinyxml-2.6.2-h4bd325d_2.tar.bz2
+  sha256: d9e3c192c535c06ec139ada7bcd1f12313ebd377208fc8149348e8534229f39e
+  md5: 39dd0757ee71ccd5b120440dce126c37
+  depends:
+  - libgcc-ng >=9.3.0
+  - libstdcxx-ng >=9.3.0
+  arch: x86_64
+  platform: linux
+  license: Zlib
+  size: 56535
+  timestamp: 1611562094388
+- conda: https://conda.anaconda.org/conda-forge/linux-64/tinyxml2-8.0.0-h9c3ff4c_1.tar.bz2
+  sha256: 5a46f2465a1ee07a872568ab375402d811c97d67b9442fb9ad2513e04c6ed301
+  md5: 45b422c7def921b9f872f066b1e6eb3d
+  depends:
+  - libgcc-ng >=9.3.0
+  - libstdcxx-ng >=9.3.0
+  arch: x86_64
+  platform: linux
+  license: zlib
+  size: 111830
+  timestamp: 1613630072280
+- conda: https://conda.anaconda.org/conda-forge/linux-64/tk-8.6.13-noxft_h4845f30_101.conda
+  sha256: e0569c9caa68bf476bead1bed3d79650bb080b532c64a4af7d8ca286c08dea4e
+  md5: d453b98d9c83e71da0741bb0ff4d76bc
+  depends:
+  - libgcc-ng >=12
+  - libzlib >=1.2.13,<2.0.0a0
+  arch: x86_64
+  platform: linux
+  license: TCL
+  license_family: BSD
+  size: 3318875
+  timestamp: 1699202167581
+- conda: https://conda.anaconda.org/conda-forge/noarch/tomli-2.0.2-pyhd8ed1ab_0.conda
+  sha256: 5e742ba856168b606ac3c814d247657b1c33b8042371f1a08000bdc5075bc0cc
+  md5: e977934e00b355ff55ed154904044727
+  depends:
+  - python >=3.7
+  license: MIT
+  license_family: MIT
+  size: 18203
+  timestamp: 1727974767524
+- conda: https://conda.anaconda.org/conda-forge/linux-64/uncrustify-0.72.0-h9c3ff4c_0.tar.bz2
+  sha256: 3790e480e8d843f7e5144ae18d1258b4bf0df8222124375b7da56b334ff36d51
+  md5: d50a0c7896a9aa037f14d45057610696
+  depends:
+  - libgcc-ng >=9.3.0
+  - libstdcxx-ng >=9.3.0
+  arch: x86_64
+  platform: linux
+  license: GPL-2.0
+  license_family: GPL
+  size: 658854
+  timestamp: 1617621845113
+- conda: https://conda.anaconda.org/conda-forge/linux-64/xorg-libx11-1.8.11-h4f16b4b_0.conda
+  sha256: a0e7fca9e341dc2455b20cd320fc1655e011f7f5f28367ecf8617cccd4bb2821
+  md5: b6eb6d0cb323179af168df8fe16fb0a1
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=13
+  - libxcb >=1.17.0,<2.0a0
+  arch: x86_64
+  platform: linux
+  license: MIT
+  license_family: MIT
+  size: 835157
+  timestamp: 1738613163812
+- conda: https://conda.anaconda.org/conda-forge/linux-64/xorg-libxau-1.0.12-hb9d3cd8_0.conda
+  sha256: ed10c9283974d311855ae08a16dfd7e56241fac632aec3b92e3cfe73cff31038
+  md5: f6ebe2cb3f82ba6c057dde5d9debe4f7
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=13
+  arch: x86_64
+  platform: linux
+  license: MIT
+  license_family: MIT
+  size: 14780
+  timestamp: 1734229004433
+- conda: https://conda.anaconda.org/conda-forge/linux-64/xorg-libxdmcp-1.1.5-hb9d3cd8_0.conda
+  sha256: 6b250f3e59db07c2514057944a3ea2044d6a8cdde8a47b6497c254520fade1ee
+  md5: 8035c64cb77ed555e3f150b7b3972480
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=13
+  arch: x86_64
+  platform: linux
+  license: MIT
+  license_family: MIT
+  size: 19901
+  timestamp: 1727794976192
+- conda: https://conda.anaconda.org/conda-forge/linux-64/xorg-libxext-1.3.6-hb9d3cd8_0.conda
+  sha256: da5dc921c017c05f38a38bd75245017463104457b63a1ce633ed41f214159c14
+  md5: febbab7d15033c913d53c7a2c102309d
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=13
+  - xorg-libx11 >=1.8.10,<2.0a0
+  arch: x86_64
+  platform: linux
+  license: MIT
+  license_family: MIT
+  size: 50060
+  timestamp: 1727752228921
+- conda: https://conda.anaconda.org/conda-forge/linux-64/xz-5.6.4-hbcc6ac9_0.conda
+  sha256: 91fc251034fa5199919680aa50299296d89da54b2d066fb6e6a60461c17c0c4a
+  md5: bb511c87804cf7220246a3a6efc45c22
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=13
+  - liblzma 5.6.4 hb9d3cd8_0
+  - liblzma-devel 5.6.4 hb9d3cd8_0
+  - xz-gpl-tools 5.6.4 hbcc6ac9_0
+  - xz-tools 5.6.4 hb9d3cd8_0
+  arch: x86_64
+  platform: linux
+  license: 0BSD AND LGPL-2.1-or-later AND GPL-2.0-or-later
+  size: 23477
+  timestamp: 1738525395307
+- conda: https://conda.anaconda.org/conda-forge/linux-64/xz-gpl-tools-5.6.4-hbcc6ac9_0.conda
+  sha256: 300fc4e5993a36c979e61b1a38d00f0c23c0c56d5989be537cbc7bd8658254ed
+  md5: 246840b451f7a66bd68869e56b066dd5
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=13
+  - liblzma 5.6.4 hb9d3cd8_0
+  arch: x86_64
+  platform: linux
+  license: 0BSD AND LGPL-2.1-or-later AND GPL-2.0-or-later
+  size: 33285
+  timestamp: 1738525381548
+- conda: https://conda.anaconda.org/conda-forge/linux-64/xz-tools-5.6.4-hb9d3cd8_0.conda
+  sha256: 57506a312d8cfbee98217fb382822bd49794ea6318dd4e0413a0d588dc6f4f69
+  md5: a098f9f949af52610fdceb8e35b57513
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=13
+  - liblzma 5.6.4 hb9d3cd8_0
+  arch: x86_64
+  platform: linux
+  license: 0BSD AND LGPL-2.1-or-later
+  size: 89735
+  timestamp: 1738525367692
+- conda: https://conda.anaconda.org/conda-forge/linux-64/yaml-0.2.5-h7f98852_2.tar.bz2
+  sha256: a4e34c710eeb26945bdbdaba82d3d74f60a78f54a874ec10d373811a5d217535
+  md5: 4cb3ad778ec2d5a7acbdf254eb1c42ae
+  depends:
+  - libgcc-ng >=9.4.0
+  arch: x86_64
+  platform: linux
+  license: MIT
+  license_family: MIT
+  size: 89141
+  timestamp: 1641346969816
+- conda: https://conda.anaconda.org/conda-forge/linux-64/zlib-1.2.13-h4ab18f5_6.conda
+  sha256: 534824ea44939f3e59ca8ebb95e3ece6f50f9d2a0e69999fbc692311252ed6ac
+  md5: 559d338a4234c2ad6e676f460a093e67
+  depends:
+  - libgcc-ng >=12
+  - libzlib 1.2.13 h4ab18f5_6
+  arch: x86_64
+  platform: linux
+  license: Zlib
+  license_family: Other
+  size: 92883
+  timestamp: 1716874088980
+- conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.4.4-h6597ccf_3.tar.bz2
+  sha256: 9cee2c3fe9ea26af71d81144813745dad795e5bffed55492cde268420e3857b9
+  md5: 8eac32b9b364931bf4e195c1a67f3b9b
+  depends:
+  - libgcc-ng >=7.3.0
+  - libstdcxx-ng >=7.3.0
+  - lz4-c >=1.9.2,<1.9.3.0a0
+  - xz >=5.2.5,<6.0.0a0
+  - zlib >=1.2.11,<1.3.0a0
+  arch: x86_64
+  platform: linux
+  license: BSD 3-Clause
+  size: 1014904
+  timestamp: 1586586311790
