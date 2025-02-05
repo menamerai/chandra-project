@@ -1,5 +1,5 @@
 [project]
-channels = ["robostack", "conda-forge"]
+channels = ["robostack-staging", "conda-forge"]
 description = "Add a short description here"
 name = "chandra-project"
 platforms = ["linux-64"]
@@ -8,5 +8,5 @@ version = "0.1.0"
 [tasks]
 
 [dependencies]
-ros-foxy-ros-base = ">=0.9.2,<0.10"
-ros-foxy-turtlesim = ">=1.2.5,<2"
+ros-humble-desktop = ">=0.10.0,<0.11"
+ros-humble-turtlesim = ">=1.4.2,<2"
