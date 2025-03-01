@@ -75,3 +75,31 @@ sudo ufw allow from 192.168.0.0/24
 ```
 wsl --set-version Ubuntu 1
 ```
+
+### SLAM Troubleshooting
+
+When I started SLAM, I ran into this error
+
+```
+[cartographer_node-1] F0219 23:53:55.548945 10392 sensor_bridge.cpp:33] Check failed: frame_id[0] != '/' ('/' vs. '/') The frame_id /base_footprint should not start with a /. See 1.7 in http://wiki.ros.org/tf2/Migration.
+[cartographer_node-1] [FATAL] [1740027235.549483888] [cartographer logger]: F0219 23:53:55.000000 10392 sensor_bridge.cpp:33] Check failed: frame_id[0] != '/' ('/' vs. '/') The frame_id /base_footprint should not start with a /. See 1.7 in http://wiki.ros.org/tf2/Migration.
+```
+
+To fix this, navigate to `src/turtlebot3/turtlebot3_bringup/launch/robot.launch.py` in the turtlebot3 and remove `/` from `/base_footprint`
+
+```
+Node(
+    package='turtlebot3_node',
+    executable='turtlebot3_ros',
+    parameters=[
+        tb3_param_dir,
+        {'odometry.frame_id': PythonExpression(['"', namespace, 'odom"'])},
+        {'odometry.child_frame_id': PythonExpression(
+            ['"', namespace, 'base_footprint"'])}],
+    arguments=['-i', usb_port],
+    output='screen'),
+```
+
+and re-launch the bringup script.
+
+Credit: https://github.com/ROBOTIS-GIT/turtlebot3/issues/1066
