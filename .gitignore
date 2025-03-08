@@ -164,3 +164,7 @@ cython_debug/
 # pixi environments
 .pixi
 *.egg-info
+
+# ROS workspace files
+install/
+log/

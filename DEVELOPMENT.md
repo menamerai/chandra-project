@@ -2,6 +2,18 @@
 
 This project has a lot of moving parts. A lot of it are very weird parts. In the name of reproducability, I will write down the specifics of how I install things, and what I do differently, how I troubleshooted things. Hopefully, this will make things easier.
 
+## Repo Setup
+
+### System Requirements
+
+You need to have Docker installed. You need to also have PulseAudio installed and running. If you are in Windows, simply execute `pulseaudio.exe` in a terminal. You need to have VSCode with the devcontainer extension installed.
+
+### Workspace Setup
+
+You need to obtain your own device's IP address. In Windows, this is done with running `ipconfig` and then finding the number under "IPv4 Address." Once you obtain this number, create a `.env` file under `.devcontainer` and copy the line over from `.env.example`. Then, replace `<your-ip-address>` with the appropriate IP.
+
+After this is done, simply open the workspace in a devcontainer.
+
 ## Turtlebot3 Setup
 
 The project's main focus is on modularity, so we should be able to work on the turtlebot3 as well as on the GhostRobotics V60. Moreover, we are more likely to be able to use the turtlebot3 for demo purposes, and less on the V60. For this reason, we can discuss installation for the turtlebot3.
