@@ -14,6 +14,10 @@ You need to obtain your own device's IP address. In Windows, this is done with r
 
 After this is done, simply open the workspace in a devcontainer.
 
+### Contribution
+
+To contribute, you might need to set up your git credentials within the devcontainer. This isn't saved, so you might need to do it again if the old container is deleted.
+
 ## Turtlebot3 Setup
 
 The project's main focus is on modularity, so we should be able to work on the turtlebot3 as well as on the GhostRobotics V60. Moreover, we are more likely to be able to use the turtlebot3 for demo purposes, and less on the V60. For this reason, we can discuss installation for the turtlebot3.
