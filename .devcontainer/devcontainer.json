@@ -5,7 +5,8 @@
     "--privileged",
     "--network=host",
     "--device=/dev/snd",
-    "--env-file=${localWorkspaceFolder}/.devcontainer/.env"
+    "--env-file=${localWorkspaceFolder}/.devcontainer/.env",
+    "--gpus=all"
   ],
   "workspaceMount": "source=${localWorkspaceFolder},target=/${localWorkspaceFolderBasename},type=bind",
   "workspaceFolder": "/${localWorkspaceFolderBasename}",
@@ -16,9 +17,18 @@
     "vscode": {
       "extensions": [
         "ms-python.python",
-        "ms-python.vscode-pylance"
+        "ms-python.vscode-pylance",
+        "ms-azuretools.vscode-docker",
+        "GitHub.copilot"
       ]
     }
   },
-  "postStartCommand": "bash .devcontainer/install.sh"
+  "updateContentCommand": "bash .devcontainer/ros_deps.sh && bash .devcontainer/configure.sh && uv sync",
+  "postCreateCommand": "nvidia-smi",
+  "features": {
+    "ghcr.io/devcontainers/features/nvidia-cuda:1": {
+      "cudaVersion": "12.6"
+    },
+    "ghcr.io/va-h/devcontainers-features/uv:1": {}
+  }
 }

@@ -28,10 +28,13 @@ RUN sudo apt update && sudo apt upgrade -y
 RUN sudo apt install -y git
 
 # Install audio support
-RUN sudo apt-get install pulseaudio pulseaudio-utils alsa-utils -y
+# RUN sudo apt-get install pulseaudio pulseaudio-utils alsa-utils -y
 
 # Rosdep update
 RUN rosdep update
+
+# Install ROS packages
+RUN sudo apt-get install ros-humble-rosbridge-suite ros-humble-rosbridge-server ros-humble-gazebo-* ros-humble-cartographer ros-humble-cartographer-ros ros-humble-navigation2 ros-humble-nav2-bringup -y
 
 # Source the ROS setup file
 RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> ~/.bashrc

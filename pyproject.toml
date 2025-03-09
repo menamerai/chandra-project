@@ -1,0 +1,13 @@
+[project]
+name = "chandra-project"
+version = "0.1.0"
+description = "This project aims to develop a modular attachment for robots to assist visually impaired individuals by enhancing their ability to navigate and interact with their surroundings."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "openai-whisper>=20240930",
+    "smolagents>=1.10.0",
+    "streamlit>=1.43.1",
+    "torch>=2.6.0",
+    "torchvision>=0.21.0",
+]
