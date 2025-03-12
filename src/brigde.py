@@ -2,7 +2,6 @@ from enum import Enum
 
 import rclpy
 from geometry_msgs.msg import Twist
-from loguru import logger
 from rclpy.node import Node
 
 
