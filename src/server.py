@@ -1,12 +1,14 @@
 import os
 import tempfile
-from contextlib import asynccontextmanager
 
 import uvicorn
 import whisper
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import RedirectResponse
 from loguru import logger
+
+from src.brigde import Direction, velocity_pub
 
 app = FastAPI(title="Audio Transcription Service")
 
@@ -20,6 +22,12 @@ app.add_middleware(
 )
 
 
+# Redirect root to /docs
+@app.get("/", include_in_schema=False)
+async def root():
+    return RedirectResponse(url="/docs")
+
+
 # Load Whisper model once at startup to avoid reloading it for each request
 @app.on_event("startup")
 async def startup_event():
@@ -30,6 +38,21 @@ async def startup_event():
     except Exception as e:
         logger.error(f"Error loading Whisper model: {str(e)}")
         # Continue anyway, will try to load again when needed
+
+
+@app.post("/velocity")
+async def publish_velocity(direction: Direction, execution_time: int):
+    """
+    Publishes a constant velocity command to the robot in the specified direction for a given execution time.
+    """
+    try:
+        velocity_pub(direction=direction, execution_time=execution_time)
+        return {"message": "Velocity command published successfully"}
+    except Exception as e:
+        logger.error(f"Error publishing velocity command: {str(e)}")
+        raise HTTPException(
+            status_code=500, detail=f"Error publishing velocity command: {str(e)}"
+        )
 
 
 @app.post("/command")
