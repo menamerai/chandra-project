@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "fastapi[standard]>=0.115.11",
+    "loguru>=0.7.3",
     "openai-whisper>=20240930",
     "pre-commit>=4.1.0",
     "smolagents>=1.10.0",
