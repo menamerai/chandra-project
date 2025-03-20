@@ -171,3 +171,9 @@ cython_debug/
 # ROS workspace files
 install/
 log/
+
+# ROS Files
+DynamixelSDK/
+turtlebot3/
+turtlebot3_msgs/
+turtlebot3_simulations/
