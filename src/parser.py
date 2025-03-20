@@ -1,5 +1,5 @@
 import re
-from word2number import w2n
+# from word2number import w2n
 
 # Define the directions constant
 NAME = "brutus"
