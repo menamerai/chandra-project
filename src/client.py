@@ -4,7 +4,7 @@ import requests
 import streamlit as st
 from dotenv import load_dotenv
 from parser import command_parsing
-
+from brigde import Direction
 # Load environment variables
 load_dotenv(".devcontainer/.env")
 
@@ -32,8 +32,21 @@ if audio_file is not None:
                 # Extract the transcription from the response
                 result = response.json()
                 transcription = result.get("text", "No transcription returned")
-                command = command_parsing(transcription) #NOTE: parsing commands
+                command = result.get("command", "No transcription returned")
+                direction = Direction.from_string(command['action'])
+                
+                #TODO: Considering refactor the flow here. It's not looking nice on the website. Too tired for now. 
+                if command:
+                    # Invoke the /velocity endpoint if command is valid
+                    velocity_response = requests.post(
+                        f'{os.getenv("BACKEND_LOCATION")}/velocity',
+                        json={"direction": direction.value, "execution_time": int(command['parameter'])}
+                    )
 
+                    if velocity_response.status_code == 200:
+                        st.write("Velocity command sent successfully!")
+                    else:
+                        st.write(f"Error: Failed to invoke /velocity endpoint, status code {velocity_response.status_code}")
             else:
                 transcription = (
                     f"Error: Server returned status code {response.status_code}"
