@@ -3,6 +3,7 @@ import os
 import requests
 import streamlit as st
 from dotenv import load_dotenv
+from parser import command_parsing
 
 # Load environment variables
 load_dotenv(".devcontainer/.env")
@@ -31,6 +32,8 @@ if audio_file is not None:
                 # Extract the transcription from the response
                 result = response.json()
                 transcription = result.get("text", "No transcription returned")
+                command = command_parsing(transcription) #NOTE: parsing commands
+
             else:
                 transcription = (
                     f"Error: Server returned status code {response.status_code}"
@@ -43,3 +46,9 @@ if audio_file is not None:
     # Display the transcription
     st.subheader("Transcription:")
     st.write(transcription)
+    #TODO: Remove this later, only for testing
+    if command: 
+        st.write(f"Action: {command['action']}")
+        st.write(f"Parameter: {command['parameter']}")
+    else: 
+        st.write("Command parsing failed")

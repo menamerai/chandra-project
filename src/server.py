@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
 from loguru import logger
 
-from src.brigde import Direction, velocity_pub
+from brigde import Direction, velocity_pub
 
 app = FastAPI(title="Audio Transcription Service")
 
