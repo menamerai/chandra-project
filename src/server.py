@@ -1,15 +1,15 @@
 import os
 import tempfile
+from parser import command_parsing
 
 import uvicorn
 import whisper
-from fastapi import FastAPI, File, HTTPException, UploadFile, Body
+from fastapi import Body, FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
 from loguru import logger
 
 from brigde import Direction, velocity_pub
-from parser import command_parsing
 
 app = FastAPI(title="Audio Transcription Service")
 
@@ -41,9 +41,10 @@ async def startup_event():
         # Continue anyway, will try to load again when needed
 
 
-@app.post("/velocity") #NOTE: Added type Body() for Json inputs
-async def publish_velocity(direction: Direction | str = Body(...),
-                           execution_time: int = Body(...)):
+@app.post("/velocity")  # NOTE: Added type Body() for Json inputs
+async def publish_velocity(
+    direction: Direction | str = Body(...), execution_time: int = Body(...)
+):
     """
     Publishes a constant velocity command to the robot in the specified direction for a given execution time.
     """
@@ -83,7 +84,7 @@ async def transcribe_command(file: UploadFile = File(...)):
 
         # Transcribe the audio
         result = model.transcribe(temp_path)
-        text = result['text']
+        text = result["text"]
         command = command_parsing(text)
         logger.info("Audio transcription completed successfully")
 
@@ -91,7 +92,7 @@ async def transcribe_command(file: UploadFile = File(...)):
         os.unlink(temp_path)
 
         # Return the transcribed text
-        return { "text": text, "command": command }
+        return {"text": text, "command": command}
 
     except Exception as e:
         # Make sure to clean up if there's an error

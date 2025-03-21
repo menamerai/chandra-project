@@ -62,7 +62,7 @@ def velocity_pub(
     node.publish_velocity(direction)
     start_time = node.get_clock().now()
     while rclpy.ok():
-        rclpy.spin_once(node)
+        rclpy.spin_once(node, timeout_sec=1e-3)
         if (node.get_clock().now() - start_time).nanoseconds > execution_time * 1e9:
             node.reset_velocity()
             break
@@ -71,4 +71,5 @@ def velocity_pub(
 
 
 if __name__ == "__main__":
-    velocity_pub(direction="forward", execution_time=5)
+    print("Publishing velocity command...")
+    velocity_pub(direction="forward", execution_time=3)
