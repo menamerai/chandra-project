@@ -1,5 +1,5 @@
 import re
-# from word2number import w2n
+from word2number import w2n
 
 # Define the directions constant
 NAME = "brutus"
@@ -15,12 +15,12 @@ def extract_parameter(text):
         return int(match.group()) if match else None
 
     # If no digit found, look for word representations of numbers
-    # words = text.split()
-    # for word in words:
-    #     try:
-    #         return w2n.word_to_num(word)
-    #     except ValueError:
-    #         continue
+    words = text.split()
+    for word in words:
+        try:
+            return w2n.word_to_num(word)
+        except ValueError:
+            continue
     
     return None
 
@@ -58,4 +58,7 @@ def command_parsing(text):
     else: 
         return None
         
-        
+
+if __name__ == "__main__": 
+    text = "Brutus, move forward for 20 seconds"
+    print(command_parsing(text))
