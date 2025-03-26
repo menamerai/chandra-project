@@ -1,5 +1,5 @@
 {
-  "name": "humble desktop-full",
+  "name": "galatic desktop",
   "dockerFile": "Dockerfile",
   "runArgs": [
     "--privileged",
@@ -23,7 +23,7 @@
       ]
     }
   },
-  "updateContentCommand": "bash .devcontainer/ros_deps.sh && bash .devcontainer/configure.sh && uv sync",
+  "updateContentCommand": "bash .devcontainer/configure.sh && uv sync",
   "postCreateCommand": "nvidia-smi",
   "features": {
     "ghcr.io/devcontainers/features/nvidia-cuda:1": {
