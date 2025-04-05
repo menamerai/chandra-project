@@ -16,6 +16,11 @@ class Direction(Enum):
     BACKWARD = "backward"
     LEFT = "left"
     RIGHT = "right"
+    FORWARD_LEFT = "forward_left"
+    FORWARD_RIGHT = "forward_right"
+    BACKWARD_LEFT = "backward_left"
+    BACKWARD_RIGHT = "backward_right"
+    STOP = "stop"
 
     @staticmethod
     def from_string(direction_str: str):
@@ -29,24 +34,43 @@ class VelocityPublisher(Node):
     def __init__(self):
         super().__init__("velocity_publisher")
         self.publisher = self.create_publisher(
-            Twist, "/cmd_vel", 10  # Standard topic for TurtleBot3 velocity commands
+            Twist, "/cmd_vel", 10  # Standard topic for command
         )
         self.timer = None
 
     def publish_velocity(self, direction: Direction):
         msg = Twist()
-        if direction == Direction.FORWARD:
-            msg.linear.x = LINEAR_VELOCITY
-            msg.angular.z = 0.0
-        elif direction == Direction.BACKWARD:
-            msg.linear.x = -LINEAR_VELOCITY
-            msg.angular.z = 0.0
-        elif direction == Direction.LEFT:
-            msg.linear.x = 0.0
-            msg.angular.z = ANGULAR_VELOCITY
-        elif direction == Direction.RIGHT:
-            msg.linear.x = 0.0
-            msg.angular.z = -ANGULAR_VELOCITY
+        match direction:
+            case Direction.FORWARD:
+                msg.linear.x = LINEAR_VELOCITY
+                msg.angular.z = 0.0
+            case Direction.BACKWARD:
+                msg.linear.x = -LINEAR_VELOCITY
+                msg.angular.z = 0.0
+            case Direction.LEFT:
+                msg.linear.x = 0.0
+                msg.angular.z = ANGULAR_VELOCITY
+            case Direction.RIGHT:
+                msg.linear.x = 0.0
+                msg.angular.z = -ANGULAR_VELOCITY
+            case Direction.FORWARD_LEFT:
+                msg.linear.x = LINEAR_VELOCITY
+                msg.angular.z = ANGULAR_VELOCITY
+            case Direction.FORWARD_RIGHT:
+                msg.linear.x = LINEAR_VELOCITY
+                msg.angular.z = -ANGULAR_VELOCITY
+            case Direction.BACKWARD_LEFT:
+                msg.linear.x = -LINEAR_VELOCITY
+                msg.angular.z = ANGULAR_VELOCITY
+            case Direction.BACKWARD_RIGHT:
+                msg.linear.x = -LINEAR_VELOCITY
+                msg.angular.z = -ANGULAR_VELOCITY
+            case Direction.STOP:
+                msg.linear.x = 0.0
+                msg.angular.z = 0.0
+            case _:
+                raise ValueError(f"Unknown direction: {direction}")
+        logger.debug(f"Publishing velocity: linear.x={msg.linear.x}, angular.z={msg.angular.z}")
         self.publisher.publish(msg)
 
     def reset_velocity(self):
@@ -126,5 +150,4 @@ if __name__ == "__main__":
     # change logger to rebug
     logger.remove()
     logger.add(sys.stderr, level="DEBUG")
-    # Use the unified function that supports both robot types
     velocity_pub(direction="forward", execution_time=10)
