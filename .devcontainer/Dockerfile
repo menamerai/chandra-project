@@ -34,8 +34,7 @@ RUN sudo apt install -y git
 RUN rosdep update
 
 # Install ROS packages
-RUN sudo apt-get install ros-humble-rosbridge-suite ros-humble-rosbridge-server ros-humble-gazebo-* ros-humble-cartographer ros-humble-cartographer-ros ros-humble-navigation2 ros-humble-nav2-bringup ros-humble-robot-localization ros-humble-joint-state-publisher-gui ros-humble-ecl-threads ros-humble-joint-state-publisher ros-humble-velodyne-gazebo-plugins ros-humble-ros2-controllers -y
-# RUN sudo apt-get install ros-galactic-gazebo-* -y
+RUN sudo apt-get install ros-humble-rosbridge-suite ros-humble-rosbridge-server ros-humble-gazebo-* ros-humble-cartographer ros-humble-cartographer-ros ros-humble-navigation2 ros-humble-nav2-bringup -y
 
 # Source the ROS setup file
 RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> ~/.bashrc
