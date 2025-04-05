@@ -9,6 +9,8 @@ from loguru import logger
 class GhostRobotClientWrapper:
     _daemon_process = None
     _daemon_lock = threading.Lock()
+    _log_thread = None
+    _log_running = False
     
     def __init__(self, sim=True):
         """Initialize connection to robot or simulator via the daemon"""
@@ -21,6 +23,24 @@ class GhostRobotClientWrapper:
         if not response.get('success'):
             logger.error("Failed to connect to mavlink daemon")
             raise RuntimeError("Failed to connect to mavlink daemon")
+    
+    @classmethod
+    def _relay_logs(cls, pipe, prefix):
+        """Relay logs from subprocess pipe to main process logger"""
+        while cls._log_running and pipe and not pipe.closed:
+            try:
+                line = pipe.readline()
+                if not line:
+                    time.sleep(0.1)
+                    continue
+                    
+                # Log the output with appropriate prefix
+                line = line.strip()
+                if line:
+                    logger.info(f"{prefix}: {line}")
+            except Exception as e:
+                logger.error(f"Error reading daemon logs: {e}")
+                break
     
     @classmethod
     def _start_daemon_if_needed(cls):
@@ -46,19 +66,35 @@ class GhostRobotClientWrapper:
                     except:
                         pass
             
-            # Start the daemon process
+            # Start the daemon process with pipe capture
             if cls._daemon_process is None or cls._daemon_process.poll() is not None:
                 logger.info("Starting mavlink daemon process")
                 python38_path = "/usr/bin/python3.8"
                 daemon_script = os.path.join(os.path.dirname(__file__), "mavlink_daemon.py")
                 
-                # Start daemon as a background process
+                # Start daemon and capture its output
                 cls._daemon_process = subprocess.Popen(
                     [python38_path, daemon_script],
-                    # No stdin/stdout/stderr capture to avoid blocking
-                    stdout=subprocess.DEVNULL,
-                    stderr=subprocess.DEVNULL
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.PIPE,
+                    text=True,
+                    bufsize=1  # Line buffered
                 )
+                
+                # Start log relay threads
+                cls._log_running = True
+                stdout_thread = threading.Thread(
+                    target=cls._relay_logs, 
+                    args=(cls._daemon_process.stdout, "DAEMON"),
+                    daemon=True
+                )
+                stderr_thread = threading.Thread(
+                    target=cls._relay_logs, 
+                    args=(cls._daemon_process.stderr, "DAEMON ERROR"),
+                    daemon=True
+                )
+                stdout_thread.start()
+                stderr_thread.start()
                 
                 # Wait for socket to be created
                 timeout = 10
@@ -67,6 +103,7 @@ class GhostRobotClientWrapper:
                     timeout -= 0.5
                 
                 if not os.path.exists("/tmp/mavlink_socket"):
+                    cls._log_running = False
                     raise RuntimeError("Failed to start mavlink daemon (socket not created)")
                 
                 # Give a bit more time for the daemon to initialize
@@ -178,6 +215,9 @@ class GhostRobotClientWrapper:
     def shutdown_daemon(cls):
         """Shutdown the daemon (call this when your application exits)"""
         try:
+            # Stop log relay threads
+            cls._log_running = False
+            
             # Try to send shutdown command
             sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
             sock.connect("/tmp/mavlink_socket")

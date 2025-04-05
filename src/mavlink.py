@@ -3,13 +3,36 @@ import importlib.util
 import numpy as np
 import time
 import logging
+import sys
 
-# Configure basic logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
-logger = logging.getLogger("mavlink")
+# Configure logging to output to both file and console with filename in format
+def setup_logger():
+    """Set up logger to output to both file and console"""
+    # Create logger
+    logger = logging.getLogger("mavlink")
+    logger.setLevel(logging.INFO)
+    
+    # Create formatter with filename
+    formatter = logging.Formatter(
+        '%(asctime)s - %(name)s - %(filename)s:%(lineno)d - %(levelname)s - %(message)s'
+    )
+    
+    # Create file handler
+    file_handler = logging.FileHandler('/tmp/mavlink.log', mode='a')
+    file_handler.setFormatter(formatter)
+    
+    # Create console handler
+    console_handler = logging.StreamHandler(sys.stdout)
+    console_handler.setFormatter(formatter)
+    
+    # Add handlers to logger
+    logger.addHandler(file_handler)
+    logger.addHandler(console_handler)
+    
+    return logger
+
+# Set up the logger
+logger = setup_logger()
 
 # Set up paths to Ghost SDK
 ghost_sdk_path = os.path.expanduser("~/ghost_sim/GhostSDK")

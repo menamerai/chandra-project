@@ -7,14 +7,34 @@ import logging
 import time
 import signal
 
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    filename='/tmp/mavlink_daemon.log',  # Log to file for debugging
-    filemode='a'
-)
-logger = logging.getLogger("mavlink_daemon")
+# Configure logging to output to both file and console with filename in format
+def setup_logger():
+    """Set up logger to output to both file and console"""
+    # Create logger
+    logger = logging.getLogger("mavlink_daemon")
+    logger.setLevel(logging.INFO)
+    
+    # Create formatter with filename
+    formatter = logging.Formatter(
+        '%(asctime)s - %(name)s - %(filename)s:%(lineno)d - %(levelname)s - %(message)s'
+    )
+    
+    # Create file handler
+    file_handler = logging.FileHandler('/tmp/mavlink_daemon.log', mode='a')
+    file_handler.setFormatter(formatter)
+    
+    # Create console handler
+    console_handler = logging.StreamHandler(sys.stdout)
+    console_handler.setFormatter(formatter)
+    
+    # Add handlers to logger
+    logger.addHandler(file_handler)
+    logger.addHandler(console_handler)
+    
+    return logger
+
+# Set up the logger
+logger = setup_logger()
 
 # Import mavlink module
 from mavlink import GhostRobotClient
