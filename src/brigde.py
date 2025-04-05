@@ -1,5 +1,7 @@
 from enum import Enum
 import sys
+import threading
+import subprocess
 
 import rclpy
 from geometry_msgs.msg import Twist
@@ -83,7 +85,8 @@ class VelocityPublisher(Node):
 def velocity_pub(
     args: list[str] | None = None,
     direction: Direction | str = Direction.FORWARD,
-    execution_time: int = 5
+    execution_time: int = 5,
+    robot_type: str = "turtlebot"
 ):
     """
     Publish velocity and pose commands to a robot
@@ -92,6 +95,7 @@ def velocity_pub(
         args: ROS arguments
         direction: Direction to move (can be string or Direction enum)
         execution_time: How long to execute the command in seconds
+        robot_type: Type of robot to control
     """
     logger.info(f"Starting velocity_pub for robot")
     
@@ -146,8 +150,51 @@ def velocity_pub(
         raise
 
 
+def execute_dance_routine():
+    """
+    Execute the Mini Pupper dance routine
+    
+    Args:
+        args: ROS arguments
+    """
+    logger.info("Executing Mini Pupper dance routine")
+    
+    try:
+        # Use subprocess to launch the dance routine
+        # This avoids the main thread requirement of LaunchService
+        # this feels like a hack but it works
+        logger.info("Launching dance routine via subprocess")
+        process = subprocess.Popen(
+            ["ros2", "launch", "mini_pupper_dance", "dance.launch.py"],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True
+        )
+        
+        # Return immediately but log some info about the process
+        logger.info(f"Dance routine subprocess started with PID {process.pid}")
+        
+        # You could optionally start a monitoring thread if needed
+        def monitor_process():
+            stdout, stderr = process.communicate()
+            logger.info(f"Dance routine completed with return code {process.returncode}")
+            if process.returncode != 0:
+                logger.error(f"Dance routine stderr: {stderr}")
+        
+        monitor_thread = threading.Thread(target=monitor_process)
+        monitor_thread.daemon = True
+        monitor_thread.start()
+        
+        return {"status": "launched", "pid": process.pid}
+        
+    except Exception as e:
+        logger.error(f"Error launching dance routine: {str(e)}")
+        logger.exception(e)
+        return {"status": "error", "message": str(e)}
+
+
 if __name__ == "__main__":
-    # change logger to rebug
+    # change logger to debug
     logger.remove()
     logger.add(sys.stderr, level="DEBUG")
     velocity_pub(direction="forward", execution_time=10)

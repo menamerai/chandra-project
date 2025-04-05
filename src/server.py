@@ -1,5 +1,10 @@
 import os
 import tempfile
+import sys
+
+# add src to path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src")))
+
 from parser import command_parsing
 
 import uvicorn
@@ -9,9 +14,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
 from loguru import logger
 
-from brigde import Direction, velocity_pub
+from brigde import Direction, velocity_pub, execute_dance_routine
 
 app = FastAPI(title="Robot Command Service")
+
+# Create a router for Mini Pupper endpoints
+minipupper_router = APIRouter(prefix="/minipupper", tags=["Mini Pupper"])
 
 # Set up CORS middleware
 app.add_middleware(
@@ -27,6 +35,27 @@ app.add_middleware(
 @app.get("/", include_in_schema=False)
 async def root():
     return RedirectResponse(url="/docs")
+
+
+# Add dance endpoint to Mini Pupper router
+@minipupper_router.post("/dance")
+async def dance_command():
+    """
+    Make the Mini Pupper robot perform a dance routine.
+    """
+    try:
+        logger.info("Mini Pupper dance command received")
+        # Call our separate dance routine function
+        result = execute_dance_routine()
+        return {"message": f"Dance routine launched successfully, status: {result['status']}"}
+    except Exception as e:
+        logger.error(f"Error executing dance command: {str(e)}")
+        raise HTTPException(
+            status_code=500, detail=f"Error executing dance command: {str(e)}"
+        )
+
+# Include the Mini Pupper router in the main app
+app.include_router(minipupper_router)
 
 
 # Load Whisper model once at startup to avoid reloading it for each request
