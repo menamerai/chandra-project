@@ -12,7 +12,6 @@ from loguru import logger
 LINEAR_VELOCITY = 2.0
 ANGULAR_VELOCITY = 1.0
 
-
 class Direction(Enum):
     FORWARD = "forward"
     BACKWARD = "backward"
