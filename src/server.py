@@ -12,8 +12,6 @@ from loguru import logger
 from brigde import Direction, velocity_pub
 
 app = FastAPI(title="Robot Command Service")
-turtle_router = APIRouter(prefix="/turtle", tags=["Turtlebot"])
-cheetah_router = APIRouter(prefix="/cheetah", tags=["Cheetah"])
 
 # Set up CORS middleware
 app.add_middleware(
@@ -43,13 +41,12 @@ async def startup_event():
         # Continue anyway, will try to load again when needed
 
 
-# Legacy endpoint for backward compatibility
-@app.post("/velocity", deprecated=True)
+@app.post("/velocity", deprecated=False)
 async def publish_velocity_legacy(
     direction: Direction | str = Body(...), execution_time: int = Body(...)
 ):
     """
-    Legacy endpoint. Use /turtle/velocity or /cheetah/velocity instead.
+    Publish velocity command to the robot.
     """
     try:
         velocity_pub(direction=direction, execution_time=execution_time, robot_type="turtlebot")
@@ -60,18 +57,16 @@ async def publish_velocity_legacy(
             status_code=500, detail=f"Error publishing velocity command: {str(e)}"
         )
 
-
-# Legacy endpoint for backward compatibility
-@app.post("/command", deprecated=True)
+@app.post("/command", deprecated=False)
 async def transcribe_command_legacy(file: UploadFile = File(...)):
     """
-    Legacy endpoint. Use /turtle/command or /cheetah/command instead.
+    Transcribe audio file and return commands.
     """
-    return await transcribe_audio_file(file, "turtlebot")
+    return await transcribe_audio_file(file)
 
 
 # Helper function for audio transcription
-async def transcribe_audio_file(file: UploadFile, robot_type: str):
+async def transcribe_audio_file(file: UploadFile):
     """
     Helper function to transcribe audio files and return commands.
     """
@@ -98,13 +93,13 @@ async def transcribe_audio_file(file: UploadFile, robot_type: str):
         result = model.transcribe(temp_path)
         text = result["text"]
         command = command_parsing(text)
-        logger.info(f"Audio transcription completed successfully for {robot_type}")
+        logger.info(f"Audio transcription completed successfully")
 
         # Clean up temporary file
         os.unlink(temp_path)
 
         # Return the transcribed text
-        return {"text": text, "command": command, "robot_type": robot_type}
+        return {"text": text, "command": command }
 
     except Exception as e:
         # Make sure to clean up if there's an error
@@ -112,63 +107,6 @@ async def transcribe_audio_file(file: UploadFile, robot_type: str):
             os.unlink(temp_path)
         logger.error(f"Error processing audio: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Error processing audio: {str(e)}")
-
-
-# Turtlebot Endpoints
-@turtle_router.post("/velocity")
-async def publish_turtle_velocity(
-    direction: Direction | str = Body(...), execution_time: int = Body(...)
-):
-    """
-    Publishes a velocity command to the Turtlebot robot.
-    """
-    try:
-        velocity_pub(direction=direction, execution_time=execution_time, robot_type="turtlebot")
-        return {"message": "Turtlebot velocity command published successfully"}
-    except Exception as e:
-        logger.error(f"Error publishing Turtlebot velocity command: {str(e)}")
-        raise HTTPException(
-            status_code=500, detail=f"Error publishing Turtlebot velocity command: {str(e)}"
-        )
-
-
-@turtle_router.post("/command")
-async def transcribe_turtle_command(file: UploadFile = File(...)):
-    """
-    Accepts a .wav audio file and returns its transcription for Turtlebot commands.
-    """
-    return await transcribe_audio_file(file, "turtlebot")
-
-
-# Cheetah Endpoints
-@cheetah_router.post("/velocity")
-async def publish_cheetah_velocity(
-    direction: Direction | str = Body(...), execution_time: int = Body(...)
-):
-    """
-    Publishes a velocity command to the Cheetah robot.
-    """
-    try:
-        velocity_pub(direction=direction, execution_time=execution_time, robot_type="cheetah")
-        return {"message": "Cheetah velocity command published successfully"}
-    except Exception as e:
-        logger.error(f"Error publishing Cheetah velocity command: {str(e)}")
-        raise HTTPException(
-            status_code=500, detail=f"Error publishing Cheetah velocity command: {str(e)}"
-        )
-
-
-@cheetah_router.post("/command")
-async def transcribe_cheetah_command(file: UploadFile = File(...)):
-    """
-    Accepts a .wav audio file and returns its transcription for Cheetah commands.
-    """
-    return await transcribe_audio_file(file, "cheetah")
-
-
-# Include routers in the main app
-app.include_router(turtle_router)
-app.include_router(cheetah_router)
 
 
 if __name__ == "__main__":
