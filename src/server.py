@@ -187,6 +187,16 @@ async def stop_robot():
     except Exception as e:
         logger.error(f"Error stopping robot: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Error stopping robot: {str(e)}")
+    
+@v60_router.post("/roll_over")
+async def roll_over():
+    """Make the robot roll over"""
+    try:
+        success = v60.roll_over(1)
+        return {"success": success, "message": "Robot rolled over"}
+    except Exception as e:
+        logger.error(f"Error rolling over robot: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Error rolling over robot: {str(e)}")
 
 @v60_router.post("/status")
 async def get_status():

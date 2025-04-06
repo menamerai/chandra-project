@@ -101,12 +101,17 @@ class MavlinkDaemon:
             conn.close()
     
     def process_command(self, command):
-        """Process a command using the persistent client"""
+        """Process a command received from a client"""
         action = command.get('action')
+        
+        # Common response structure
         response = {'success': False}
         
         try:
-            if action == 'set_action_mode':
+            if action == 'ping':
+                response = {'success': True, 'message': 'pong'}
+                
+            elif action == 'set_action_mode':
                 mode = command.get('mode', 0)
                 result = self.client.set_action_mode(mode)
                 response = {'success': True, 'current_mode': result}
@@ -147,9 +152,11 @@ class MavlinkDaemon:
                 result = self.client.get_action_mode()
                 response = {'success': True, 'current_mode': result}
                 
-            elif action == 'ping':
-                # Simple ping to check daemon is alive
-                response = {'success': True, 'message': 'pong'}
+            elif action == 'roll_over':
+                mode = command.get('mode', 1)
+                logger.info(f"Daemon: executing roll_over with mode={mode}")
+                result = self.client.roll_over(mode)
+                response = {'success': result}
                 
             elif action == 'shutdown':
                 logger.info("Shutdown command received")

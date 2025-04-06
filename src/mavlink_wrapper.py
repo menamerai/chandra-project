@@ -179,6 +179,16 @@ class GhostRobotClientWrapper:
         })
         return response.get('success', False)
     
+    def roll_over(self, mode=1):
+        """Roll over the robot"""
+        logger.info(f"Rolling over...")
+        response = self._send_command({
+            'action': 'roll_over',
+            'mode': mode
+        })
+        logger.info(f"Roll over response: {response}")
+        return response.get('success', False)
+    
     def stop_movement(self):
         """Stop all robot movement"""
         response = self._send_command({

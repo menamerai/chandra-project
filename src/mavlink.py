@@ -268,6 +268,18 @@ class GhostRobotClient:
             logger.error(f"Error stopping movement: {str(e)}")
             return False
         
+    def roll_over(self, mode=1):
+        """Trigger roll over action"""
+        logger.info("Rolling over")
+        try:
+            logger.info(f"Setting roll over mode from {self.mb.getMode('roll_over')} to {mode}")
+            self.mb.setMode("roll_over", mode)
+            time.sleep(8.0)  # Wait for roll over to complete
+            return True
+        except Exception as e:
+            logger.error(f"Error during roll over: {str(e)}")
+            return False
+        
     def get_status(self):
         """Get robot status"""
         return self.mb.getLatest()
