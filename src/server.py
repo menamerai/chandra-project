@@ -1,6 +1,7 @@
 import os
 import tempfile
 import sys
+import timeit
 
 # add src to path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src")))
@@ -8,7 +9,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..",
 from parser import command_parsing
 
 import uvicorn
-import whisper
+from faster_whisper import WhisperModel, BatchedInferencePipeline
 import json
 from fastapi import Body, FastAPI, File, HTTPException, UploadFile, APIRouter
 from fastapi.middleware.cors import CORSMiddleware
@@ -67,13 +68,22 @@ app.include_router(minipupper_router)
 # Load Whisper model once at startup to avoid reloading it for each request
 @app.on_event("startup")
 async def startup_event():
-    global model
+    global model, model_name
+    model_name = "distil-large-v3"
     try:
-        model = whisper.load_model("large-v3-turbo")
-        logger.info("Whisper model loaded successfully")
+        # Try GPU first
+        # model = WhisperModel(model_name, device="cuda", compute_type="float16")
+        model = BatchedInferencePipeline(WhisperModel(model_name, device="cuda", compute_type="float16"))
+        logger.info("Whisper model loaded successfully on GPU")
     except Exception as e:
-        logger.error(f"Error loading Whisper model: {str(e)}")
-        # Continue anyway, will try to load again when needed
+        logger.warning(f"GPU loading failed, falling back to CPU: {str(e)}")
+        try:
+            # model = WhisperModel(model_name, device="cpu", compute_type="int8")
+            model = BatchedInferencePipeline(WhisperModel(model_name, device="cpu", compute_type="int8"))
+            logger.info("Whisper model loaded successfully on CPU")
+        except Exception as e:
+            logger.error(f"Error loading Whisper model: {str(e)}")
+            # Continue anyway, will try to load again when needed
 
 
 @app.post("/velocity", deprecated=False)
@@ -110,6 +120,8 @@ async def transcribe_audio_file(file: UploadFile):
         raise HTTPException(status_code=400, detail="Only .wav files are supported")
 
     try:
+        start_time = timeit.default_timer()
+        logger.info(f"Received file: {file.filename}")
         # Create a temporary file to save the uploaded audio
         with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as temp_file:
             temp_path = temp_file.name
@@ -121,14 +133,28 @@ async def transcribe_audio_file(file: UploadFile):
         # Ensure model is available
         if "model" not in globals():
             global model
-            logger.info("Loading Whisper model on demand")
-            model = whisper.load_model("large-v3")
+            try:
+                logger.info("Attempting to load Whisper model on GPU")
+                # model = WhisperModel(model_name, device="cuda", compute_type="float16")
+                model = BatchedInferencePipeline(WhisperModel(model_name, device="cuda", compute_type="float16"))
+            except Exception as e:
+                logger.warning(f"GPU loading failed, falling back to CPU: {str(e)}")
+                # model = WhisperModel(model_name, device="cpu", compute_type="int8")
+                model = BatchedInferencePipeline(WhisperModel(model_name, device="cpu", compute_type="int8"))
 
         # Transcribe the audio
-        result = model.transcribe(temp_path)
-        text = result["text"]
+        segments, info = model.transcribe(temp_path, beam_size=5, language="en", task="transcribe", vad_filter=True, condition_on_previous_text=False, batch_size=16)
+        
+        # Collect all segment texts
+        segments_list = list(segments)  # Convert generator to list
+        
+        # Join all segment texts to form the complete transcription
+        text = " ".join(segment.text for segment in segments_list)
+        
+        logger.debug(f"Transcribed text: {text}")
         command = command_parsing(text)
         logger.info(f"Audio transcription completed successfully")
+        logger.info(f"Transcription time: {timeit.default_timer() - start_time} seconds")
 
         # Clean up temporary file
         os.unlink(temp_path)

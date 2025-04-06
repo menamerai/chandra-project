@@ -35,7 +35,7 @@ if audio_file is not None:
                 result = response.json()
                 transcription = result.get("text", "No transcription returned")
                 command = result.get("command", "No transcription returned")
-                direction = Direction.from_string(command["action"])
+                # direction = Direction.from_string(command["action"])
 
                 # TODO: Considering refactor the flow here. It's not looking nice on the website. Too tired for now.
                 # NOTE: Uncomment this to test the endpoint
@@ -63,8 +63,8 @@ if audio_file is not None:
     st.subheader("Transcription:")
     st.write(transcription)
     # TODO: Remove this later, only for testing
-    if command:
-        st.write(f"Action: {command['action']}")
-        st.write(f"Parameter: {command['parameter']}")
-    else:
-        st.write("Command parsing failed")
+    # if command:
+    #     st.write(f"Action: {command['action']}")
+    #     st.write(f"Parameter: {command['parameter']}")
+    # else:
+    #     st.write("Command parsing failed")

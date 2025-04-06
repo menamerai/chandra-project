@@ -27,8 +27,8 @@ RUN sudo apt update && sudo apt upgrade -y
 # Install Git
 RUN sudo apt install -y git
 
-# Install audio support
-# RUN sudo apt-get install pulseaudio pulseaudio-utils alsa-utils -y
+# Install additional dependencies
+RUN sudo apt install build-essential gcc cmake wget python3-pip -y
 
 # Rosdep update
 RUN rosdep update
