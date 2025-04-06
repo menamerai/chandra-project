@@ -8,6 +8,11 @@ FORWARD = "forward"
 BACKWARD = "backward"
 LEFT = "left"
 RIGHT = "right"
+FORWARD_LEFT = "forward_left"
+FORWARD_RIGHT = "forward_right"
+BACKWARD_LEFT = "backward_left"
+BACKWARD_RIGHT = "backward_right"
+STOP = "stop"
 
 
 # TODO: Use LLM to do this so that intent is extracted correctly
@@ -45,6 +50,18 @@ def command_parsing(text):
 
     elif RIGHT in text:
         return {"action": RIGHT, "parameter": parameter}
+    
+    elif FORWARD_LEFT in text: 
+        return {"action": FORWARD_LEFT, "parameter": parameter}
+
+    elif FORWARD_RIGHT in text: 
+        return {"action": FORWARD_RIGHT, "parameter": parameter}
+    
+    elif BACKWARD_LEFT in text: 
+        return {"action": BACKWARD_LEFT, "parameter": parameter}
+    
+    elif BACKWARD_RIGHT in text:
+        return {"action": BACKWARD_RIGHT, "parameter": parameter}
 
     else:
         return None

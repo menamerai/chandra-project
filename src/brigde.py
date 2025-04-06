@@ -85,8 +85,7 @@ class VelocityPublisher(Node):
 def velocity_pub(
     args: list[str] | None = None,
     direction: Direction | str = Direction.FORWARD,
-    execution_time: int = 5,
-    robot_type: str = "turtlebot"
+    execution_time: int = 5
 ):
     """
     Publish velocity and pose commands to a robot
@@ -95,7 +94,6 @@ def velocity_pub(
         args: ROS arguments
         direction: Direction to move (can be string or Direction enum)
         execution_time: How long to execute the command in seconds
-        robot_type: Type of robot to control
     """
     logger.info(f"Starting velocity_pub for robot")
     

@@ -9,13 +9,20 @@ from parser import command_parsing
 
 import uvicorn
 import whisper
+import json
 from fastapi import Body, FastAPI, File, HTTPException, UploadFile, APIRouter
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
 from loguru import logger
-
+from agents import Agents
 from brigde import Direction, velocity_pub, execute_dance_routine
+from dotenv import load_dotenv
 
+dotenv_path = "/chandra-project/.devcontainer/.env"
+load_dotenv(dotenv_path=dotenv_path)
+os.environ['GEMINI_API_KEY'] = os.getenv("GEMINI_API_KEY")
+print("API KEY: ")
+print(os.getenv("GEMINI_API_KEY"))
 app = FastAPI(title="Robot Command Service")
 
 # Create a router for Mini Pupper endpoints
@@ -35,7 +42,6 @@ app.add_middleware(
 @app.get("/", include_in_schema=False)
 async def root():
     return RedirectResponse(url="/docs")
-
 
 # Add dance endpoint to Mini Pupper router
 @minipupper_router.post("/dance")
@@ -78,7 +84,7 @@ async def publish_velocity_legacy(
     Publish velocity command to the robot.
     """
     try:
-        velocity_pub(direction=direction, execution_time=execution_time, robot_type="turtlebot")
+        velocity_pub(direction=direction, execution_time=execution_time)
         return {"message": "Velocity command published successfully (using turtlebot)"}
     except Exception as e:
         logger.error(f"Error publishing velocity command: {str(e)}")
@@ -137,6 +143,18 @@ async def transcribe_audio_file(file: UploadFile):
         logger.error(f"Error processing audio: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Error processing audio: {str(e)}")
 
+@app.post("/agent_response", deprecated=False)
+async def agent_process_text(payload: dict = Body(...)):
+    text = payload.get("text")
+    if not text:
+        raise HTTPException(status_code=400, detail="Text is required")
+    
+    # Send to agent service
+    prompt = text
+    response = Agents.get_response_no_agent(prompt)
+    response = response.strip().replace("```json", "").replace("```", "").strip()
+    response = json.loads(response)
+    return response
 
 if __name__ == "__main__":
     logger.info("Starting Robot Command Service")
