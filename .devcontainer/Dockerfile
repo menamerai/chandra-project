@@ -1,4 +1,4 @@
-FROM osrf/ros:humble-desktop-full
+FROM osrf/ros:galactic-desktop-focal
 
 # Add ubuntu user with same UID and GID as your host system, if it doesn't already exist
 # Since Ubuntu 24.04, a non-root user is created by default with the name vscode and UID=1000
@@ -21,20 +21,20 @@ USER $USERNAME
 # Add user to video group to allow access to webcam
 RUN sudo usermod --append --groups video $USERNAME
 
+# Update the package list
+RUN sudo apt-get update
+
 # Update all packages
 RUN sudo apt update && sudo apt upgrade -y
 
 # Install Git
 RUN sudo apt install -y git
 
-# Install audio support
-# RUN sudo apt-get install pulseaudio pulseaudio-utils alsa-utils -y
-
 # Rosdep update
 RUN rosdep update
 
 # Install ROS packages
-RUN sudo apt-get install ros-humble-rosbridge-suite ros-humble-rosbridge-server ros-humble-gazebo-* ros-humble-cartographer ros-humble-cartographer-ros ros-humble-navigation2 ros-humble-nav2-bringup -y
+# RUN sudo apt-get install ros-humble-rosbridge-suite ros-humble-rosbridge-server ros-humble-gazebo-* ros-humble-cartographer ros-humble-cartographer-ros ros-humble-navigation2 ros-humble-nav2-bringup -y
 
 # Source the ROS setup file
 RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> ~/.bashrc

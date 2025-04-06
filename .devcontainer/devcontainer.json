@@ -12,7 +12,9 @@
   "workspaceMount": "source=${localWorkspaceFolder},target=/${localWorkspaceFolderBasename},type=bind",
   "workspaceFolder": "/${localWorkspaceFolderBasename}",
   "mounts": [
-    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.bash_history,target=/home/vscode/.bash_history,type=bind"
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.bash_history,target=/home/vscode/.bash_history,type=bind",
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/ghost_sim,target=/home/ubuntu/ghost_sim,type=bind",
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ghost_simrc,target=/home/ubuntu/.ghost_simrc,type=bind"
   ],
   "customizations": {
     "vscode": {
