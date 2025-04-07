@@ -1,6 +1,7 @@
 import os
 import tempfile
 import sys
+import time
 
 # add src to path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src")))
@@ -13,7 +14,8 @@ from fastapi import FastAPI, File, HTTPException, UploadFile, APIRouter
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
 from loguru import logger
-from pydantic import BaseModel
+from enum import Enum
+from typing import Optional
 
 # Replace the direct import with the subprocess bridge
 from mavlink_wrapper import GhostRobotClientWrapper as GhostRobotClient
@@ -23,17 +25,27 @@ app = FastAPI(title="Robot Command Service")
 v60 = GhostRobotClient(sim=True)
 logger.info("Robot client initialized with Python 3.8 bridge")
 
-class ActionRequest(BaseModel):
-    mode: int  # 0=sit, 1=stand, 2=walk
+class CommandType(str, Enum):
+    """Enum for command types"""
+    MOVE_FORWARD = "move_forward"
+    MOVE_BACKWARD = "move_backward"
+    MOVE_LEFT = "move_left"
+    MOVE_RIGHT = "move_right"
+    MOVE_FORWARD_LEFT = "move_forward_left"
+    MOVE_FORWARD_RIGHT = "move_forward_right"
+    MOVE_BACKWARD_LEFT = "move_backward_left"
+    MOVE_BACKWARD_RIGHT = "move_backward_right"
+    ROTATE_LEFT = "rotate_left"
+    ROTATE_RIGHT = "rotate_right"
+    SIT = "sit"
+    STAND = "stand"
+    ROLL_OVER = "roll_over"
+    STOP = "stop"
 
-class MovementRequest(BaseModel):
-    x: float = 0.0  # Forward/backward (-1.0 to 1.0)
-    y: float = 0.0  # Left/right (-1.0 to 1.0)
-    z: float = 0.0  # Rotation (-1.0 to 1.0)
-    r: float = 0.0  # Height adjustment (-1.0 to 1.0)
-    duration: float = 0.0  # Duration of movement (0 = immediate)
 
 # Create a router for V60 endpoints
+audio_router = APIRouter(prefix="/audio", tags=["audio"])
+agent_router = APIRouter(prefix="/agent", tags=["agent"])
 robot_router = APIRouter(prefix="/robot", tags=["robot"])
 
 # Set up CORS middleware
@@ -76,7 +88,7 @@ def shutdown_event():
     GhostRobotClient.shutdown_daemon()
     logger.info("Robot connection closed")
 
-@app.post("/command", deprecated=False)
+@audio_router.post("/command", deprecated=False)
 async def transcribe_command_legacy(file: UploadFile = File(...)):
     """
     Transcribe audio file and return commands.
@@ -140,79 +152,83 @@ async def transcribe_audio_file(file: UploadFile):
         logger.error(f"Error processing audio: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Error processing audio: {str(e)}")
 
-@robot_router.post("/action")
-async def set_action_mode(request: ActionRequest):
-    """Set robot action mode: 0=sit, 1=stand, 2=walk"""
-    if request.mode not in [0, 1, 2]:
-        raise HTTPException(status_code=400, detail="Mode must be 0 (sit), 1 (stand), or 2 (walk)")
-    try:
-        current_mode = v60.set_action_mode(request.mode)
-        return {"success": True, "requested_mode": request.mode, "current_mode": current_mode}
-    except Exception as e:
-        logger.error(f"Error setting action mode: {str(e)}")
-        raise HTTPException(status_code=500, detail=f"Error setting action mode: {str(e)}")
+@robot_router.post("/commands")
+async def execute_command(commands: list[tuple[CommandType | str, Optional[float]]] = [(
+    CommandType.MOVE_FORWARD, 2.0),
+    (CommandType.MOVE_BACKWARD, 2.0),
+    (CommandType.MOVE_LEFT, 2.0),
+    (CommandType.MOVE_RIGHT, 2.0),
+    (CommandType.MOVE_FORWARD_LEFT, 1.0),
+    (CommandType.MOVE_FORWARD_RIGHT, 1.0),
+    (CommandType.MOVE_BACKWARD_LEFT, 1.0),
+    (CommandType.MOVE_BACKWARD_RIGHT, 1.0),
+    (CommandType.ROTATE_LEFT, 2.0),
+    (CommandType.ROTATE_RIGHT, 2.0),
+    (CommandType.SIT, 1.0),
+    (CommandType.STAND, 1.0),
+    (CommandType.ROLL_OVER, 1.0),
+    (CommandType.STOP, 3.0),
+]):
+    """
+    Execute a series of commands on the robot.
+    Commands can include movement and action commands.
 
-@robot_router.post("/move")
-async def move_robot(request: MovementRequest):
-    """Move robot with specified velocity components"""
-    try:
-        success = v60.move_robot(
-            x=request.x, 
-            y=request.y, 
-            z=request.z, 
-            r=request.r,
-            duration=request.duration
-        )
-        if not success:
-            raise HTTPException(status_code=400, detail="Failed to move robot. Check robot mode.")
-        return {
-            "success": True, 
-            "movement": {
-                "x": request.x, 
-                "y": request.y, 
-                "z": request.z, 
-                "r": request.r,
-                "duration": request.duration
-            }
-        }
-    except Exception as e:
-        logger.error(f"Error moving robot: {str(e)}")
-        raise HTTPException(status_code=500, detail=f"Error moving robot: {str(e)}")
+    Args:
+        commands (list): A list of tuples where each tuple contains a command type and optional duration.
 
-@robot_router.post("/stop")
-async def stop_robot():
-    """Stop all robot movement"""
+    """
     try:
-        success = v60.stop_movement()
-        return {"success": success, "message": "Robot stopped"}
-    except Exception as e:
-        logger.error(f"Error stopping robot: {str(e)}")
-        raise HTTPException(status_code=500, detail=f"Error stopping robot: {str(e)}")
-    
-@robot_router.post("/roll_over")
-async def roll_over():
-    """Make the robot roll over"""
-    try:
-        success = v60.roll_over(1)
-        return {"success": success, "message": "Robot rolled over"}
-    except Exception as e:
-        logger.error(f"Error rolling over robot: {str(e)}")
-        raise HTTPException(status_code=500, detail=f"Error rolling over robot: {str(e)}")
+        for command in commands:
+            logger.debug(f"Executing command: {command}")
+            cmd_type = command[0]
+            if isinstance(cmd_type, str):
+                cmd_type = CommandType(cmd_type)
+            duration = command[1] if len(command) > 1 else None
 
-@robot_router.post("/status")
-async def get_status():
-    """Get robot status information"""
-    status = v60.get_status()
-    # Convert numpy arrays to lists for JSON serialization
-    clean_status = {}
-    for key, value in status.items():
-        if hasattr(value, 'tolist'):
-            clean_status[key] = value.tolist()
-        else:
-            clean_status[key] = value
-    return {"status": clean_status}
+            match cmd_type:
+                case CommandType.MOVE_FORWARD:
+                    v60.move_robot(x=1.0, duration=duration)
+                case CommandType.MOVE_BACKWARD:
+                    v60.move_robot(x=-1.0, duration=duration)
+                case CommandType.MOVE_LEFT:
+                    v60.move_robot(y=-1.0, duration=duration)
+                case CommandType.MOVE_RIGHT:
+                    v60.move_robot(y=1.0, duration=duration)
+                case CommandType.MOVE_FORWARD_LEFT:
+                    v60.move_robot(x=1.0, y=-1.0, duration=duration)
+                case CommandType.MOVE_FORWARD_RIGHT:
+                    v60.move_robot(x=1.0, y=1.0, duration=duration)
+                case CommandType.MOVE_BACKWARD_LEFT:
+                    v60.move_robot(x=-1.0, y=-1.0, duration=duration)
+                case CommandType.MOVE_BACKWARD_RIGHT:
+                    v60.move_robot(x=-1.0, y=1.0, duration=duration)
+                case CommandType.ROTATE_LEFT:
+                    v60.move_robot(z=-1.0, duration=duration)
+                case CommandType.ROTATE_RIGHT:
+                    v60.move_robot(z=1.0, duration=duration)
+                case CommandType.SIT:
+                    v60.set_action_mode(0)
+                    time.sleep(duration if duration >= 3 else 3)
+                case CommandType.STAND:
+                    v60.set_action_mode(2)
+                    time.sleep(duration if duration >= 3 else 3)
+                case CommandType.ROLL_OVER:
+                    v60.roll_over()
+                    time.sleep(duration if duration >= 8 else 8)
+                case CommandType.STOP:
+                    v60.stop_movement()
+                    time.sleep(duration if duration else 0)
+                case _:
+                    logger.warning(f"Unknown command type: {cmd_type}")
+        
+        return {"success": True, "message": "Commands executed successfully"}
+    except Exception as e:
+        logger.error(f"Error executing commands: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Error executing commands: {str(e)}")
 
-# Include the v60 router in the main app
+# Include the routers in the main app
+app.include_router(audio_router)
+app.include_router(agent_router)
 app.include_router(robot_router)
 
 if __name__ == "__main__":
