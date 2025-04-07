@@ -16,19 +16,19 @@ git config --global user.email "${GIT_USER_EMAIL}"
 git config --global user.name "${GIT_USER_NAME}"
 
 # install turtlebot3 deps
-mkdir -p ~/turtlebot3_ws/src
-cd ~/turtlebot3_ws/src/
-git clone -b humble https://github.com/ROBOTIS-GIT/DynamixelSDK.git
-git clone -b humble https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
-git clone -b humble https://github.com/ROBOTIS-GIT/turtlebot3.git
-git clone -b humble https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
-cd ~/turtlebot3_ws
-colcon build --symlink-install --parallel-workers 2
-echo 'source ~/turtlebot3_ws/install/setup.bash' >> ~/.bashrc
-echo 'export LDS_MODEL=LDS-01' >> ~/.bashrc
-echo 'export ROS_DOMAIN_ID=30 #TURTLEBOT3' >> ~/.bashrc
-echo 'export TURTLEBOT3_MODEL=burger' >> ~/.bashrc
-echo 'source /usr/share/gazebo/setup.sh' >> ~/.bashrc
+# mkdir -p ~/turtlebot3_ws/src
+# cd ~/turtlebot3_ws/src/
+# git clone -b humble https://github.com/ROBOTIS-GIT/DynamixelSDK.git
+# git clone -b humble https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
+# git clone -b humble https://github.com/ROBOTIS-GIT/turtlebot3.git
+# git clone -b humble https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+# cd ~/turtlebot3_ws
+# colcon build --symlink-install --parallel-workers 2
+# echo 'source ~/turtlebot3_ws/install/setup.bash' >> ~/.bashrc
+# echo 'export LDS_MODEL=LDS-01' >> ~/.bashrc
+# echo 'export ROS_DOMAIN_ID=30 #TURTLEBOT3' >> ~/.bashrc
+# echo 'export TURTLEBOT3_MODEL=burger' >> ~/.bashrc
+# echo 'source /usr/share/gazebo/setup.sh' >> ~/.bashrc
 
 # Create ROS 2 workspace and clone Mini Pupper ROS repository
 mkdir -p ~/ros2_ws/src

@@ -25,46 +25,34 @@ if audio_file is not None:
         files = {"file": ("audio.wav", audio_file.getvalue(), "audio/wav")}
 
         try:
-            # Send the file to the FastAPI server
+            # Step 1: Send the file to the /command endpoint
             response = requests.post(
-                f'{os.getenv("BACKEND_LOCATION")}/command', files=files
+                f'{os.getenv("BACKEND_LOCATION")}/audio/command', files=files
             )
 
             if response.status_code == 200:
                 # Extract the transcription from the response
                 result = response.json()
                 transcription = result.get("text", "No transcription returned")
-                command = result.get("command", "No transcription returned")
-                # direction = Direction.from_string(command["action"])
+                st.subheader("Transcription:")
+                st.write(transcription)
 
-                # TODO: Considering refactor the flow here. It's not looking nice on the website. Too tired for now.
-                # NOTE: Uncomment this to test the endpoint
-                # if command:
-                #     # Invoke the /velocity endpoint if command is valid
-                #     velocity_response = requests.post(
-                #         f'{os.getenv("BACKEND_LOCATION")}/velocity',
-                #         json={"direction": direction.value, "execution_time": int(command['parameter'])}
-                #     )
+                # Step 2: Send the transcription to the /agent endpoint
+                with st.spinner("Sending transcription to agent for processing..."):
+                    agent_response = requests.post(
+                        f'{os.getenv("BACKEND_LOCATION")}/agent/agent_run',
+                        json={"text": transcription}
+                    )
 
-                #     if velocity_response.status_code == 200:
-                #         st.write("Velocity command sent successfully!")
-                #     else:
-                #         st.write(f"Error: Failed to invoke /velocity endpoint, status code {velocity_response.status_code}")
+                    if agent_response.status_code == 200:
+                        agent_result = agent_response.json()
+                        st.subheader("Agentic Process Result:")
+                        st.write(agent_result)
+                    else:
+                        st.error(f"Error: Agent endpoint returned status code {agent_response.status_code}")
             else:
-                transcription = (
-                    f"Error: Server returned status code {response.status_code}"
-                )
+                st.error(f"Error: Command endpoint returned status code {response.status_code}")
         except requests.exceptions.ConnectionError:
-            transcription = "Error: Could not connect to transcription server"
+            st.error("Error: Could not connect to the server")
         except Exception as e:
-            transcription = f"Error: {str(e)}"
-
-    # Display the transcription
-    st.subheader("Transcription:")
-    st.write(transcription)
-    # TODO: Remove this later, only for testing
-    # if command:
-    #     st.write(f"Action: {command['action']}")
-    #     st.write(f"Parameter: {command['parameter']}")
-    # else:
-    #     st.write("Command parsing failed")
+            st.error(f"Error: {str(e)}")

@@ -15,7 +15,7 @@ from fastapi import Body, FastAPI, File, HTTPException, UploadFile, APIRouter
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
 from loguru import logger
-from agents import Agents
+from agents import Agents, agentic_process
 from brigde import Direction, velocity_pub, execute_dance_routine
 from dotenv import load_dotenv
 
@@ -50,7 +50,8 @@ async def root():
 @app.on_event("startup")
 async def startup_event():
     global model, model_name
-    model_name = "distil-large-v3"
+    # model_name = "distil-large-v3"
+    model_name = "tiny"
     try:
         # Try GPU first
         # model = WhisperModel(model_name, device="cuda", compute_type="float16")
@@ -145,18 +146,18 @@ async def transcribe_audio_file(file: UploadFile):
         logger.error(f"Error processing audio: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Error processing audio: {str(e)}")
 
-@agent_router.post("/agent_response", deprecated=False)
+@agent_router.post("/agent_run", deprecated=False)
 async def agent_process_text(payload: dict = Body(...)):
     text = payload.get("text")
     if not text:
         raise HTTPException(status_code=400, detail="Text is required")
-    
-    # Send to agent service
-    prompt = text
-    response = Agents.get_response_no_agent(prompt)
-    response = response.strip().replace("```json", "").replace("```", "").strip()
-    response = json.loads(response)
-    return response
+    try:
+        # Trigger the agentic process
+        agentic_process(text)
+        return {"message": "Agent process triggered successfully"}
+    except Exception as e:
+        logger.error(f"Error processing agent request: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Error processing agent request: {str(e)}")
 
 
 # Add dance endpoint to Mini Pupper router

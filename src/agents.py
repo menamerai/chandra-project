@@ -76,36 +76,36 @@ def call_velocity(agent_response: dict) -> dict:
     response = requests.post("http://localhost:8000/velocity", json=agent_response)
     return response.json()
 
-@tool
-def agent_response(text_response: dict) -> dict: 
-    """
-    This function sends a POST request to the local agent_response endpoint with a text response, 
-    which is a dictionary containing a "text" key representing robotic commands. It returns a 
-    structured JSON response containing an "direction" and a "execution_time" key.
+# @tool
+# def agent_response(text_response: dict) -> dict: 
+#     """
+#     This function sends a POST request to the local agent_response endpoint with a text response, 
+#     which is a dictionary containing a "text" key representing robotic commands. It returns a 
+#     structured JSON response containing an "direction" and a "execution_time" key.
 
-    Args:
-        text_response: A dictionary with a single key "text" containing robotic command instructions.
+#     Args:
+#         text_response: A dictionary with a single key "text" containing robotic command instructions.
 
-    Returns:
-        A dictionary with keys "direction" and "execution_time", representing the structured interpretation 
-        of the input text.
+#     Returns:
+#         A dictionary with keys "direction" and "execution_time", representing the structured interpretation 
+#         of the input text.
 
-    Parameters type:
-        text_response: dict
+#     Parameters type:
+#         text_response: dict
 
-    Return type:
-        dict
-    """
-    response = requests.post("http://localhost:8000/agent_response", json=text_response)
-    return response[0].json()
+#     Return type:
+#         dict
+#     """
+#     response = requests.post("http://localhost:8000/agent_response", json=text_response)
+#     return response[0].json()
 
 
-def main(): 
+def agentic_process(instruction: str) -> dict: 
     process = Agents()
     process.setup_environment()
-    tools = [call_velocity, agent_response]
+    tools = [call_velocity]
     agent = process.agent(model_id="gemini/gemini-2.0-flash", tools=tools)
-    instruction = "Brutus, go straight for 5 minutes"
+    instruction = instruction.strip()
     process.inference(agent, instruction, verbose=False)
     # correct = 0
     # for instruction, answer in DATASET.items():
@@ -125,4 +125,4 @@ def main():
     # print(f"Time elapsed {datetime.now() - startTime} seconds")
     
 if __name__ == "__main__":  
-    main()
+    pass
