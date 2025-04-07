@@ -7,8 +7,10 @@ from dotenv import load_dotenv
 from datetime import datetime
 from enum import Enum
 
+
 class CommandType(str, Enum):
     """Enum for command types"""
+
     MOVE_FORWARD = "move_forward"
     MOVE_BACKWARD = "move_backward"
     MOVE_LEFT = "move_left"
@@ -24,30 +26,32 @@ class CommandType(str, Enum):
     ROLL_OVER = "roll_over"
     STOP = "stop"
 
+
 startTime = datetime.now()
 
-with open("/home/rai/chandra-project/src/data/system_prompt.txt", 'r') as f: 
+with open("/home/rai/chandra-project/src/data/system_prompt.txt", "r") as f:
     SYSTEM_PROMPT = f.read()
-with open("/home/rai/chandra-project/src/data/agentic_prompt.txt", "r") as f: 
+with open("/home/rai/chandra-project/src/data/agentic_prompt.txt", "r") as f:
     AGENTIC_PROMPT = f.read()
-with open("/home/rai/chandra-project/src/data/test.json", "r") as f: 
+with open("/home/rai/chandra-project/src/data/test.json", "r") as f:
     DATASET = json.load(f)
 
-class Agents: 
+
+class Agents:
     def __init__(self):
         pass
-    
+
     @staticmethod
     def agentic_response(agent, prompt):
         response = agent.run(prompt)
         return response
-    
+
     @staticmethod
     def setup_environment():
         dotenv_path = "/home/rai/chandra-project/.devcontainer/.env"
         load_dotenv(dotenv_path=dotenv_path)
-        os.environ['GEMINI_API_KEY'] = os.getenv("GEMINI_API_KEY")
-    
+        os.environ["GEMINI_API_KEY"] = os.getenv("GEMINI_API_KEY")
+
     @staticmethod
     def get_response_no_agent(instruction, model_id="gemini/gemini-2.0-flash") -> str:
         prompt = f"{SYSTEM_PROMPT}\nInput: {instruction}\nOutput:"
@@ -60,14 +64,9 @@ class Agents:
 
     def agent(self, model_id="gemini/gemini-2.0-flash", tools=[]):
         model = LiteLLMModel(model_id=model_id)
-        agent = CodeAgent(
-            tools=tools,
-            model=model,
-            add_base_tools=False,
-            max_steps=15
-        )
+        agent = CodeAgent(tools=tools, model=model, add_base_tools=False, max_steps=15)
         return agent
-    
+
     def inference(self, agent, instruction, verbose=True):
         prompt = f"{AGENTIC_PROMPT}\nInput: {instruction}\nOutput:"
         response = agent.run(prompt)
@@ -90,7 +89,7 @@ class CommandRobot(Tool):
                 "Format: [['move_forward', 5.0], ['move_left', 3.0], ...]. "
                 "Valid command types: move_forward, move_backward, move_left, move_right, move_forward_left, "
                 "move_forward_right, move_backward_left, move_backward_right, rotate_left, rotate_right, sit, stand, roll_over, stop."
-            )
+            ),
         }
     }
     output_type = "object"
@@ -102,8 +101,8 @@ class CommandRobot(Tool):
 
         Args:
             movements: List of [command type, execution_time] pairs.
-                command type (str): Must be one of "move_forward", "move_backward", "move_left", "move_right", 
-                    "move_forward_left", "move_forward_right", "move_backward_left", "move_backward_right", 
+                command type (str): Must be one of "move_forward", "move_backward", "move_left", "move_right",
+                    "move_forward_left", "move_forward_right", "move_backward_left", "move_backward_right",
                     "rotate_left", "rotate_right", "sit", "stand", "roll_over", "stop".
                 execution_time (float): Time in seconds for the movement. This is optional for the non-movement commands.
 
@@ -120,10 +119,14 @@ class CommandRobot(Tool):
             valid_commands = [ct.value for ct in CommandType]
             for cmd, execution_time in movements:
                 if not isinstance(cmd, str) or cmd not in valid_commands:
-                    raise ValueError(f"Invalid command type: {cmd}. Must be one of {valid_commands}")
+                    raise ValueError(
+                        f"Invalid command type: {cmd}. Must be one of {valid_commands}"
+                    )
                 formatted_movements.append([cmd, execution_time])
-            
-            response = requests.post("http://localhost:8000/robot/commands", json=formatted_movements)
+
+            response = requests.post(
+                "http://localhost:8000/robot/commands", json=formatted_movements
+            )
             response.raise_for_status()
             return response.json()
         except requests.RequestException as e:
@@ -138,7 +141,8 @@ def agentic_process(instruction: str) -> dict:
     instruction = instruction.strip()
     process.inference(agent, instruction)
     return {"status": "success", "message": "Command executed successfully"}
-    
-if __name__ == "__main__":  
+
+
+if __name__ == "__main__":
     instruction = "Move straight for 1/5 of a minutes. Turn left for 10 seconds. Move forward and right for 5 seconds. Stop."
     agentic_process(instruction)

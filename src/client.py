@@ -5,8 +5,6 @@ import requests
 import streamlit as st
 from dotenv import load_dotenv
 
-from brigde import Direction
-
 # Load environment variables
 load_dotenv(".devcontainer/.env")
 
@@ -35,7 +33,7 @@ if audio_file is not None:
                 result = response.json()
                 transcription = result.get("text", "No transcription returned")
                 command = result.get("command", "No transcription returned")
-                direction = Direction.from_string(command["action"])
+                # direction = Direction.from_string(command["action"])
 
                 # TODO: Considering refactor the flow here. It's not looking nice on the website. Too tired for now.
                 # NOTE: Uncomment this to test the endpoint
