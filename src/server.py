@@ -25,6 +25,9 @@ os.environ['GEMINI_API_KEY'] = os.getenv("GEMINI_API_KEY")
 app = FastAPI(title="Robot Command Service")
 
 # Create a router for Mini Pupper endpoints
+audio_router = APIRouter(prefix="/audio", tags=["Audio"])
+agent_router = APIRouter(prefix="/agent", tags=["Agent"])
+robot_router = APIRouter(prefix="/robot", tags=["Robot"])
 minipupper_router = APIRouter(prefix="/minipupper", tags=["Mini Pupper"])
 
 # Set up CORS middleware
@@ -41,26 +44,6 @@ app.add_middleware(
 @app.get("/", include_in_schema=False)
 async def root():
     return RedirectResponse(url="/docs")
-
-# Add dance endpoint to Mini Pupper router
-@minipupper_router.post("/dance")
-async def dance_command():
-    """
-    Make the Mini Pupper robot perform a dance routine.
-    """
-    try:
-        logger.info("Mini Pupper dance command received")
-        # Call our separate dance routine function
-        result = execute_dance_routine()
-        return {"message": f"Dance routine launched successfully, status: {result['status']}"}
-    except Exception as e:
-        logger.error(f"Error executing dance command: {str(e)}")
-        raise HTTPException(
-            status_code=500, detail=f"Error executing dance command: {str(e)}"
-        )
-
-# Include the Mini Pupper router in the main app
-app.include_router(minipupper_router)
 
 
 # Load Whisper model once at startup to avoid reloading it for each request
@@ -84,7 +67,7 @@ async def startup_event():
             # Continue anyway, will try to load again when needed
 
 
-@app.post("/velocity", deprecated=False)
+@robot_router.post("/velocity", deprecated=False)
 async def publish_velocity_legacy(
     direction: Direction | str = Body(...), execution_time: int = Body(...)
 ):
@@ -100,7 +83,7 @@ async def publish_velocity_legacy(
             status_code=500, detail=f"Error publishing velocity command: {str(e)}"
         )
 
-@app.post("/command", deprecated=False)
+@audio_router.post("/command", deprecated=False)
 async def transcribe_command_legacy(file: UploadFile = File(...)):
     logger.info("Received request to transcribe audio file")
     return await transcribe_audio_file(file)
@@ -162,7 +145,7 @@ async def transcribe_audio_file(file: UploadFile):
         logger.error(f"Error processing audio: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Error processing audio: {str(e)}")
 
-@app.post("/agent_response", deprecated=False)
+@agent_router.post("/agent_response", deprecated=False)
 async def agent_process_text(payload: dict = Body(...)):
     text = payload.get("text")
     if not text:
@@ -174,6 +157,30 @@ async def agent_process_text(payload: dict = Body(...)):
     response = response.strip().replace("```json", "").replace("```", "").strip()
     response = json.loads(response)
     return response
+
+
+# Add dance endpoint to Mini Pupper router
+@minipupper_router.post("/dance")
+async def dance_command():
+    """
+    Make the Mini Pupper robot perform a dance routine.
+    """
+    try:
+        logger.info("Mini Pupper dance command received")
+        # Call our separate dance routine function
+        result = execute_dance_routine()
+        return {"message": f"Dance routine launched successfully, status: {result['status']}"}
+    except Exception as e:
+        logger.error(f"Error executing dance command: {str(e)}")
+        raise HTTPException(
+            status_code=500, detail=f"Error executing dance command: {str(e)}"
+        )
+
+# Add routers to the main app
+app.include_router(audio_router)
+app.include_router(agent_router)
+app.include_router(robot_router)
+app.include_router(minipupper_router)
 
 if __name__ == "__main__":
     logger.info("Starting Robot Command Service")
