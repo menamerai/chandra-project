@@ -3,13 +3,8 @@ import time
 import os
 import json
 import requests
-from IPython.display import display, Image
-from smolagents import CodeAgent, ChatMessage, CodeAgent, Model, DuckDuckGoSearchTool, HfApiModel, tool
-from smolagents.agents import ActionStep
-from smolagents.tools import Tool, tool
+from smolagents import CodeAgent, CodeAgent, tool
 from smolagents import LiteLLMModel
-from huggingface_hub import login
-from litellm import completion
 from dotenv import load_dotenv
 from datetime import datetime
 

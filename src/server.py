@@ -22,8 +22,6 @@ from dotenv import load_dotenv
 dotenv_path = "/chandra-project/.devcontainer/.env"
 load_dotenv(dotenv_path=dotenv_path)
 os.environ['GEMINI_API_KEY'] = os.getenv("GEMINI_API_KEY")
-print("API KEY: ")
-print(os.getenv("GEMINI_API_KEY"))
 app = FastAPI(title="Robot Command Service")
 
 # Create a router for Mini Pupper endpoints
@@ -104,17 +102,13 @@ async def publish_velocity_legacy(
 
 @app.post("/command", deprecated=False)
 async def transcribe_command_legacy(file: UploadFile = File(...)):
-    """
-    Transcribe audio file and return commands.
-    """
+    logger.info("Received request to transcribe audio file")
     return await transcribe_audio_file(file)
 
 
 # Helper function for audio transcription
 async def transcribe_audio_file(file: UploadFile):
-    """
-    Helper function to transcribe audio files and return commands.
-    """
+    logger.info(f"Starting transcription for file: {file.filename}")
     if not file.filename.lower().endswith(".wav"):
         logger.warning(f"Rejected file with unsupported format: {file.filename}")
         raise HTTPException(status_code=400, detail="Only .wav files are supported")
@@ -153,8 +147,7 @@ async def transcribe_audio_file(file: UploadFile):
         
         logger.debug(f"Transcribed text: {text}")
         command = command_parsing(text)
-        logger.info(f"Audio transcription completed successfully")
-        logger.info(f"Transcription time: {timeit.default_timer() - start_time} seconds")
+        logger.info(f"Transcription completed successfully in {timeit.default_timer() - start_time} seconds")
 
         # Clean up temporary file
         os.unlink(temp_path)

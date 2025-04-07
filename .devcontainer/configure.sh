@@ -1,5 +1,8 @@
 #!/bin/bash
 
+sudo apt update
+sudo apt-get update
+
 # configure git
 if [ -z "${GIT_USER_NAME}" ]; then
   echo "GIT_USER_NAME is not set. Please set it in the devcontainer.json file."
