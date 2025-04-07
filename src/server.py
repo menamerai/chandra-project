@@ -2,20 +2,23 @@ import os
 import tempfile
 import sys
 import time
+import asyncio
 
 # add src to path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src")))
+sys.path.insert(
+    0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src"))
+)
 
 from parser import command_parsing
 
 import uvicorn
 from faster_whisper import BatchedInferencePipeline, WhisperModel
-from fastapi import FastAPI, File, HTTPException, UploadFile, APIRouter
+from fastapi import FastAPI, File, HTTPException, UploadFile, APIRouter, Body
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
 from loguru import logger
-from enum import Enum
 from typing import Optional
+from agents import CommandType, agentic_process
 
 # Replace the direct import with the subprocess bridge
 from mavlink_wrapper import GhostRobotClientWrapper as GhostRobotClient
@@ -24,23 +27,6 @@ app = FastAPI(title="Robot Command Service")
 # Initialize robot client with subprocess bridge to Python 3.8
 v60 = GhostRobotClient(sim=True)
 logger.info("Robot client initialized with Python 3.8 bridge")
-
-class CommandType(str, Enum):
-    """Enum for command types"""
-    MOVE_FORWARD = "move_forward"
-    MOVE_BACKWARD = "move_backward"
-    MOVE_LEFT = "move_left"
-    MOVE_RIGHT = "move_right"
-    MOVE_FORWARD_LEFT = "move_forward_left"
-    MOVE_FORWARD_RIGHT = "move_forward_right"
-    MOVE_BACKWARD_LEFT = "move_backward_left"
-    MOVE_BACKWARD_RIGHT = "move_backward_right"
-    ROTATE_LEFT = "rotate_left"
-    ROTATE_RIGHT = "rotate_right"
-    SIT = "sit"
-    STAND = "stand"
-    ROLL_OVER = "roll_over"
-    STOP = "stop"
 
 
 # Create a router for V60 endpoints
@@ -57,10 +43,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 # Redirect root to /docs
 @app.get("/", include_in_schema=False)
 async def root():
     return RedirectResponse(url="/docs")
+
 
 # Load Whisper model once at startup to avoid reloading it for each request
 @app.on_event("startup")
@@ -70,16 +58,21 @@ async def startup_event():
     # model_name = "tiny"
     try:
         # Try GPU first
-        model = BatchedInferencePipeline(WhisperModel(model_name, device="cuda", compute_type="float16"))
+        model = BatchedInferencePipeline(
+            WhisperModel(model_name, device="cuda", compute_type="float16")
+        )
         logger.info("Whisper model loaded successfully on GPU")
     except Exception as e:
         logger.warning(f"GPU loading failed, falling back to CPU: {str(e)}")
         try:
-            model = BatchedInferencePipeline(WhisperModel(model_name, device="cpu", compute_type="int8"))
+            model = BatchedInferencePipeline(
+                WhisperModel(model_name, device="cpu", compute_type="int8")
+            )
             logger.info("Whisper model loaded successfully on CPU")
         except Exception as e:
             logger.error(f"Error loading Whisper model: {str(e)}")
             # Continue anyway, will try to load again when needed
+
 
 @app.on_event("shutdown")
 def shutdown_event():
@@ -88,12 +81,14 @@ def shutdown_event():
     GhostRobotClient.shutdown_daemon()
     logger.info("Robot connection closed")
 
+
 @audio_router.post("/command", deprecated=False)
 async def transcribe_command_legacy(file: UploadFile = File(...)):
     """
     Transcribe audio file and return commands.
     """
     return await transcribe_audio_file(file)
+
 
 # Helper function for audio transcription
 async def transcribe_audio_file(file: UploadFile):
@@ -119,17 +114,25 @@ async def transcribe_audio_file(file: UploadFile):
             logger.info("Loading Whisper model on demand")
             try:
                 logger.info("Attempting to load Whisper model on GPU")
-                model = BatchedInferencePipeline(WhisperModel(model_name, device="cuda", compute_type="float16"))
+                model = BatchedInferencePipeline(
+                    WhisperModel(model_name, device="cuda", compute_type="float16")
+                )
             except Exception as e:
                 logger.warning(f"GPU loading failed, falling back to CPU: {str(e)}")
                 try:
-                    model = BatchedInferencePipeline(WhisperModel(model_name, device="cpu", compute_type="int8"))
+                    model = BatchedInferencePipeline(
+                        WhisperModel(model_name, device="cpu", compute_type="int8")
+                    )
                 except Exception as e:
                     logger.error(f"Error loading Whisper model: {str(e)}")
-                    raise HTTPException(status_code=500, detail="Error loading Whisper model")
+                    raise HTTPException(
+                        status_code=500, detail="Error loading Whisper model"
+                    )
 
         # Transcribe the audio
-        segments, _ = model.transcribe(temp_path, beam_size=5, language="en", task="transcribe")
+        segments, _ = model.transcribe(
+            temp_path, beam_size=5, language="en", task="transcribe"
+        )
         segments = list(segments)
 
         text = " ".join([segment.text for segment in segments])
@@ -143,7 +146,7 @@ async def transcribe_audio_file(file: UploadFile):
         os.unlink(temp_path)
 
         # Return the transcribed text
-        return {"text": text, "command": command }
+        return {"text": text, "command": command}
 
     except Exception as e:
         # Make sure to clean up if there's an error
@@ -152,23 +155,42 @@ async def transcribe_audio_file(file: UploadFile):
         logger.error(f"Error processing audio: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Error processing audio: {str(e)}")
 
+
+@agent_router.post("/agent_run")
+async def agent_process_text(payload: dict = Body(...)):
+    text = payload.get("text")
+    if not text:
+        raise HTTPException(status_code=400, detail="Text is required")
+    try:
+        # Trigger the agentic process
+        await asyncio.to_thread(agentic_process, text)
+        return {"message": "Agent process triggered successfully"}
+    except Exception as e:
+        logger.error(f"Error processing agent request: {str(e)}")
+        raise HTTPException(
+            status_code=500, detail=f"Error processing agent request: {str(e)}"
+        )
+
+
 @robot_router.post("/commands")
-async def execute_command(commands: list[tuple[CommandType | str, Optional[float]]] = [(
-    CommandType.MOVE_FORWARD, 2.0),
-    (CommandType.MOVE_BACKWARD, 2.0),
-    (CommandType.MOVE_LEFT, 2.0),
-    (CommandType.MOVE_RIGHT, 2.0),
-    (CommandType.MOVE_FORWARD_LEFT, 1.0),
-    (CommandType.MOVE_FORWARD_RIGHT, 1.0),
-    (CommandType.MOVE_BACKWARD_LEFT, 1.0),
-    (CommandType.MOVE_BACKWARD_RIGHT, 1.0),
-    (CommandType.ROTATE_LEFT, 2.0),
-    (CommandType.ROTATE_RIGHT, 2.0),
-    (CommandType.SIT, 1.0),
-    (CommandType.STAND, 1.0),
-    (CommandType.ROLL_OVER, 1.0),
-    (CommandType.STOP, 3.0),
-]):
+async def execute_command(
+    commands: list[tuple[CommandType | str, Optional[float]]] = [
+        (CommandType.MOVE_FORWARD, 2.0),
+        (CommandType.MOVE_BACKWARD, 2.0),
+        (CommandType.MOVE_LEFT, 2.0),
+        (CommandType.MOVE_RIGHT, 2.0),
+        (CommandType.MOVE_FORWARD_LEFT, 1.0),
+        (CommandType.MOVE_FORWARD_RIGHT, 1.0),
+        (CommandType.MOVE_BACKWARD_LEFT, 1.0),
+        (CommandType.MOVE_BACKWARD_RIGHT, 1.0),
+        (CommandType.ROTATE_LEFT, 2.0),
+        (CommandType.ROTATE_RIGHT, 2.0),
+        (CommandType.SIT, 1.0),
+        (CommandType.STAND, 1.0),
+        (CommandType.ROLL_OVER, 1.0),
+        (CommandType.STOP, 3.0),
+    ]
+):
     """
     Execute a series of commands on the robot.
     Commands can include movement and action commands.
@@ -220,11 +242,14 @@ async def execute_command(commands: list[tuple[CommandType | str, Optional[float
                     time.sleep(duration if duration else 0)
                 case _:
                     logger.warning(f"Unknown command type: {cmd_type}")
-        
+
         return {"success": True, "message": "Commands executed successfully"}
     except Exception as e:
         logger.error(f"Error executing commands: {str(e)}")
-        raise HTTPException(status_code=500, detail=f"Error executing commands: {str(e)}")
+        raise HTTPException(
+            status_code=500, detail=f"Error executing commands: {str(e)}"
+        )
+
 
 # Include the routers in the main app
 app.include_router(audio_router)
