@@ -85,7 +85,7 @@ class VelocityPublisher(Node):
 def velocity_pub(
     args: list[str] | None = None,
     direction: Direction | str = Direction.FORWARD,
-    execution_time: int = 5
+    execution_time: int = 5,
 ):
     """
     Publish velocity and pose commands to a robot
@@ -189,10 +189,79 @@ def execute_dance_routine():
         logger.error(f"Error launching dance routine: {str(e)}")
         logger.exception(e)
         return {"status": "error", "message": str(e)}
+    
+def chain_velocity_pub(
+    args: list[str] | None = None,
+    params: list[tuple[Direction | str, int]] = [(Direction.FORWARD, 5)]
+):
+    """
+    Chain velocity_pub function to allow for easy chaining of commands
+    Args:
+        args: ROS arguments
+        params: Tuple containing direction and execution time
+    """ 
+    logger.info(f"Chaining velocity_pub with params: {params}")
+    
+    try:
+        rclpy.init(args=args)
+        logger.debug(f"ROS initialized successfully")
+        
+        # Create publisher node once
+        node = VelocityPublisher()
+        logger.debug(f"Node created successfully")
+        
+        # Loop through all commands in sequence
+        for idx, (direction, execution_time) in enumerate(params):
+            # Convert string direction to enum if needed
+            if isinstance(direction, str):
+                logger.debug(f"Converting string direction '{direction}' to enum")
+                direction = Direction.from_string(direction)
+                
+            logger.info(f"Command {idx+1}/{len(params)}: Publishing {direction.name} for {execution_time} seconds")
+            
+            # Publish the command
+            node.publish_velocity(direction)
+            
+            # Wait for the specified execution time
+            start_time = node.get_clock().now()
+            logger.debug(f"Waiting for {execution_time} seconds")
+                
+            while rclpy.ok():
+                rclpy.spin_once(node, timeout_sec=1e-3)
+                current_time = node.get_clock().now()
+                elapsed_ns = (current_time - start_time).nanoseconds
+                
+                if elapsed_ns > execution_time * 1e9:
+                    break
+        
+        # Reset velocity at the end of all commands
+        logger.debug("All commands completed, resetting velocity")
+        node.reset_velocity()
+        
+        # Clean up node
+        node.destroy_node()
+            
+        # Clean up
+        logger.debug("Cleaning up ROS node")
+        rclpy.shutdown()
+        logger.info("ROS shutdown successfully")
+    except Exception as e:
+        logger.error(f"Error in chain_velocity_pub: {str(e)}")
+        logger.exception(e)
+        try:
+            rclpy.shutdown()
+        except:
+            pass
+        raise
 
 
 if __name__ == "__main__":
     # change logger to debug
     logger.remove()
     logger.add(sys.stderr, level="DEBUG")
-    velocity_pub(direction="forward", execution_time=10)
+    # velocity_pub(direction="forward", execution_time=10)
+    chain_velocity_pub(params=[
+        (Direction.FORWARD, 5),
+        (Direction.LEFT, 2),
+        (Direction.FORWARD_RIGHT, 1)
+    ])

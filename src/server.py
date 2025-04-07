@@ -9,14 +9,15 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..",
 from parser import command_parsing
 
 import uvicorn
-from faster_whisper import WhisperModel, BatchedInferencePipeline
 import json
+import asyncio
+from faster_whisper import WhisperModel, BatchedInferencePipeline
 from fastapi import Body, FastAPI, File, HTTPException, UploadFile, APIRouter
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
 from loguru import logger
-from agents import Agents, agentic_process
-from brigde import Direction, velocity_pub, execute_dance_routine
+from agents import agentic_process
+from brigde import Direction, execute_dance_routine, chain_velocity_pub
 from dotenv import load_dotenv
 
 dotenv_path = "/chandra-project/.devcontainer/.env"
@@ -49,9 +50,9 @@ async def root():
 # Load Whisper model once at startup to avoid reloading it for each request
 @app.on_event("startup")
 async def startup_event():
-    global model, model_name
-    # model_name = "distil-large-v3"
-    model_name = "tiny"
+    global model, model_name, process, tools, agent
+    model_name = "distil-large-v3"
+    # model_name = "tiny"
     try:
         # Try GPU first
         # model = WhisperModel(model_name, device="cuda", compute_type="float16")
@@ -67,16 +68,33 @@ async def startup_event():
             logger.error(f"Error loading Whisper model: {str(e)}")
             # Continue anyway, will try to load again when needed
 
+    # Initialize the agent
+    # process = Agents()
+    # process.setup_environment()
+    # logger.info("Agent environment set up successfully")
+    # tools = [
+    #     call_velocity,
+    # ]
+    # agent = process.agent(model_id="gemini/gemini-2.0-flash", tools=tools)
+    # logger.info("Agent initialized successfully")
+
 
 @robot_router.post("/velocity", deprecated=False)
 async def publish_velocity_legacy(
-    direction: Direction | str = Body(...), execution_time: int = Body(...)
+    commands: list[tuple[Direction | str, float]] = Body(
+        [
+            (Direction.FORWARD, 5.0),
+            (Direction.BACKWARD, 5.0),
+            (Direction.LEFT, 5.0),
+            (Direction.RIGHT, 5.0),
+        ]
+    ),
 ):
     """
     Publish velocity command to the robot.
     """
     try:
-        velocity_pub(direction=direction, execution_time=execution_time)
+        chain_velocity_pub(args=None, params=commands)
         return {"message": "Velocity command published successfully (using turtlebot)"}
     except Exception as e:
         logger.error(f"Error publishing velocity command: {str(e)}")
@@ -146,14 +164,14 @@ async def transcribe_audio_file(file: UploadFile):
         logger.error(f"Error processing audio: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Error processing audio: {str(e)}")
 
-@agent_router.post("/agent_run", deprecated=False)
+@agent_router.post("/agent_run")
 async def agent_process_text(payload: dict = Body(...)):
     text = payload.get("text")
     if not text:
         raise HTTPException(status_code=400, detail="Text is required")
     try:
         # Trigger the agentic process
-        agentic_process(text)
+        await asyncio.to_thread(agentic_process, text)
         return {"message": "Agent process triggered successfully"}
     except Exception as e:
         logger.error(f"Error processing agent request: {str(e)}")

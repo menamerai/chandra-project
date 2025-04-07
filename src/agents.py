@@ -3,10 +3,11 @@ import time
 import os
 import json
 import requests
-from smolagents import CodeAgent, CodeAgent, tool
+from smolagents import CodeAgent, CodeAgent, tool, ToolCallingAgent, Tool
 from smolagents import LiteLLMModel
 from dotenv import load_dotenv
 from datetime import datetime
+from brigde import Direction
 
 startTime = datetime.now()
 
@@ -45,7 +46,7 @@ class Agents:
             tools=tools,
             model=model,
             add_base_tools=False,
-            max_steps=10
+            max_steps=15
         )
         return agent
     
@@ -54,75 +55,96 @@ class Agents:
         response = agent.run(prompt)
         if verbose:
             return response
-@tool
-def call_velocity(agent_response: dict) -> dict:
-    """
-    This function sends a POST request to the local Velocity endpoint with the agent's response, 
-    which is a dictionary containing the keys "direction" and "execution_time". It returns the server's 
-    JSON response, which is a dictionary indicating whether the request was successful or not.
-
-    Args:
-        agent_response: A dictionary with "direction" and "execution_time" keys representing the agent's response.
-
-    Returns:
-        A dictionary indicating the success or failure of the request.
-
-    Parameters type:
-        agent_response: dict
-
-    Return type:
-        dict
-    """
-    response = requests.post("http://localhost:8000/velocity", json=agent_response)
-    return response.json()
 
 # @tool
-# def agent_response(text_response: dict) -> dict: 
+# def call_velocity(direction: str, execution_time: float) -> dict:
 #     """
-#     This function sends a POST request to the local agent_response endpoint with a text response, 
-#     which is a dictionary containing a "text" key representing robotic commands. It returns a 
-#     structured JSON response containing an "direction" and a "execution_time" key.
+#     This function sends a POST request to the local velocity endpoint with the agent's response, 
+#     which is the direction and execution time for the robot to move.
 
 #     Args:
-#         text_response: A dictionary with a single key "text" containing robotic command instructions.
+#         direction (str): The direction to move the robot. 
+#             Must be one of the following commands: "forward", "backward", "left", "right", 
+#             "forward_left", "forward_right", "backward_left", "backward_right", "stop".
+
+#         execution_time (float): The time in seconds for which the robot should move in the specified direction. Must be a positive number.
 
 #     Returns:
-#         A dictionary with keys "direction" and "execution_time", representing the structured interpretation 
-#         of the input text.
+#         A dict indicating the success or failure of the request.
 
-#     Parameters type:
-#         text_response: dict
-
-#     Return type:
-#         dict
+#     Example:
+#         call_velocity("forward", 5.0)
 #     """
-#     response = requests.post("http://localhost:8000/agent_response", json=text_response)
-#     return response[0].json()
+#     try:
+#         # if direction is string, convert it to Direction enum
+#         if isinstance(direction, str):
+#             direction = Direction[direction.upper()]
+        
+#         response = requests.post("http://localhost:8000/robot/velocity", json={
+#             "direction": direction.value,
+#             "execution_time": execution_time
+#         })
+#         response.raise_for_status()
+#         return response.json()
+#     except requests.RequestException as e:
+#         return {"error": str(e)}
+
+class CallVelocity(Tool):
+    name = "call_velocity"
+    description = "Call the velocity endpoint to move the robot in a specific direction with a specified execution time."
+    inputs = {
+        "movements": {
+            "type": "array",
+            "description": "List of movement commands, each containing a direction (str) and duration (float). Format: [['forward', 5.0], ['left', 3.0], ...]"
+        }
+    }
+    output_type = "object"
+
+    def forward(self, movements: list[tuple[str, float]]) -> dict:
+        """
+        This function sends a POST request to the local Velocity endpoint with a list of movements,
+        where each movement is a tuple of (direction, execution_time).
+        
+        Args:
+            movements: List of [direction, execution_time] pairs.
+                direction (str): One of "forward", "backward", "left", "right", 
+                    "forward_left", "forward_right", "backward_left", "backward_right", "stop".
+                execution_time (float): Time in seconds for the movement.
+
+        Example:
+            movements = [
+                ["forward", 5.0],
+                ["left", 3.0],
+                ["stop", 1.0]
+            ]
+            call_velocity(movements)
+        """
+        try:
+            # Convert string directions to Direction enum values
+            formatted_movements = []
+            for direction, execution_time in movements:
+                if isinstance(direction, str):
+                    direction = Direction[direction.upper()]
+                formatted_movements.append([direction.value, execution_time])
+            
+            response = requests.post("http://localhost:8000/robot/velocity", 
+                                    json=formatted_movements)
+            response.raise_for_status()
+            return response.json()
+        except requests.RequestException as e:
+            return {"error": str(e)}
 
 
 def agentic_process(instruction: str) -> dict: 
     process = Agents()
     process.setup_environment()
-    tools = [call_velocity]
+    tools = [CallVelocity()]
+    # tools = [call_velocity]
     agent = process.agent(model_id="gemini/gemini-2.0-flash", tools=tools)
     instruction = instruction.strip()
-    process.inference(agent, instruction, verbose=False)
-    # correct = 0
-    # for instruction, answer in DATASET.items():
-    #     # response = Agents.get_response_no_agent(instruction=instruction, model_id="gemini/gemini-2.0-flash-lite")
-    #     # agent = process.agent(model_id="gemini/gemini-2.0-flash-lite")
-    #     # response = process.inference(agent, instruction=instruction, verbose=True)
-    #     #NOTE: Only for non_agent
-    #     response = response.strip().replace("```json", "").replace("```", "").strip()
-    #     response = json.loads(response)
-    #     responses.append(response)
-    #     if response == answer: 
-    #         correct += 1
-    #     time.sleep(3.0)
-    # print("Model Responses: ")
-    # print(responses)
-    # print(f"Model Accuracy: {correct * 100 / len(DATASET)}%")
-    # print(f"Time elapsed {datetime.now() - startTime} seconds")
+    process.inference(agent, instruction)
+    return {"status": "success", "message": "Command executed successfully"}
     
 if __name__ == "__main__":  
-    pass
+    instruction = "Move straight for 1/5 of a minutes. Turn left for 10 seconds. Move forward and right for 5 seconds. Stop."
+    agentic_process(instruction)
