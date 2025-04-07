@@ -1,5 +1,4 @@
 import os
-from parser import command_parsing
 
 import requests
 import streamlit as st
@@ -17,52 +16,37 @@ audio_file = st.audio_input("Record your voice")
 
 # Process the audio file when it's recorded
 if audio_file is not None:
-    # Display a status message
-    with st.spinner("Sending audio to server for transcription..."):
-        # Prepare file for upload
-        files = {"file": ("audio.wav", audio_file.getvalue(), "audio/wav")}
-
-        try:
-            # Send the file to the FastAPI server
+    try:
+        # Step 1: Send the file to the /command endpoint with its own spinner
+        with st.spinner("Sending audio to server for transcription..."):
+            files = {"file": ("audio.wav", audio_file.getvalue(), "audio/wav")}
             response = requests.post(
-                f'{os.getenv("BACKEND_LOCATION")}/command', files=files
+                f'{os.getenv("BACKEND_LOCATION")}/audio/command', files=files
             )
 
-            if response.status_code == 200:
-                # Extract the transcription from the response
-                result = response.json()
-                transcription = result.get("text", "No transcription returned")
-                command = result.get("command", "No transcription returned")
-                # direction = Direction.from_string(command["action"])
+        if response.status_code == 200:
+            # Extract the transcription from the response
+            result = response.json()
+            transcription = result.get("text", "No transcription returned")
+            st.subheader("Transcription:")
+            st.write(transcription)
 
-                # TODO: Considering refactor the flow here. It's not looking nice on the website. Too tired for now.
-                # NOTE: Uncomment this to test the endpoint
-                # if command:
-                #     # Invoke the /velocity endpoint if command is valid
-                #     velocity_response = requests.post(
-                #         f'{os.getenv("BACKEND_LOCATION")}/velocity',
-                #         json={"direction": direction.value, "execution_time": int(command['parameter'])}
-                #     )
-
-                #     if velocity_response.status_code == 200:
-                #         st.write("Velocity command sent successfully!")
-                #     else:
-                #         st.write(f"Error: Failed to invoke /velocity endpoint, status code {velocity_response.status_code}")
-            else:
-                transcription = (
-                    f"Error: Server returned status code {response.status_code}"
+            # Step 2: Send the transcription to the /agent endpoint with its own spinner
+            with st.spinner("Sending transcription to agent for processing..."):
+                agent_response = requests.post(
+                    f'{os.getenv("BACKEND_LOCATION")}/agent/agent_run',
+                    json={"text": transcription}
                 )
-        except requests.exceptions.ConnectionError:
-            transcription = "Error: Could not connect to transcription server"
-        except Exception as e:
-            transcription = f"Error: {str(e)}"
 
-    # Display the transcription
-    st.subheader("Transcription:")
-    st.write(transcription)
-    # TODO: Remove this later, only for testing
-    if command:
-        st.write(f"Action: {command['action']}")
-        st.write(f"Parameter: {command['parameter']}")
-    else:
-        st.write("Command parsing failed")
+            if agent_response.status_code == 200:
+                agent_result = agent_response.json()
+                st.subheader("Agentic Process Result:")
+                st.write(agent_result)
+            else:
+                st.error(f"Error: Agent endpoint returned status code {agent_response.status_code}")
+        else:
+            st.error(f"Error: Command endpoint returned status code {response.status_code}")
+    except requests.exceptions.ConnectionError:
+        st.error("Error: Could not connect to the server")
+    except Exception as e:
+        st.error(f"Error: {str(e)}")
