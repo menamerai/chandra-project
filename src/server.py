@@ -139,8 +139,12 @@ async def transcribe_audio_file(file: UploadFile):
         logger.debug(f"Transcribed text: {text}")
 
         # Parse the command from the transcribed text
-        command = command_parsing(text)
-        logger.debug(f"Parsed command: {command}")
+        try:
+            command = command_parsing(text)
+            logger.debug(f"Parsed command: {command}")
+        except Exception as e:
+            logger.error(f"Error parsing command: {str(e)}")
+            command = None
 
         # Clean up temporary file
         os.unlink(temp_path)
@@ -213,21 +217,21 @@ async def execute_command(
                 case CommandType.MOVE_BACKWARD:
                     v60.move_robot(x=-1.0, duration=duration)
                 case CommandType.MOVE_LEFT:
-                    v60.move_robot(y=-1.0, duration=duration)
-                case CommandType.MOVE_RIGHT:
                     v60.move_robot(y=1.0, duration=duration)
+                case CommandType.MOVE_RIGHT:
+                    v60.move_robot(y=-1.0, duration=duration)
                 case CommandType.MOVE_FORWARD_LEFT:
-                    v60.move_robot(x=1.0, y=-1.0, duration=duration)
-                case CommandType.MOVE_FORWARD_RIGHT:
                     v60.move_robot(x=1.0, y=1.0, duration=duration)
+                case CommandType.MOVE_FORWARD_RIGHT:
+                    v60.move_robot(x=1.0, y=-1.0, duration=duration)
                 case CommandType.MOVE_BACKWARD_LEFT:
-                    v60.move_robot(x=-1.0, y=-1.0, duration=duration)
-                case CommandType.MOVE_BACKWARD_RIGHT:
                     v60.move_robot(x=-1.0, y=1.0, duration=duration)
+                case CommandType.MOVE_BACKWARD_RIGHT:
+                    v60.move_robot(x=-1.0, y=-1.0, duration=duration)
                 case CommandType.ROTATE_LEFT:
-                    v60.move_robot(z=-1.0, duration=duration)
-                case CommandType.ROTATE_RIGHT:
                     v60.move_robot(z=1.0, duration=duration)
+                case CommandType.ROTATE_RIGHT:
+                    v60.move_robot(z=-1.0, duration=duration)
                 case CommandType.SIT:
                     v60.set_action_mode(0)
                     time.sleep(duration if duration >= 3 else 3)

@@ -23,7 +23,8 @@
         "ms-python.vscode-pylance",
         "ms-azuretools.vscode-docker",
         "GitHub.copilot",
-        "ms-python.black-formatter"
+        "ms-python.black-formatter",
+        "bradlc.vscode-tailwindcss"
       ]
     }
   },
