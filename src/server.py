@@ -8,7 +8,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..",
 from parser import command_parsing
 
 import uvicorn
-import whisper
+from faster_whisper import BatchedInferencePipeline, WhisperModel
 from fastapi import FastAPI, File, HTTPException, UploadFile, APIRouter
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
@@ -34,7 +34,7 @@ class MovementRequest(BaseModel):
     duration: float = 0.0  # Duration of movement (0 = immediate)
 
 # Create a router for V60 endpoints
-v60_router = APIRouter(prefix="/v60", tags=["V60"])
+robot_router = APIRouter(prefix="/robot", tags=["robot"])
 
 # Set up CORS middleware
 app.add_middleware(
@@ -50,37 +50,24 @@ app.add_middleware(
 async def root():
     return RedirectResponse(url="/docs")
 
-
-# Add dance endpoint to Mini Pupper router
-# @minipupper_router.post("/dance")
-# async def dance_command():
-#     """
-#     Make the Mini Pupper robot perform a dance routine.
-#     """
-#     try:
-#         logger.info("Mini Pupper dance command received")
-#         # Call our separate dance routine function
-#         result = execute_dance_routine()
-#         return {"message": f"Dance routine launched successfully, status: {result['status']}"}
-#     except Exception as e:
-#         logger.error(f"Error executing dance command: {str(e)}")
-#         raise HTTPException(
-#             status_code=500, detail=f"Error executing dance command: {str(e)}"
-#         )
-
-# Include the Mini Pupper router in the main app
-# app.include_router(minipupper_router)
-
 # Load Whisper model once at startup to avoid reloading it for each request
 @app.on_event("startup")
 async def startup_event():
-    global model
+    global model, model_name
+    model_name = "distil-large-v3"
+    # model_name = "tiny"
     try:
-        model = whisper.load_model("tiny")
-        logger.info("Whisper model loaded successfully")
+        # Try GPU first
+        model = BatchedInferencePipeline(WhisperModel(model_name, device="cuda", compute_type="float16"))
+        logger.info("Whisper model loaded successfully on GPU")
     except Exception as e:
-        logger.error(f"Error loading Whisper model: {str(e)}")
-        # Continue anyway, will try to load again when needed
+        logger.warning(f"GPU loading failed, falling back to CPU: {str(e)}")
+        try:
+            model = BatchedInferencePipeline(WhisperModel(model_name, device="cpu", compute_type="int8"))
+            logger.info("Whisper model loaded successfully on CPU")
+        except Exception as e:
+            logger.error(f"Error loading Whisper model: {str(e)}")
+            # Continue anyway, will try to load again when needed
 
 @app.on_event("shutdown")
 def shutdown_event():
@@ -118,13 +105,27 @@ async def transcribe_audio_file(file: UploadFile):
         if "model" not in globals():
             global model
             logger.info("Loading Whisper model on demand")
-            model = whisper.load_model("tiny")
+            try:
+                logger.info("Attempting to load Whisper model on GPU")
+                model = BatchedInferencePipeline(WhisperModel(model_name, device="cuda", compute_type="float16"))
+            except Exception as e:
+                logger.warning(f"GPU loading failed, falling back to CPU: {str(e)}")
+                try:
+                    model = BatchedInferencePipeline(WhisperModel(model_name, device="cpu", compute_type="int8"))
+                except Exception as e:
+                    logger.error(f"Error loading Whisper model: {str(e)}")
+                    raise HTTPException(status_code=500, detail="Error loading Whisper model")
 
         # Transcribe the audio
-        result = model.transcribe(temp_path)
-        text = result["text"]
+        segments, _ = model.transcribe(temp_path, beam_size=5, language="en", task="transcribe")
+        segments = list(segments)
+
+        text = " ".join([segment.text for segment in segments])
+        logger.debug(f"Transcribed text: {text}")
+
+        # Parse the command from the transcribed text
         command = command_parsing(text)
-        logger.info(f"Audio transcription completed successfully")
+        logger.debug(f"Parsed command: {command}")
 
         # Clean up temporary file
         os.unlink(temp_path)
@@ -139,7 +140,7 @@ async def transcribe_audio_file(file: UploadFile):
         logger.error(f"Error processing audio: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Error processing audio: {str(e)}")
 
-@v60_router.post("/action")
+@robot_router.post("/action")
 async def set_action_mode(request: ActionRequest):
     """Set robot action mode: 0=sit, 1=stand, 2=walk"""
     if request.mode not in [0, 1, 2]:
@@ -151,7 +152,7 @@ async def set_action_mode(request: ActionRequest):
         logger.error(f"Error setting action mode: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Error setting action mode: {str(e)}")
 
-@v60_router.post("/move")
+@robot_router.post("/move")
 async def move_robot(request: MovementRequest):
     """Move robot with specified velocity components"""
     try:
@@ -178,7 +179,7 @@ async def move_robot(request: MovementRequest):
         logger.error(f"Error moving robot: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Error moving robot: {str(e)}")
 
-@v60_router.post("/stop")
+@robot_router.post("/stop")
 async def stop_robot():
     """Stop all robot movement"""
     try:
@@ -188,7 +189,7 @@ async def stop_robot():
         logger.error(f"Error stopping robot: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Error stopping robot: {str(e)}")
     
-@v60_router.post("/roll_over")
+@robot_router.post("/roll_over")
 async def roll_over():
     """Make the robot roll over"""
     try:
@@ -198,7 +199,7 @@ async def roll_over():
         logger.error(f"Error rolling over robot: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Error rolling over robot: {str(e)}")
 
-@v60_router.post("/status")
+@robot_router.post("/status")
 async def get_status():
     """Get robot status information"""
     status = v60.get_status()
@@ -212,7 +213,7 @@ async def get_status():
     return {"status": clean_status}
 
 # Include the v60 router in the main app
-app.include_router(v60_router)
+app.include_router(robot_router)
 
 if __name__ == "__main__":
     logger.info("Starting Robot Command Service")
