@@ -72,18 +72,18 @@ export function AudioRecorder({ onAudioRecorded }: AudioRecorderProps) {
   }
 
   return (
-    <div className="flex flex-col items-center gap-4">
-      <div className="flex items-center gap-4">
+    <div className="flex flex-col items-center w-md">
+      <div className="flex items-center justify-between gap-4">
         {isRecording ? (
           <Button
-            className="h-20 w-20 bg-red-500 text-white rounded-lg flex items-center justify-center shadow-lg hover:shadow-xl hover:cursor-pointer transition-all duration-300 active:scale-95"
+            className="h-20 w-20 bg-white text-black rounded-lg flex items-center justify-center shadow-lg hover:shadow-xl hover:cursor-pointer transition-all duration-300 active:scale-95 hover:bg-gray-200"
             onClick={stopRecording}
           >
             <StopIcon className="h-8 w-8" />
           </Button>
         ) : (
           <Button
-            className="h-20 w-20 rounded-lg flex items-center justify-center shadow-lg hover:shadow-xl hover:cursor-pointer transition-all duration-300 active:scale-95"
+            className="h-20 w-20 rounded-lg flex items-center justify-center shadow-lg hover:shadow-xl hover:cursor-pointer transition-all duration-300 active:scale-95 bg-white text-black hover:bg-gray-200"
             onClick={startRecording}
           >
             <MicrophoneIcon className="h-8 w-8" />
@@ -94,7 +94,7 @@ export function AudioRecorder({ onAudioRecorded }: AudioRecorderProps) {
           <audio
             src={audioURL}
             controls
-            className="w-64 rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
+            className="w-full rounded-lg shadow-md hover:shadow-lg transition-all duration-300 bg-gray-800 text-white"
           />
         )}
       </div>
@@ -102,14 +102,14 @@ export function AudioRecorder({ onAudioRecorded }: AudioRecorderProps) {
       {transcription && (
         <div className="w-full text-center mt-4">
           <h3 className="text-lg font-semibold">Transcription</h3>
-          <p className="text-gray-700">{transcription}</p>
+          <p className="text-gray-300">{transcription}</p>
         </div>
       )}
 
       {agentResult && (
         <div className="w-full text-center mt-4">
           <h3 className="text-lg font-semibold">Agent Result</h3>
-          <p className="text-gray-700">{agentResult}</p>
+          <p className="text-gray-300">{agentResult}</p>
         </div>
       )}
     </div>

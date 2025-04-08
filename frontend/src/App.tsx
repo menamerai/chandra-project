@@ -3,6 +3,8 @@ import { AudioRecorder } from '@/components/AudioRecorder';
 import { transcribeAudio, processWithAgent } from '@/lib/api';
 import './App.css';
 import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+import { BackgroundBeams } from './components/ui/background-beams';
 import { Toaster, toast } from "sonner";
 
 function App() {
@@ -55,7 +57,7 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-white">
+    <div className="relative flex flex-col items-center justify-center h-screen max-w-screen bg-transparent text-white">
       <Toaster />
       <h1 className="text-3xl font-bold mb-6 animate-fade-in">Voice Command Center</h1>
 
@@ -63,14 +65,14 @@ function App() {
 
       <div className="w-full max-w-md mt-6">
         <textarea
-          className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+          className="w-full p-3 border border-gray-700 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition bg-gray-800 text-white"
           rows={3}
           placeholder="Type your command here or record audio..."
           value={inputText}
           onChange={(e) => setInputText(e.target.value)}
         />
         <Button
-          className="mt-3 w-full hover:cursor-pointer transition-all duration-300 active:scale-95"
+          className="mt-3 w-full hover:cursor-pointer transition-all duration-300 active:scale-95 bg-white text-black hover:bg-gray-200"
           onClick={handleTextSubmit}
           disabled={isProcessing}
         >
@@ -81,9 +83,10 @@ function App() {
       {agentResult && (
         <div className="w-full text-center mt-6 animate-slide-up">
           <h3 className="text-lg font-semibold">Agent Result</h3>
-          <p className="text-gray-700 mt-2">{agentResult}</p>
+          <p className="text-gray-300 mt-2">{agentResult}</p>
         </div>
       )}
+      <BackgroundBeams className="absolute inset-0 pointer-events-none" />
     </div>
   );
 }

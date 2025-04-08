@@ -5,6 +5,11 @@
   text-align: center;
 }
 
+body {
+  background-color: #000000;
+  color: #ffffff;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -72,9 +77,26 @@
 /* Added styles for the text box and button */
 textarea {
   resize: none;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border-color: #333333;
+}
+
+button {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+button:hover {
+  background-color: #e0e0e0;
 }
 
 button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.audio {
+  background-color: #1e1e1e;
+  color: #ffffff;
 }
