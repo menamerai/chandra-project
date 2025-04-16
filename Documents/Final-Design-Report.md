@@ -1,4 +1,7 @@
 # Project Description
+C.H.A.N.D.R.A (Companion Helper for Assistive Navigation and Daily Robotic Assistance) is a robotic dog designed to assist individuals with mobility challenges through natural language voice commands. It integrates agentic AI, real-time speech recognition, and LLMs to provide hands-free support for daily tasks and navigation.
+
+In our final design, C.H.A.N.D.R.A uses an agentic AI workflow to convert spoken commands into structured robot actions via a multi-agent reasoning pipeline. Speech input is processed through Whisper for transcription and passed to an LLM for intent parsing and decision-making. The resulting structured command is then routed through a server to control the robot interface. For safety reasons, our final tests were conducted in simulation on a computer rather than on a physical robot. This allowed us to verify the end-to-end functionality of the system—including command interpretation, server communication, and simulated robotic control—without risking unintended behavior during live trials.
 
 # User Interface Specification
 
