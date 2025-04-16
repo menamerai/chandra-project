@@ -94,9 +94,28 @@ Together, we developed an end-to-end pipeline capable of interpreting arbitrary 
 # Summary of Hours and Justification
 
 ## Phan Anh Duong
+  - Testing: ~10 hours
+  - Developing: ~10 hours
+  - Documenting: ~10 hours
+  - Learning: ~20 hours (has to learn ROS which takes more time)
+  - Ideating: ~10 hours
 
 ## Cat Luong
+  - Testing: ~10 hours
+  - Developing: ~10 hours
+  - Documenting: ~10 hours
+  - Learning: ~10 hours
+  - Ideating: ~10 hours
 
 # Summary of Expenses
 
+All the stuff in this project is free since they are all open-source software, but some of the hardware that we utilized are:
+- Jetson Orin Nano + Supplemental Components x 2: 640 x 2 = $1280
+- V60 robotic dog: ~$150,000 (borrowed for testing purposes)
+  
 # Appendix
+
+- The GitHub repository commit history and the deliverables submitted throughout the project should justify 45+ hours of commitment per team member. 
+- References:
+  - Macenski, S., Foote, T., Gerkey, B., Lalancette, C., & Woodall, W. (2022). Robot Operating System 2: Design, architecture, and uses in the wild. Science Robotics, 7(66), eabm6074. https://doi.org/10.1126/scirobotics.abm6074
+  - Radford, A., Kim, J. W., Xu, T., Brockman, G., McLeavey, C., & Sutskever, I. (2023). Robust Speech Recognition via Large-Scale Weak Supervision. In International Conference on Machine Learning (pp. 28492–28518). PMLR.
