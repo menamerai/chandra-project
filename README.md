@@ -1,30 +1,38 @@
-# The Chandra Project
+# Voice Control of GhostRobotics's V60 Through mavlink
 
-## Abstract
+This project aims to establish rudimentary control over Ghost Robotics' V60 over the voice medium. For more projects detail, see the [poster](/Documents/CHANDRA_Poster.pdf) and [presentation](/Documents/Chandra_Presentation.pdf).
 
-This project aims to develop a modular attachment for robots to assist visually
-impaired individuals by enhancing their ability to navigate and interact with their
-surroundings. The attachment will integrate an audio module, a camera module,
-and an NVIDIA Jetson to enable the robot to process voice commands, detect
-objects in real-time, and provide audible notifications. Designed for universal
-compatibility, the module minimizes reliance on proprietary sensors, ensuring
-adaptability across various robot platforms. By prioritizing affordability,
-accessibility, and open-source development, the project seeks to create a
-practical, impactful solution that improves independence and quality of life for
-visually impaired users.
+The code found in this repository is mainly for demonstration purposes. It is done in a very particular and inadvisable manner. The code communicate with the robot instance through a mavlink communication persistent daemon, controlled by a server running on FastAPI. This is implemented this way due to the fact that the V60 simulator running on my WSL 2 instance seems to be interfered by the Docker engine, but the robot's ROS 2 backend is provided in a Docker container, so ROS 2 essentially cannot be used on my end. To implement this workflow in a real situation, a ROS 2 package should be written.
 
-## Description
+# Project Structure
 
-The goal is to create a plug-in module with 1-2 NVIDIA Jetson Orin Nano that would theoretically give robots the ability to listen and execute voice commands. Specifically, this would add a push-to-talk mechanism on some control interface to capture user audio. The recognized commands will be one-word action commands for simplicity. After the command is captured and recognized, the robot will execute a subroutine that correlate with that voice command. This module should be integrated with Brutus (I don't know what the exact make and model of Brutus is) for demonstration purposes.
+## The `scripts` folder
 
-### Minimum Viable Product
+This contains utility scripts to help work with the repo:
 
-- Robot can capture audio either directly using its integrated mic or using the plug-in's mic using the push-to-talk mechanism.
-- Robot can save and send audio to plug-in for processing.
-- Plug-in module can use models and data processing techniques (details hashed out later) to translate audio into an entry in a list of pre-defined commands.
-- Robot can trigger command subroutine upon receiving it from the module. The MVP commands right now include: sit, stand, bark, circle (the robot does a 360 turn), dance (I remember seeing the robot dance so this might not be terribly hard to integrate), forward X (replaced with any direction and unit of measurement for length).
+- `dev.py` turn on both the backend and Streamlit frontend.
+- `ghost_sim.sh` turn on the Bullet simulator (assuming that it is already installed appropriately).
+- `mvlink.sh` turn on the mvlink GUI, to test that the mavlink compatibility layer has been installed appropriately.
 
-### Most Lovable Product
+## The `src` folder
 
-- Additional commands that are difficult to implement but would be cool to have are: recognize (use a VLM to verbalize what it is seeing), follow, sequence of directional commands.
-- A "talk" mode with TTS to chat with the robot.
+This is essentially the project's backend. The important file here is `server.py`, which contains the main routines of the application. There are other library code and a `client.py` file which spins up a simple Streamlit frontend to intake audio.
+
+The `data` folder contains prompts that would be fed to the agents, and some synthetic test cases that we ran to determine the effectiveness of the system.
+
+## The `frontend` folder
+
+This specific folder exists to spin up a slightly more elaborate frontend with better control flow than Streamlit. This is done with ViteJS + Typescript + React. This is mostly to demonstrate, and not necessary for the workings of the project, so installation and execution of this specific section is not vital.
+
+## The `Documents` folder
+
+Contain various documents and design diagrams about the project.
+
+# Possible Commands
+
+- Movement: the robot can move forward, backward, left, right, and any combination of horizontal and lateral movement for some amount of time. This will automatically engage action mode 2.
+- Rotation: the robot can rotate "left" (counterclockwise) or "right" (clockwise) for some amount of time. If you use degree, the robot will attempt to estimate it, which might be wrong. This will automatically engage action mode 2.
+- Sit: enter action mode 0, which make the robot sit down.
+- Stand: enter action mode 2, which make the robot stand up and enable walking around.
+- Roll over: trigger the roll over mission for the robot.
+- Stop: set all the robot's velocity to 0 for some amount of time.

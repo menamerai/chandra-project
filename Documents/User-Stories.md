@@ -1,5 +1,0 @@
-- As a visually impaired individual, I want the robot to understand my voice commands, so that I can navigate my environment more easily and independently.
-- As a mobility trainer for visually impaired individuals, I want to customize the robot’s voice responses and notification settings, so that I can tailor its functionality to different users’ needs.
-- As a researcher in assistive technology, I want the robot to announce objects it detects in real time, so that I can evaluate its potential to enhance accessibility and situational awareness.
-- As a robotics engineer, I want to test the modular attachment on different robot platforms, so that I can ensure compatibility and adaptability across various hardware setups.
-- As a caregiver for a visually impaired person, I want the robot to detect and alert users to potential obstacles, so that I can trust it to provide an additional layer of safety.
